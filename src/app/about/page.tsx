@@ -19,7 +19,7 @@ const en = (
       largest dams in the Philippines.
     </p>
     <h2>History</h2>
-    <ul>
+    <ul className="history-timeline">
       <li>
         The area was once called <strong>Oscariz</strong>, after a former military governor of Nueva
         Vizcaya. Oscariz is still the name of one of Ramon&rsquo;s barangays.
@@ -76,7 +76,7 @@ const fil = (
       pinakamalaking dam sa Pilipinas.
     </p>
     <h2>Kasaysayan</h2>
-    <ul>
+    <ul className="history-timeline">
       <li>
         Dating tinawag na <strong>Oscariz</strong> ang lugar, mula sa isang dating gobernador
         militar ng Nueva Vizcaya. Oscariz pa rin ang pangalan ng isa sa mga barangay ng Ramon.
@@ -135,7 +135,7 @@ const ilo = (
       Magat Dam, maysa kadagiti kadakkelan a dam iti Pilipinas.
     </p>
     <h2>Pakasaritaan</h2>
-    <ul>
+    <ul className="history-timeline">
       <li>
         Idi un-unana, <strong>Oscariz</strong> ti nagan ti lugar, manipud iti maysa a dati a
         gobernador militar ti Nueva Vizcaya. Oscariz pay laeng ti nagan ti maysa kadagiti barangay

@@ -1,0 +1,173 @@
+// Every internal page the site links to. Drives the sitemap and the
+// "coming soon" placeholders, so no link on the site leads to a 404.
+// Set ready: true once a page has real content in its own route file.
+
+export type PageInfo = { path: string; title: string; icon: string; desc: string; ready?: boolean };
+
+export const pages: PageInfo[] = [
+  {
+    path: '/services',
+    title: 'Services',
+    icon: 'bi-grid-fill',
+    desc: 'Find municipal services and requirements.',
+    ready: true,
+  },
+  {
+    path: '/services/certificates',
+    title: 'Certificates',
+    icon: 'bi-file-earmark-text-fill',
+    desc: 'Birth, marriage and death certificates from the Municipal Civil Registrar.',
+  },
+  {
+    path: '/services/business',
+    title: 'Business Permits',
+    icon: 'bi-briefcase-fill',
+    desc: 'New business permits and renewals.',
+  },
+  {
+    path: '/services/tax-payments',
+    title: 'Tax Payments',
+    icon: 'bi-cash-coin',
+    desc: 'Real property tax, business tax and community tax certificates.',
+  },
+  {
+    path: '/services/social-services',
+    title: 'Social Services',
+    icon: 'bi-people-fill',
+    desc: 'Senior citizen, PWD and assistance programs of the MSWDO.',
+  },
+  {
+    path: '/services/health',
+    title: 'Health Services',
+    icon: 'bi-heart-pulse-fill',
+    desc: 'Medical consultations, vaccinations and health programs.',
+    ready: true,
+  },
+  {
+    path: '/services/agriculture',
+    title: 'Agriculture',
+    icon: 'bi-flower1',
+    desc: 'Programs and assistance from the Municipal Agriculture Office.',
+  },
+  {
+    path: '/services/infrastructure',
+    title: 'Infrastructure',
+    icon: 'bi-cone-striped',
+    desc: 'Building permits, engineering services and public works.',
+  },
+  {
+    path: '/services/education',
+    title: 'Education',
+    icon: 'bi-mortarboard-fill',
+    desc: 'Schools, scholarships and education programs.',
+  },
+  {
+    path: '/services/public-safety',
+    title: 'Public Safety',
+    icon: 'bi-shield-fill-check',
+    desc: 'Police, fire, MDRRMO and disaster preparedness.',
+  },
+  {
+    path: '/services/environment',
+    title: 'Environment',
+    icon: 'bi-tree-fill',
+    desc: 'Waste management and environmental programs.',
+  },
+  {
+    path: '/service-details/birth-certificate',
+    title: 'Birth Certificate',
+    icon: 'bi-file-earmark-person-fill',
+    desc: 'Requirements and steps to request a birth certificate.',
+  },
+  {
+    path: '/service-details/business-permits-licensing',
+    title: 'Business Permits and Licensing',
+    icon: 'bi-briefcase-fill',
+    desc: 'Requirements and steps for business permits.',
+  },
+  {
+    path: '/service-details/municipal-treasurer',
+    title: 'Municipal Treasurer',
+    icon: 'bi-bank2',
+    desc: 'Payments handled by the Municipal Treasurer’s Office.',
+  },
+  {
+    path: '/government',
+    title: 'Government',
+    icon: 'bi-building-fill',
+    desc: 'Officials and barangays of Ramon, Isabela.',
+    ready: true,
+  },
+  {
+    path: '/statistics',
+    title: 'Statistics',
+    icon: 'bi-bar-chart-fill',
+    desc: 'Population, land area and other facts about Ramon.',
+    ready: true,
+  },
+  {
+    path: '/legislative',
+    title: 'Legislative',
+    icon: 'bi-journal-text',
+    desc: 'Ordinances and resolutions of the Sangguniang Bayan.',
+  },
+  {
+    path: '/legislative/ordinance-framework',
+    title: 'Ordinances',
+    icon: 'bi-journal-bookmark-fill',
+    desc: 'Municipal ordinances of Ramon, Isabela.',
+  },
+  {
+    path: '/legislative/resolution-framework',
+    title: 'Resolutions',
+    icon: 'bi-journal-check',
+    desc: 'Resolutions of the Sangguniang Bayan.',
+  },
+  {
+    path: '/budget',
+    title: 'Transparency',
+    icon: 'bi-cash-stack',
+    desc: 'Budget, income and audit reports of LGU Ramon.',
+  },
+  {
+    path: '/contact',
+    title: 'Contact',
+    icon: 'bi-telephone-fill',
+    desc: 'How to reach LGU Ramon.',
+    ready: true,
+  },
+  {
+    path: '/sitemap-page',
+    title: 'Sitemap',
+    icon: 'bi-diagram-3-fill',
+    desc: 'Every page on this site.',
+    ready: true,
+  },
+  {
+    path: '/terms',
+    title: 'Terms of Use',
+    icon: 'bi-file-text-fill',
+    desc: 'Terms for using BetterRamon.org.',
+    ready: true,
+  },
+  {
+    path: '/privacy',
+    title: 'Privacy Policy',
+    icon: 'bi-lock-fill',
+    desc: 'What this site does and does not collect.',
+    ready: true,
+  },
+  {
+    path: '/accessibility',
+    title: 'Accessibility',
+    icon: 'bi-universal-access',
+    desc: 'Our accessibility commitment.',
+    ready: true,
+  },
+  {
+    path: '/faq',
+    title: 'FAQ',
+    icon: 'bi-question-circle-fill',
+    desc: 'Frequently asked questions.',
+  },
+];

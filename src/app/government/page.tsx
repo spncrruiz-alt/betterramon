@@ -1,0 +1,34 @@
+import type { Metadata } from 'next';
+import PageShell, { pageFor } from '@/components/PageShell';
+import { pages } from '@/data/pages';
+import { barangays, officials, TBV } from '@/data/ramon';
+
+const page = pageFor('/government', pages);
+export const metadata: Metadata = { title: page.title, description: page.desc };
+
+const titles = { mayor: 'Municipal Mayor', 'vice-mayor': 'Municipal Vice Mayor' } as const;
+
+export default function GovernmentPage() {
+  return (
+    <PageShell page={page}>
+      <h2>Executive and Legislative Officials</h2>
+      <div className="grid grid-3">
+        {officials.map((o) => (
+          <div key={o.title} className="service-item-card">
+            <h3 className="service-item-title">{titles[o.title]}</h3>
+            <p>{o.name ?? TBV}</p>
+          </div>
+        ))}
+      </div>
+      <h2>Barangays ({barangays.length})</h2>
+      <ul className="grid grid-3">
+        {barangays.map((b) => (
+          <li key={b}>{b}</li>
+        ))}
+      </ul>
+      <p>
+        <small>Barangay list: PhilAtlas.</small>
+      </p>
+    </PageShell>
+  );
+}

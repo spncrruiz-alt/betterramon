@@ -29,8 +29,7 @@ const en = (
     <p>
       Government projects must post a project billboard on site showing the project name, cost,
       contractor, source of funds and contract period. If a project looks unfinished, poor or
-      missing, report it to the implementing office or through the national Sumbong sa Pangulo
-      portal for flood control projects.
+      missing, report it to the implementing office.
     </p>
     <p>
       A list of public works projects in Ramon: <Tbv />.
@@ -57,8 +56,7 @@ const fil = (
     <p>
       Dapat may project billboard sa lugar ng bawat proyekto ng pamahalaan na nagpapakita ng
       pangalan, halaga, kontratista, pinagmulan ng pondo at panahon ng kontrata. Kung mukhang hindi
-      tapos, palpak o wala ang proyekto, isumbong ito sa opisinang nagpapatupad o sa Sumbong sa
-      Pangulo portal para sa mga flood control project.
+      tapos, palpak o wala ang proyekto, isumbong ito sa opisinang nagpapatupad.
     </p>
     <p>
       Listahan ng mga proyekto sa Ramon: <Tbv />.
@@ -85,8 +83,7 @@ const ilo = (
     <p>
       Masapul nga adda project billboard iti lugar ti tunggal proyekto ti gobierno a mangipakita iti
       nagan, gatad, kontratista, nagtaudan ti pondo ken paset ti kontrata. No kasla saan a nalpas,
-      nadadael wenno awan ti proyekto, ireport daytoy iti opisina a mangipatpatungpal wenno iti
-      Sumbong sa Pangulo portal para kadagiti flood control project.
+      nadadael wenno awan ti proyekto, ireport daytoy iti opisina a mangipatpatungpal.
     </p>
     <p>
       Listaan dagiti proyekto iti Ramon: <Tbv />.

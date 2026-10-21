@@ -165,7 +165,7 @@ export const pages: PageInfo[] = [
     icon: 'bi-cone-striped',
     desc: 'Building permits, engineering services and public works.',
     ready: true,
-    keywords: ['road', 'kalsada', 'drainage', 'DPWH', 'engineering', 'projects', 'flood control'],
+    keywords: ['road', 'kalsada', 'drainage', 'DPWH', 'engineering', 'projects'],
   },
   {
     path: '/services/education',

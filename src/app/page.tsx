@@ -232,7 +232,6 @@ export default function HomePage() {
               <div className="home-contact-v2-content">
                 <h3>{t('contact-phone')}</h3>
                 <p className="home-contact-v2-value">{contact.phone ?? TBV}</p>
-                <span className="home-contact-v2-note">{t('contact-hours')}</span>
               </div>
             </div>
             <div className="home-contact-v2-card">
@@ -241,7 +240,9 @@ export default function HomePage() {
               </div>
               <div className="home-contact-v2-content">
                 <h3>{t('contact-email')}</h3>
-                <p className="home-contact-v2-value">{contact.email ?? TBV}</p>
+                <p className="home-contact-v2-value">
+                  {contact.email ? <a href={`mailto:${contact.email}`}>{contact.email}</a> : TBV}
+                </p>
               </div>
             </div>
             <div className="home-contact-v2-card">
@@ -252,7 +253,7 @@ export default function HomePage() {
                 <h3>{t('contact-address')}</h3>
                 <p className="home-contact-v2-value">{t('contact-municipal-hall')}</p>
                 <span className="home-contact-v2-note">
-                  {lgu.name}, {lgu.province} {lgu.zip}
+                  {contact.address.replace('Municipal Hall, ', '')}
                 </span>
               </div>
             </div>

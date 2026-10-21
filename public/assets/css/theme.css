@@ -212,3 +212,65 @@ a.service-item-card:hover,
     top: -90px;
   }
 }
+
+/* Readable content on guide and info pages */
+.section .container > ul,
+.section .container > ol {
+  margin: 0 0 1.5rem;
+  padding-left: 1.4rem;
+}
+.section .container > ul {
+  list-style: disc;
+}
+.section .container > ol {
+  list-style: decimal;
+}
+.section .container > ul li,
+.section .container > ol li {
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+.section .container > ul.grid {
+  list-style: none;
+  padding-left: 0;
+}
+.section .container > ul.grid li {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #f6f9fd;
+  border: 1px solid rgba(15, 42, 107, 0.06);
+}
+.section .container > h2 {
+  margin: 2.5rem 0 1rem;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+}
+.section .container > h2:first-child {
+  margin-top: 0;
+}
+.section .container > p {
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+.section .container > .service-item-card {
+  margin-bottom: 1.5rem;
+}
+
+/* Linked cards keep normal text color */
+a.service-item-card,
+a.service-item-card p {
+  color: var(--color-text);
+  text-decoration: none;
+}
+a.service-item-card .service-item-title {
+  color: var(--ramon-blue);
+}
+
+/* Seal figure */
+.seal-figure {
+  text-align: center;
+  margin: 0 0 1rem;
+}
+.seal-figure img {
+  display: block;
+  margin: 0 auto 0.5rem;
+}

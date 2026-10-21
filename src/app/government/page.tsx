@@ -11,7 +11,7 @@ const titles = { mayor: 'Municipal Mayor', 'vice-mayor': 'Municipal Vice Mayor' 
 export default function GovernmentPage() {
   return (
     <PageShell page={page}>
-      <figure style={{ textAlign: 'center', margin: '0 0 2rem' }}>
+      <figure className="seal-figure">
         <img
           src="/assets/images/logo/ramon-seal.png"
           alt="Official seal of the Municipality of Ramon, Isabela"

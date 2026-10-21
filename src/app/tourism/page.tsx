@@ -114,7 +114,8 @@ function Listing({
 const places = [
   {
     name: 'Magat Dam',
-    icon: 'bi-water',
+    // Swap for a .jpg you own in the same folder to show a real photo.
+    art: '/assets/images/places/magat-dam.svg',
     text: (
       <L
         en="One of the largest dams in the Philippines, inaugurated in 1982 and shared by Ramon and Alfonso Lista, Ifugao. Its 114-meter rock-fill wall holds an 11.7 km² reservoir that irrigates about 85,000 hectares and feeds a 360 MW hydropower plant. Reach it by tricycle from Ramon through Oscariz."
@@ -125,7 +126,8 @@ const places = [
   },
   {
     name: 'Magat Reservoir boat rides',
-    icon: 'bi-life-preserver',
+    // Swap for a .jpg you own in the same folder to show a real photo.
+    art: '/assets/images/places/reservoir.svg',
     text: (
       <L
         en="Boat rides on the lake behind the dam give wide views of the reservoir and the hills of Ifugao. The reservoir also hosts a floating solar power project."
@@ -136,7 +138,8 @@ const places = [
   },
   {
     name: 'Camp Vizcarra Ecology Park',
-    icon: 'bi-tree-fill',
+    // Swap for a .jpg you own in the same folder to show a real photo.
+    art: '/assets/images/places/ecology-park.svg',
     text: (
       <L
         en="A green space for picnics and nature walks near the dam area."
@@ -147,7 +150,8 @@ const places = [
   },
   {
     name: 'Rolling Hills of Ramon',
-    icon: 'bi-image-alt',
+    // Swap for a .jpg you own in the same folder to show a real photo.
+    art: '/assets/images/places/rolling-hills.svg',
     text: (
       <L
         en="Grassy rolling hills with a view deck in Barangay Planas, west of the town center. A short hike rewards you with wide views and fresh air; best in the early morning or late afternoon."
@@ -158,7 +162,8 @@ const places = [
   },
   {
     name: 'Maris Dam',
-    icon: 'bi-droplet-half',
+    // Swap for a .jpg you own in the same folder to show a real photo.
+    art: '/assets/images/places/maris-dam.svg',
     text: (
       <L
         en="The smaller diversion dam of the Magat River Irrigation System, on the Ramon–Alfonso Lista boundary, where local fishers often cast their nets."
@@ -175,9 +180,14 @@ export default function TourismPage() {
       <div className="grid grid-2">
         {places.map((p) => (
           <div key={p.name} className="service-item-card tour-card">
-            <div className="tour-card-art" aria-hidden="true">
-              <i className={`bi ${p.icon}`}></i>
-            </div>
+            <img
+              className="tour-card-art"
+              src={p.art}
+              alt=""
+              loading="lazy"
+              width="600"
+              height="300"
+            />
             <h2 className="service-item-title">{p.name}</h2>
             <p>{p.text}</p>
           </div>

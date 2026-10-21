@@ -27,7 +27,10 @@ export const metadata: Metadata = {
     description: 'Empowering the people of Ramon with transparent access to services.',
   },
   twitter: { card: 'summary_large_image' },
-  icons: { icon: '/assets/images/logo/ramon-favicon.svg', apple: '/assets/images/logo/ramon-favicon.svg' },
+  icons: {
+    icon: '/assets/images/logo/ramon-favicon.svg',
+    apple: '/assets/images/logo/ramon-favicon.svg',
+  },
   manifest: '/manifest.webmanifest',
   appleWebApp: {
     capable: true,

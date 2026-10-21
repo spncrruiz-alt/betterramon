@@ -15,10 +15,12 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <section className="home-hero-v2">
+        <img className="home-hero-photo" src="/assets/images/home/reservoir.webp" alt="" width="1400" height="1050" fetchPriority="high" />
         <div className="container">
           <div className="home-hero-v2-inner">
             <div className="home-hero-v2-text">
-              <h1>{t('hero-welcome')}</h1>
+              <span className="home-eyebrow"><L en="Community information · Isabela" fil="Impormasyon ng komunidad · Isabela" ilo="Impormasion ti komunidad · Isabela" /></span>
+              <h1><L en="Your guide to Ramon." fil="Ang iyong gabay sa Ramon." ilo="Ti giya mo iti Ramon." /></h1>
               <p>{t('hero-subtitle')}</p>
               <div className="home-hero-v2-actions">
                 <Link href="/services" className="btn btn-primary">

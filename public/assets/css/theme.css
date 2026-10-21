@@ -745,46 +745,17 @@ a.service-item-card .service-item-title {
   background: linear-gradient(135deg, var(--ramon-yellow), var(--ramon-orange));
 }
 
-/* Local photography; keep image framing and credits consistent. */
+/* Tourism cards with illustrated headers */
 .tour-card {
   padding-top: 0;
 }
-.tour-photo {
-  margin: 0 -24px 20px;
-}
 .tour-card-art {
   display: block;
-  width: 100%;
+  width: calc(100% + 48px);
   max-width: none;
-  aspect-ratio: 16 / 10;
-  height: auto;
+  margin: 0 -24px 16px;
+  height: 160px;
   object-fit: cover;
-}
-.tour-photo figcaption {
-  padding: 9px 16px;
-  background: #f5f7f8;
-  color: #52616b;
-  font-size: 0.7rem;
-  line-height: 1.6;
-}
-.tour-photo figcaption a {
-  color: inherit;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-.tourism-places > .tour-card:first-child {
-  grid-column: 1 / -1;
-}
-.tourism-places > .tour-card:first-child .tour-card-art {
-  aspect-ratio: 21 / 9;
-}
-.tourism-more {
-  margin-top: 32px;
-}
-@media (max-width: 600px) {
-  .tourism-places > .tour-card:first-child .tour-card-art {
-    aspect-ratio: 16 / 10;
-  }
 }
 .grid > .tour-card .service-item-title i {
   display: none;
@@ -841,4 +812,42 @@ a.service-item-card .service-item-title {
 /* Sticky header gets a soft glass look */
 .site-header {
   backdrop-filter: saturate(160%) blur(8px);
+}
+
+/* Homepage photography: scoped so inner pages retain their existing artwork. */
+.home-hero-v2 {
+  padding: 100px 0;
+  background:
+    linear-gradient(90deg, rgba(8, 29, 53, 0.87), rgba(8, 29, 53, 0.48)),
+    url('/assets/images/home/reservoir.webp') center 58% / cover no-repeat;
+}
+.home-hero-v2::after {
+  display: none;
+}
+.discover-card--dam {
+  background:
+    linear-gradient(180deg, rgba(6, 22, 34, 0.12), rgba(6, 22, 34, 0.9)),
+    url('/assets/images/home/magat-dam.webp') center / cover no-repeat;
+  justify-content: flex-end;
+}
+.discover-card--history {
+  background:
+    linear-gradient(180deg, rgba(6, 22, 34, 0.12), rgba(6, 22, 34, 0.9)),
+    url('/assets/images/home/rolling-hills.webp') center / cover no-repeat;
+}
+.home-photo-credits {
+  margin-top: 16px;
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: #52616b;
+}
+.home-photo-credits a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (max-width: 640px) {
+  .home-hero-v2 {
+    padding: 64px 0;
+  }
 }

@@ -1,4 +1,4 @@
-# Tourism photographs
+# Homepage photographs
 
 These photographs are by **Patrickroque01**, via Wikimedia Commons, and are
 distributed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
@@ -14,8 +14,9 @@ Changes: resized to 1400 pixels wide and converted to WebP. CSS crops the
 displayed images to fit the cards. No synthetic scenery has been added.
 The converted photographs remain available under CC BY-SA 4.0.
 
-The tourism page also displays a source link, photographer credit, license link,
-and modification notice next to each photograph.
+The homepage also displays a source link, photographer credit, license link,
+and modification notice below the Discover Ramon cards.
 
-Camp Vizcarra and Maris Dam retain their text listings without an image until
-an appropriately licensed photograph of each actual place is available.
+Tourism remains unchanged; these assets are used only on the homepage.
+
+

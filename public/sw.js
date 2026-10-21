@@ -3,7 +3,7 @@
  * Enterprise-grade PWA with versioned caching, runtime strategies, and offline resilience.
  */
 
-var CACHE_VERSION = 'v6';
+var CACHE_VERSION = 'v7';
 var STATIC_CACHE = 'betterramon-static-' + CACHE_VERSION;
 var RUNTIME_CACHE = 'betterramon-runtime-' + CACHE_VERSION;
 var OFFLINE_URL = '/offline.html';
@@ -17,9 +17,9 @@ var PRECACHE_URLS = [
   '/assets/css/footer.css',
   '/assets/css/accessibility.css',
   '/assets/css/theme.css',
-  '/assets/images/logo/better-ramon-logo.svg',
-  '/assets/images/logo/better-ramon-logo-white.svg',
-  '/assets/images/logo/favicon.svg',
+  '/assets/images/logo/ramon-seal-logo.svg',
+  '/assets/images/logo/ramon-seal-logo-white.svg',
+  '/assets/images/logo/ramon-favicon.svg',
   '/manifest.webmanifest',
 ];
 
@@ -235,8 +235,8 @@ self.addEventListener('push', function (event) {
   event.waitUntil(
     self.registration.showNotification(data.title || 'BetterRamon', {
       body: data.body || '',
-      icon: '/assets/images/logo/favicon.svg',
-      badge: '/assets/images/logo/favicon.svg',
+      icon: '/assets/images/logo/ramon-favicon.svg',
+      badge: '/assets/images/logo/ramon-favicon.svg',
       tag: data.tag || 'betterramon-notification',
       data: { url: data.url || '/' },
     })

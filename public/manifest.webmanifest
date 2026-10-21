@@ -16,13 +16,13 @@
   ],
   "icons": [
     {
-      "src": "/assets/images/logo/favicon.svg",
+      "src": "/assets/images/logo/ramon-favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "/assets/images/logo/favicon.svg",
+      "src": "/assets/images/logo/ramon-favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "maskable"
@@ -35,7 +35,7 @@
       "url": "/services?source=pwa",
       "icons": [
         {
-          "src": "/assets/images/logo/favicon.svg",
+          "src": "/assets/images/logo/ramon-favicon.svg",
           "sizes": "any"
         }
       ]
@@ -46,7 +46,7 @@
       "url": "/contact?source=pwa",
       "icons": [
         {
-          "src": "/assets/images/logo/favicon.svg",
+          "src": "/assets/images/logo/ramon-favicon.svg",
           "sizes": "any"
         }
       ]
@@ -57,7 +57,7 @@
       "url": "/government?source=pwa",
       "icons": [
         {
-          "src": "/assets/images/logo/favicon.svg",
+          "src": "/assets/images/logo/ramon-favicon.svg",
           "sizes": "any"
         }
       ]
@@ -68,7 +68,7 @@
       "url": "/budget?source=pwa",
       "icons": [
         {
-          "src": "/assets/images/logo/favicon.svg",
+          "src": "/assets/images/logo/ramon-favicon.svg",
           "sizes": "any"
         }
       ]

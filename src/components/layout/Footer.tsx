@@ -24,7 +24,7 @@ export default function Footer() {
         <div className="footer-main-new">
           <div className="footer-brand">
             <img
-              src="/assets/images/logo/better-ramon-logo-white.svg"
+              src="/assets/images/logo/ramon-seal-logo-white.svg"
               alt="Better Ramon logo"
               className="footer-logo"
             />

@@ -4,7 +4,6 @@ import { pages } from '@/data/pages';
 import { lgu } from '@/data/ramon';
 import type { ReactNode } from 'react';
 import L, { Tbv } from '@/components/L';
-import PhotoCredits from '@/components/PhotoCredits';
 
 const page = pageFor('/tourism', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -112,10 +111,9 @@ function Listing({
   );
 }
 
-const places: { name: string; photo?: string; icon?: string; text: ReactNode }[] = [
+const places = [
   {
     name: 'Magat Dam',
-    photo: '/assets/images/home/magat-dam.webp',
     text: (
       <L
         en="One of the largest dams in the Philippines, inaugurated in 1982 and shared by Ramon and Alfonso Lista, Ifugao. Its 114-meter rock-fill wall holds an 11.7 km² reservoir that irrigates about 85,000 hectares and feeds a 360 MW hydropower plant. Reach it by tricycle from Ramon through Oscariz."
@@ -126,7 +124,6 @@ const places: { name: string; photo?: string; icon?: string; text: ReactNode }[]
   },
   {
     name: 'Magat Reservoir boat rides',
-    photo: '/assets/images/home/reservoir.webp',
     text: (
       <L
         en="Boat rides on the lake behind the dam give wide views of the reservoir and the hills of Ifugao. The reservoir also hosts a floating solar power project."
@@ -137,7 +134,6 @@ const places: { name: string; photo?: string; icon?: string; text: ReactNode }[]
   },
   {
     name: 'Camp Vizcarra Ecology Park',
-    icon: 'bi-tree',
     text: (
       <L
         en="A green space for picnics and nature walks near the dam area."
@@ -148,7 +144,6 @@ const places: { name: string; photo?: string; icon?: string; text: ReactNode }[]
   },
   {
     name: 'Rolling Hills of Ramon',
-    photo: '/assets/images/home/rolling-hills.webp',
     text: (
       <L
         en="Grassy rolling hills with a view deck in Barangay Planas, west of the town center. A short hike rewards you with wide views and fresh air; best in the early morning or late afternoon."
@@ -159,7 +154,6 @@ const places: { name: string; photo?: string; icon?: string; text: ReactNode }[]
   },
   {
     name: 'Maris Dam',
-    icon: 'bi-water',
     text: (
       <L
         en="The smaller diversion dam of the Magat River Irrigation System, on the Ramon–Alfonso Lista boundary, where local fishers often cast their nets."
@@ -194,30 +188,14 @@ export default function TourismPage() {
           </h2>
           <div className="tourism-places">
             {places.map((p) => (
-              <article key={p.name} className="tourism-place has-photo">
-                {p.photo ? (
-                  <img
-                    className="tourism-place-photo"
-                    src={p.photo}
-                    alt={p.name}
-                    width={1400}
-                    height={1050}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ) : (
-                  <div className="tourism-place-icon" aria-hidden="true">
-                    <i className={`bi ${p.icon}`}></i>
-                  </div>
-                )}
-                <div className="tourism-place-body">
+              <article key={p.name} className="tourism-place">
+                <div>
                   <h3>{p.name}</h3>
                   <p>{p.text}</p>
                 </div>
               </article>
             ))}
           </div>
-          <PhotoCredits />
         </section>
 
         <section

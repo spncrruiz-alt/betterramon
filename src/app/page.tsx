@@ -261,7 +261,7 @@ export default function HomePage() {
               },
               {
                 icon: 'bi-water',
-                label: <L en="Home of" fil="Tahanan ng" ilo="Pagtaengan ti" />,
+                label: <L en="Landmark" fil="Palatandaan" ilo="Pagilasinan" />,
                 value: 'Magat Dam',
               },
             ]

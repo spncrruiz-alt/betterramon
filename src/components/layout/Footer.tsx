@@ -94,7 +94,11 @@ export default function Footer() {
             </a>
             <div className="footer-partners">
               <span className="footer-partner-label">
-                <L en="Part of the" fil="Bahagi ng" ilo="Paset ti" />
+                <L
+                  en="Part of BetterGov.ph"
+                  fil="Bahagi ng BetterGov.ph"
+                  ilo="Paset ti BetterGov.ph"
+                />
               </span>
               <a
                 href="https://bettergov.ph"

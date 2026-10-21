@@ -16,7 +16,7 @@ export default function AccessibilityPage() {
       <ul>
         <li>Keyboard navigation and a &ldquo;Skip to main content&rdquo; link</li>
         <li>Text alternatives for images and labels for controls</li>
-        <li>Content in English and Filipino</li>
+        <li>Content in English, Filipino and Ilocano</li>
         <li>Layouts that work on phones and with browser zoom</li>
       </ul>
       <p>

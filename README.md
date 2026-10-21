@@ -8,7 +8,7 @@ Status: 🔵 Planned / early development. Registered in the [BetterLGU Directory
 
 - Next.js 15 (App Router, static export), React 18, TypeScript
 - Plain CSS in `public/assets/css`, Bootstrap Icons, Inter font
-- English and Filipino UI strings in `src/contexts/LanguageContext.tsx`
+- English, Filipino and Ilocano UI strings in `src/contexts/LanguageContext.tsx`
 
 ## Getting started
 

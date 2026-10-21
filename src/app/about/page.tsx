@@ -21,25 +21,27 @@ const en = (
     <h2>History</h2>
     <ul className="history-timeline">
       <li>
-        The area was once called <strong>Oscariz</strong>, after a former military governor of Nueva
-        Vizcaya. Oscariz is still the name of one of Ramon&rsquo;s barangays.
+        In <strong>1846</strong> the Spanish built a fort named Begonia here to guard nearby
+        settlements. The settlement around it was founded in <strong>1882</strong> and named{' '}
+        <strong>Oscariz</strong>, after Don Mariano Oscariz, a former military governor of Nueva
+        Vizcaya. Oscariz is still one of Ramon&rsquo;s barangays.
       </li>
       <li>
-        In early 1900, General <strong>Emilio Aguinaldo</strong> stayed in Oscariz while retreating
-        north from American forces.
+        On <strong>June 18, 1961</strong>, Republic Act No. 3320 created the Municipality of Ramon
+        from barrios of Santiago and San Mateo, with its seat in Burgos. It was named after President{' '}
+        <strong>Ramon Magsaysay</strong>.
       </li>
       <li>
-        On <strong>June 18, 1961</strong>, Republic Act No. 3320 created the Municipality of Ramon,
-        named after President <strong>Ramon Magsaysay</strong>.
+        The new town came into being with the election of its first officials in{' '}
+        <strong>November 1963</strong>.
       </li>
-      <li>The first local election was held in November 1963.</li>
+      <li>
+        On <strong>June 15, 1968</strong>, Republic Act No. 5276 moved the seat of government to{' '}
+        <strong>Bugallon</strong>, where the Municipal Hall stands today.
+      </li>
       <li>
         The <strong>Magat Dam</strong> was inaugurated on October 27, 1982, bringing irrigation,
         flood control and hydropower to the region.
-      </li>
-      <li>
-        Republic Act No. 11354 moved the seat of government to <strong>Bugallon</strong>, where the
-        Municipal Hall stands today.
       </li>
     </ul>
     <h2>Where Ramon is</h2>
@@ -78,25 +80,28 @@ const fil = (
     <h2>Kasaysayan</h2>
     <ul className="history-timeline">
       <li>
-        Dating tinawag na <strong>Oscariz</strong> ang lugar, mula sa isang dating gobernador
-        militar ng Nueva Vizcaya. Oscariz pa rin ang pangalan ng isa sa mga barangay ng Ramon.
+        Noong <strong>1846</strong>, nagtayo ang mga Espanyol ng kuta na tinawag na Begonia rito
+        upang bantayan ang mga kalapit na pamayanan. Itinatag ang pamayanan sa paligid nito noong{' '}
+        <strong>1882</strong> at pinangalanang <strong>Oscariz</strong>, mula kay Don Mariano
+        Oscariz, isang dating gobernador militar ng Nueva Vizcaya. Barangay pa rin ng Ramon ang
+        Oscariz.
       </li>
       <li>
-        Noong unang bahagi ng 1900, nanatili si Heneral <strong>Emilio Aguinaldo</strong> sa Oscariz
-        habang umaatras pahilaga mula sa mga Amerikano.
+        Noong <strong>Hunyo 18, 1961</strong>, nilikha ng Republic Act No. 3320 ang Bayan ng Ramon
+        mula sa mga baryo ng Santiago at San Mateo, na may sentro sa Burgos. Ipinangalan ito kay
+        Pangulong <strong>Ramon Magsaysay</strong>.
       </li>
       <li>
-        Noong <strong>Hunyo 18, 1961</strong>, nilikha ng Republic Act No. 3320 ang Bayan ng Ramon,
-        na ipinangalan kay Pangulong <strong>Ramon Magsaysay</strong>.
+        Naitatag ang bagong bayan nang mahalal ang mga unang opisyal nito noong{' '}
+        <strong>Nobyembre 1963</strong>.
       </li>
-      <li>Ginanap ang unang lokal na halalan noong Nobyembre 1963.</li>
+      <li>
+        Noong <strong>Hunyo 15, 1968</strong>, inilipat ng Republic Act No. 5276 ang sentro ng
+        pamahalaan sa <strong>Bugallon</strong>, kung saan nakatayo ngayon ang Municipal Hall.
+      </li>
       <li>
         Binuksan ang <strong>Magat Dam</strong> noong Oktubre 27, 1982, na nagdala ng patubig,
         proteksyon sa baha at kuryente sa rehiyon.
-      </li>
-      <li>
-        Inilipat ng Republic Act No. 11354 ang sentro ng pamahalaan sa <strong>Bugallon</strong>,
-        kung saan nakatayo ngayon ang Municipal Hall.
       </li>
     </ul>
     <h2>Kinaroroonan ng Ramon</h2>
@@ -137,26 +142,28 @@ const ilo = (
     <h2>Pakasaritaan</h2>
     <ul className="history-timeline">
       <li>
-        Idi un-unana, <strong>Oscariz</strong> ti nagan ti lugar, manipud iti maysa a dati a
-        gobernador militar ti Nueva Vizcaya. Oscariz pay laeng ti nagan ti maysa kadagiti barangay
-        ti Ramon.
+        Idi <strong>1846</strong>, nangibangon dagiti Espanyol iti sarikedked a naawagan iti
+        Begonia ditoy tapno bantayanna dagiti asideg a purok. Naipasdek ti purok iti aglawlawna idi{' '}
+        <strong>1882</strong> ket naipanagan iti <strong>Oscariz</strong>, manipud ken ni Don
+        Mariano Oscariz, maysa a dati a gobernador militar ti Nueva Vizcaya. Barangay pay laeng ti
+        Ramon ti Oscariz.
       </li>
       <li>
-        Idi rugrugi ti 1900, nagtalinaed ni Heneral <strong>Emilio Aguinaldo</strong> iti Oscariz
-        bayat ti panagsanudna nga agpaamianan manipud kadagiti Amerikano.
+        Idi <strong>Hunio 18, 1961</strong>, inaramid ti Republic Act No. 3320 ti Ili ti Ramon
+        manipud kadagiti barrio ti Santiago ken San Mateo, nga addaan sentro iti Burgos. Naipanagan
+        ken ni Presidente <strong>Ramon Magsaysay</strong>.
       </li>
       <li>
-        Idi <strong>Hunio 18, 1961</strong>, inaramid ti Republic Act No. 3320 ti Ili ti Ramon, a
-        naipanagan ken ni Presidente <strong>Ramon Magsaysay</strong>.
+        Nangrugi ti baro nga ili idi napili dagiti umuna nga opisyalna idi{' '}
+        <strong>Nobiembre 1963</strong>.
       </li>
-      <li>Naangay ti umuna a lokal a eleksion idi Nobiembre 1963.</li>
+      <li>
+        Idi <strong>Hunio 15, 1968</strong>, inyakar ti Republic Act No. 5276 ti sentro ti gobierno
+        iti <strong>Bugallon</strong>, a sadiay ti yan ti Municipal Hall ita.
+      </li>
       <li>
         Naluktan ti <strong>Magat Dam</strong> idi Oktubre 27, 1982, a nangyeg iti padanum, salaknib
         iti layus ken koriente iti rehion.
-      </li>
-      <li>
-        Inyakar ti Republic Act No. 11354 ti sentro ti gobierno iti <strong>Bugallon</strong>, a
-        sadiay ti yan ti Municipal Hall ita.
       </li>
     </ul>
     <h2>Ayan ti Ramon</h2>

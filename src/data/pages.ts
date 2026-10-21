@@ -236,7 +236,6 @@ export const pages: PageInfo[] = [
       'kasaysayan',
       'Oscariz',
       'Magsaysay',
-      'Aguinaldo',
       'directions',
       'how to get there',
     ],

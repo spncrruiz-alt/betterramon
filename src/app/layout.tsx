@@ -11,7 +11,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: { default: 'BetterRamon.org | Official Portal', template: '%s | BetterRamon.org' },
+  title: { default: 'BetterRamon.org | Community Portal for Ramon, Isabela', template: '%s | BetterRamon.org' },
   description: 'BetterRamon.org - Your digital gateway to LGU Ramon services.',
   keywords: ['BetterRamon', 'Ramon Isabela', 'LGU Ramon', 'municipal services'],
   authors: [{ name: 'BetterRamon contributors' }],
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     locale: 'en_PH',
     url: 'https://betterramon.org/',
     siteName: 'BetterRamon.org',
-    title: 'BetterRamon.org | Official Portal',
+    title: 'BetterRamon.org | Community Portal for Ramon, Isabela',
     description: 'Empowering the people of Ramon with transparent access to services.',
   },
   twitter: { card: 'summary_large_image' },

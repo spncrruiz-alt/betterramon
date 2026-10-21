@@ -133,7 +133,7 @@ const translations: Record<string, Record<string, string>> = {
     'footer-contribute': 'Contribute code with us',
     'footer-copyright-text': 'BetterRamon.org',
     'footer-copyright-disclaimer':
-      'All public information sourced from official government portals.',
+      'Independent community site, not the official LGU website. Data comes from cited public sources.',
   },
   fil: {
     // Navigation - Filipino
@@ -265,7 +265,7 @@ const translations: Record<string, Record<string, string>> = {
     'footer-contribute': 'Mag-ambag ng code sa amin',
     'footer-copyright-text': 'BetterRamon.org',
     'footer-copyright-disclaimer':
-      'Lahat ng pampublikong impormasyon ay mula sa mga opisyal na portal ng pamahalaan.',
+      'Independiyenteng site ng komunidad, hindi opisyal na website ng LGU. Ang datos ay mula sa mga binanggit na pampublikong sanggunian.',
   },
   ilo: {
     // Navigation - Ilocano
@@ -398,7 +398,7 @@ const translations: Record<string, Record<string, string>> = {
     'footer-contribute': 'Ag-ambag ti code kadakami',
     'footer-copyright-text': 'BetterRamon.org',
     'footer-copyright-disclaimer':
-      'Amin a pampubliko nga impormasion ket nagtaud kadagiti opisial a portal ti gobierno.',
+      'Independiente a site ti komunidad, saan nga opisial a website ti LGU. Ti datos ket nagtaud kadagiti nadakamat a pampubliko a gubuayan.',
   },
 };
 

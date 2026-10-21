@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { GuideNotice } from '@/components/Guide';
-import { TBV } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 // Shared by /services/business and /service-details/business-permits-licensing.
 export default function BusinessGuide() {
@@ -51,7 +51,7 @@ export default function BusinessGuide() {
         <li>Valid government ID of the owner</li>
         <li>Other documents depending on the business (for example, a sanitary permit for food)</li>
       </ul>
-      <p>Ramon&rsquo;s exact checklist and fees: {TBV}.</p>
+      <p>Ramon&rsquo;s exact checklist and fees: {<Tbv />}.</p>
 
       <h2>Renewal</h2>
       <p>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
-import { TBV } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/services/tax-payments', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -24,7 +24,7 @@ export default function TaxPaymentsGuide() {
         <li>
           <strong>How much:</strong> assessed value &times; tax rate. For properties in a
           municipality, the provincial rate is at most 1%, plus a Special Education Fund levy of 1%.
-          Ramon&rsquo;s exact rates and assessed values: {TBV}. See{' '}
+          Ramon&rsquo;s exact rates and assessed values: {<Tbv />}. See{' '}
           <Link href="/services/real-property">Real Property Assessment</Link>.
         </li>
         <li>
@@ -81,7 +81,7 @@ export default function TaxPaymentsGuide() {
       <h2>Where to pay</h2>
       <p>
         Municipal Treasurer&rsquo;s Office, Municipal Hall, Ramon, Isabela. Office hours and any
-        online payment channel: {TBV}.
+        online payment channel: {<Tbv />}.
       </p>
     </PageShell>
   );

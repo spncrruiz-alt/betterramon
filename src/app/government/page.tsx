@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { pages } from '@/data/pages';
-import { barangays, councilors, electionSource, officials, TBV } from '@/data/ramon';
+import { barangays, councilors, electionSource, officials } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/government', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -27,7 +28,7 @@ export default function GovernmentPage() {
         {officials.map((o) => (
           <div key={o.title} className="service-item-card">
             <h3 className="service-item-title">{titles[o.title]}</h3>
-            <p>{o.name ?? TBV}</p>
+            <p>{o.name ?? <Tbv />}</p>
           </div>
         ))}
       </div>
@@ -43,7 +44,7 @@ export default function GovernmentPage() {
           <a href={electionSource.href} target="_blank" rel="noopener noreferrer">
             {electionSource.label}
           </a>
-          . Ex officio members (Liga ng mga Barangay and SK Federation presidents): {TBV}.
+          . Ex officio members (Liga ng mga Barangay and SK Federation presidents): {<Tbv />}.
         </small>
       </p>
       <h2>Barangays ({barangays.length})</h2>

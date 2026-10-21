@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
-import { TBV } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/services/education', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -37,7 +37,7 @@ export default function EducationGuide() {
           courses. The qualifying exam is usually held once a year.
         </li>
         <li>
-          <strong>Local scholarships</strong> from the LGU or the province: {TBV}.
+          <strong>Local scholarships</strong> from the LGU or the province: {<Tbv />}.
         </li>
       </ul>
 

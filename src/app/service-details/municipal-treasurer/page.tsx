@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
-import { TBV } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/service-details/municipal-treasurer', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -35,7 +35,7 @@ export default function TreasurerGuide() {
         <li>Pay only at the Treasurer&rsquo;s window or an official channel it announces.</li>
         <li>Always get and keep your official receipt.</li>
       </ul>
-      <p>Office hours and online payment options: {TBV}.</p>
+      <p>Office hours and online payment options: {<Tbv />}.</p>
     </PageShell>
   );
 }

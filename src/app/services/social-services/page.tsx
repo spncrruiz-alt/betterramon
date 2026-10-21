@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
-import { TBV } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/services/social-services', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -46,7 +46,7 @@ export default function SocialServicesGuide() {
         valid ID, a barangay certificate of indigency and documents for your request, such as a
         medical abstract, prescription, billing statement or death certificate.
       </p>
-      <p>Ramon&rsquo;s office schedule and exact requirements: {TBV}.</p>
+      <p>Ramon&rsquo;s office schedule and exact requirements: {<Tbv />}.</p>
     </PageShell>
   );
 }

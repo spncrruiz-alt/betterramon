@@ -118,8 +118,6 @@ export const hotlines: (Contact & { icon: string })[] = [
   { icon: 'bi-chat-heart-fill', label: 'NCMH Crisis Hotline', number: '1553', tel: '1553' },
 ];
 
-export const TBV = 'To be verified';
-
 // Legislative records. Add only items dated 2025 or later, each with its source.
 export type Measure = { number: string; title: string; date: string; source: string };
 export const ordinances: Measure[] = [];

@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { pages } from '@/data/pages';
-import { lgu, stats, TBV } from '@/data/ramon';
+import { lgu, stats } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/statistics', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -26,7 +27,7 @@ export default function StatisticsPage() {
           {rows.map(([label, s]) => (
             <tr key={label}>
               <th scope="row">{label}</th>
-              <td>{s.value ?? TBV}</td>
+              <td>{s.value ?? <Tbv />}</td>
             </tr>
           ))}
           <tr>

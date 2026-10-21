@@ -1,5 +1,5 @@
 import { GuideNotice } from '@/components/Guide';
-import { TBV } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 // Shared by /services/certificates and /service-details/birth-certificate.
 export default function CertificatesGuide() {
@@ -52,7 +52,7 @@ export default function CertificatesGuide() {
         can be corrected by petition at the MCR, without going to court. Other changes need a court
         order.
       </p>
-      <p>Ramon MCR fees and schedule: {TBV}.</p>
+      <p>Ramon MCR fees and schedule: {<Tbv />}.</p>
     </>
   );
 }

@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SearchAutocomplete from '@/components/SearchAutocomplete';
 import Deadlines from '@/components/Deadlines';
-import { lgu, stats, officials, contact, TBV } from '@/data/ramon';
+import { lgu, stats, officials, contact } from '@/data/ramon';
+import L, { Tbv } from '@/components/L';
 
 export default function HomePage() {
   const { t } = useLanguage();
@@ -53,7 +54,9 @@ export default function HomePage() {
       <section className="section want-section">
         <div className="container">
           <div className="home-section-header">
-            <h2>I want to&hellip;</h2>
+            <h2>
+              <L en="I want to…" fil="Gusto kong…" ilo="Kayat ko ti…" />
+            </h2>
           </div>
           <div className="want-grid">
             {[
@@ -61,36 +64,75 @@ export default function HomePage() {
                 href: '/services/tax-payments',
                 icon: 'bi-house-check-fill',
                 label: 'Pay amilyar (property tax)',
+                fil: 'Magbayad ng amilyar',
+                ilo: 'Agbayad ti amilyar',
               },
               {
                 href: '/services/tax-payments',
                 icon: 'bi-person-vcard-fill',
                 label: 'Get a cedula',
+                fil: 'Kumuha ng cedula',
+                ilo: 'Agala ti sedula',
               },
-              { href: '/services/business', icon: 'bi-shop', label: 'Start or renew a business' },
+              {
+                href: '/services/business',
+                icon: 'bi-shop',
+                label: 'Start or renew a business',
+                fil: 'Magsimula o mag-renew ng negosyo',
+                ilo: 'Mangrugi wenno ag-renew ti negosio',
+              },
               {
                 href: '/services/certificates',
                 icon: 'bi-file-earmark-person-fill',
                 label: 'Get a birth certificate',
+                fil: 'Kumuha ng birth certificate',
+                ilo: 'Agala ti birth certificate',
               },
-              { href: '/services/building-permits', icon: 'bi-bricks', label: 'Build or renovate' },
+              {
+                href: '/services/building-permits',
+                icon: 'bi-bricks',
+                label: 'Build or renovate',
+                fil: 'Magpatayo o magpaayos',
+                ilo: 'Agipatakder wenno agpaayos',
+              },
               {
                 href: '/services/social-services',
                 icon: 'bi-person-heart',
                 label: 'Get a senior, PWD or solo parent ID',
+                fil: 'Kumuha ng senior, PWD o solo parent ID',
+                ilo: 'Agala ti senior, PWD wenno solo parent ID',
               },
-              { href: '/contact', icon: 'bi-telephone-outbound-fill', label: 'Call for help' },
-              { href: '/tourism', icon: 'bi-compass-fill', label: 'Explore Ramon' },
+              {
+                href: '/contact',
+                icon: 'bi-telephone-outbound-fill',
+                label: 'Call for help',
+                fil: 'Humingi ng tulong',
+                ilo: 'Agpatulong',
+              },
+              {
+                href: '/tourism',
+                icon: 'bi-compass-fill',
+                label: 'Explore Ramon',
+                fil: 'Libutin ang Ramon',
+                ilo: 'Libuten ti Ramon',
+              },
             ].map((w) => (
               <Link key={w.label} href={w.href} className="want-tile">
                 <i className={`bi ${w.icon}`} aria-hidden="true"></i>
-                <span>{w.label}</span>
+                <span>
+                  <L en={w.label} fil={w.fil} ilo={w.ilo} />
+                </span>
               </Link>
             ))}
           </div>
 
           <h3 className="deadlines-heading">
-            <i className="bi bi-alarm-fill" aria-hidden="true"></i> Coming deadlines
+            <i className="bi bi-alarm-fill" aria-hidden="true"></i>{' '}
+            <L
+              en="Coming deadlines"
+              fil="Mga paparating na deadline"
+              ilo="Dagiti umay a deadline"
+            />
           </h3>
           <Deadlines />
         </div>
@@ -186,7 +228,7 @@ export default function HomePage() {
                   <i className={`bi ${icon}`}></i>
                 </div>
                 <div className="home-stat-card-content">
-                  <span className="home-stat-card-value">{stat.value ?? TBV}</span>
+                  <span className="home-stat-card-value">{stat.value ?? <Tbv />}</span>
                   <span className="home-stat-card-label">{t(label)}</span>
                 </div>
               </div>
@@ -199,18 +241,48 @@ export default function HomePage() {
       <section className="section discover-section">
         <div className="container">
           <div className="home-section-header">
-            <h2>Discover Ramon</h2>
+            <h2>
+              <L en="Discover Ramon" fil="Tuklasin ang Ramon" ilo="Takuaten ti Ramon" />
+            </h2>
           </div>
           <div className="discover-grid">
             <Link href="/tourism" className="discover-card discover-card--dam">
-              <span className="discover-tag">Tourism</span>
-              <h3>Magat Dam and the reservoir</h3>
-              <p>One of the largest dams in the Philippines, right here in Ramon.</p>
+              <span className="discover-tag">
+                <L en="Tourism" fil="Turismo" ilo="Turismo" />
+              </span>
+              <h3>
+                <L
+                  en="Magat Dam and the reservoir"
+                  fil="Magat Dam at ang reservoir"
+                  ilo="Magat Dam ken ti reservoir"
+                />
+              </h3>
+              <p>
+                <L
+                  en="One of the largest dams in the Philippines, right here in Ramon."
+                  fil="Isa sa pinakamalalaking dam sa Pilipinas, narito mismo sa Ramon."
+                  ilo="Maysa kadagiti kadakkelan a dam ditoy Filipinas, adda mismo ditoy Ramon."
+                />
+              </p>
             </Link>
             <Link href="/about" className="discover-card discover-card--history">
-              <span className="discover-tag">History</span>
-              <h3>From Oscariz to Ramon</h3>
-              <p>Named after President Ramon Magsaysay in 1961.</p>
+              <span className="discover-tag">
+                <L en="History" fil="Kasaysayan" ilo="Pakasaritaan" />
+              </span>
+              <h3>
+                <L
+                  en="From Oscariz to Ramon"
+                  fil="Mula Oscariz hanggang Ramon"
+                  ilo="Manipud Oscariz agingga iti Ramon"
+                />
+              </h3>
+              <p>
+                <L
+                  en="Named after President Ramon Magsaysay in 1961."
+                  fil="Ipinangalan kay Pangulong Ramon Magsaysay noong 1961."
+                  ilo="Naipanagan ken Presidente Ramon Magsaysay idi 1961."
+                />
+              </p>
             </Link>
           </div>
         </div>
@@ -253,7 +325,7 @@ export default function HomePage() {
             {officials.map((o) => (
               <div className="home-leader-card" key={o.title}>
                 <div className="home-leader-badge">{t(`title-${o.title}`)}</div>
-                <h3>{o.name ?? TBV}</h3>
+                <h3>{o.name ?? <Tbv />}</h3>
                 <div className="home-leader-contacts">
                   {o.email && (
                     <a href={`mailto:${o.email}`}>
@@ -271,7 +343,12 @@ export default function HomePage() {
           </div>
           <p>
             <small>
-              Based on unofficial 2025 election results. <Link href="/government">Sources</Link>
+              <L
+                en="Based on unofficial 2025 election results."
+                fil="Batay sa hindi opisyal na resulta ng halalan 2025."
+                ilo="Segun iti saan nga opisial a resulta ti eleksion 2025."
+              />{' '}
+              <Link href="/government">Sources</Link>
             </small>
           </p>
         </div>
@@ -290,7 +367,7 @@ export default function HomePage() {
               </div>
               <div className="home-contact-v2-content">
                 <h3>{t('contact-phone')}</h3>
-                <p className="home-contact-v2-value">{contact.phone ?? TBV}</p>
+                <p className="home-contact-v2-value">{contact.phone ?? <Tbv />}</p>
               </div>
             </div>
             <div className="home-contact-v2-card">
@@ -300,7 +377,11 @@ export default function HomePage() {
               <div className="home-contact-v2-content">
                 <h3>{t('contact-email')}</h3>
                 <p className="home-contact-v2-value">
-                  {contact.email ? <a href={`mailto:${contact.email}`}>{contact.email}</a> : TBV}
+                  {contact.email ? (
+                    <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                  ) : (
+                    <Tbv />
+                  )}
                 </p>
               </div>
             </div>

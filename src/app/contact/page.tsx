@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { pages } from '@/data/pages';
-import { contact, hotlineSource, hotlines, lgu, TBV } from '@/data/ramon';
+import { contact, hotlineSource, hotlines, lgu } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/contact', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -18,13 +19,13 @@ export default function ContactPage() {
           <h2 className="service-item-title">
             <i className="bi bi-telephone-fill" aria-hidden="true"></i> Phone
           </h2>
-          <p>{contact.phone ?? TBV}</p>
+          <p>{contact.phone ?? <Tbv />}</p>
         </div>
         <div className="service-item-card">
           <h2 className="service-item-title">
             <i className="bi bi-envelope-fill" aria-hidden="true"></i> Email
           </h2>
-          <p>{contact.email ?? TBV}</p>
+          <p>{contact.email ?? <Tbv />}</p>
         </div>
         <div className="service-item-card">
           <h2 className="service-item-title">
@@ -46,7 +47,7 @@ export default function ContactPage() {
       <ul>
         {hotlines.map((h) => (
           <li key={h.label}>
-            {h.label}: {h.tel ? <a href={`tel:${h.tel}`}>{h.number}</a> : TBV}
+            {h.label}: {h.tel ? <a href={`tel:${h.tel}`}>{h.number}</a> : <Tbv />}
           </li>
         ))}
       </ul>

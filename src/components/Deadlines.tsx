@@ -3,10 +3,12 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { upcoming } from '@/lib/deadlines';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 // Countdown to the next tax and permit deadlines. Rendered after mount so
 // the static HTML never shows a stale date.
 export default function Deadlines() {
+  const { language } = useLanguage();
   const [items, setItems] = useState<ReturnType<typeof upcoming>>([]);
   useEffect(() => setItems(upcoming(new Date())), []);
   if (items.length === 0) return null;
@@ -19,15 +21,19 @@ export default function Deadlines() {
             <strong>{d.due.getUTCDate()}</strong>
           </span>
           <span className="deadline-body">
-            <span className="deadline-title">{d.title}</span>
+            <span className="deadline-title">{(language !== 'en' && d[language]) || d.title}</span>
             <span className={`deadline-left${d.daysLeft <= 14 ? ' is-soon' : ''}`}>
-              {d.daysLeft === 0
-                ? 'Due today'
-                : `${d.daysLeft} day${d.daysLeft === 1 ? '' : 's'} left`}
+              {daysLeft(d.daysLeft, language)}
             </span>
           </span>
         </Link>
       ))}
     </div>
   );
+}
+
+function daysLeft(n: number, lang: string) {
+  if (lang === 'fil') return n === 0 ? 'Ngayon ang huling araw' : `${n} araw pa`;
+  if (lang === 'ilo') return n === 0 ? 'Ita ti maudi nga aldaw' : `${n} nga aldaw pay`;
+  return n === 0 ? 'Due today' : `${n} day${n === 1 ? '' : 's'} left`;
 }

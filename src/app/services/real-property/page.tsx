@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
-import { TBV } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/services/real-property', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -46,7 +46,7 @@ export default function RealPropertyGuide() {
           your taxes are paid.
         </li>
       </ul>
-      <p>Ramon&rsquo;s exact requirements and fees: {TBV}.</p>
+      <p>Ramon&rsquo;s exact requirements and fees: {<Tbv />}.</p>
 
       <h2>How property values are set</h2>
       <p>
@@ -79,7 +79,7 @@ export default function RealPropertyGuide() {
       </ul>
       <p>
         Parcel ownership records are personal data, so this site does not publish a parcel-owner
-        map. Ramon&rsquo;s tax mapping schedule: {TBV}.
+        map. Ramon&rsquo;s tax mapping schedule: {<Tbv />}.
       </p>
 
       <h2>Disagree with your assessment?</h2>

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
-import { TBV } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/services/agriculture', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -45,7 +45,7 @@ export default function AgricultureGuide() {
         <li>Farm damage reports after calamities</li>
         <li>Referral to DA, PhilRice and Landbank programs</li>
       </ul>
-      <p>Current Ramon distributions and schedules: {TBV}.</p>
+      <p>Current Ramon distributions and schedules: {<Tbv />}.</p>
     </PageShell>
   );
 }

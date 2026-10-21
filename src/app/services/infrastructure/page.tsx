@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
-import { TBV } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/services/infrastructure', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -40,7 +40,7 @@ export default function InfrastructureGuide() {
         missing, you can report it to the implementing office or through the national Sumbong sa
         Pangulo portal for flood control projects.
       </p>
-      <p>A list of public works projects in Ramon: {TBV}.</p>
+      <p>A list of public works projects in Ramon: {<Tbv />}.</p>
     </PageShell>
   );
 }

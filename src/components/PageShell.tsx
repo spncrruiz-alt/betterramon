@@ -1,16 +1,22 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import type { PageInfo } from '@/data/pages';
+import { pagesI18n } from '@/data/pages-i18n';
+import L from '@/components/L';
 
 // Breadcrumb + page header shared by the simple content pages.
 export default function PageShell({ page, children }: { page: PageInfo; children: ReactNode }) {
+  const tr = pagesI18n[page.path];
+  const title = <L en={page.title} fil={tr?.fil[0]} ilo={tr?.ilo[0]} />;
   return (
     <>
       <div className="container">
         <nav className="breadcrumbs" aria-label="Breadcrumb">
-          <Link href="/">Home</Link>
+          <Link href="/">
+            <L en="Home" fil="Home" ilo="Balay" />
+          </Link>
           <span>/</span>
-          <span aria-current="page">{page.title}</span>
+          <span aria-current="page">{title}</span>
         </nav>
       </div>
       <section className="page-header">
@@ -18,10 +24,12 @@ export default function PageShell({ page, children }: { page: PageInfo; children
           <div className="page-header-content">
             <span className="page-header-badge">
               <i className={`bi ${page.icon}`} aria-hidden="true"></i>
-              <span>{page.title}</span>
+              <span>{title}</span>
             </span>
-            <h1>{page.title}</h1>
-            <p className="page-header-desc">{page.desc}</p>
+            <h1>{title}</h1>
+            <p className="page-header-desc">
+              <L en={page.desc} fil={tr?.fil[1]} ilo={tr?.ilo[1]} />
+            </p>
           </div>
         </div>
       </section>

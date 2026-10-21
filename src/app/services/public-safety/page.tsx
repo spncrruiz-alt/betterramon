@@ -3,7 +3,7 @@ import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
-import { TBV } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/services/public-safety', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -52,8 +52,8 @@ export default function PublicSafetyGuide() {
           waterproof bag.
         </li>
         <li>
-          Know your barangay&rsquo;s evacuation center and route. Evacuation centers in Ramon: {TBV}
-          .
+          Know your barangay&rsquo;s evacuation center and route. Evacuation centers in Ramon:{' '}
+          {<Tbv />}.
         </li>
         <li>Follow PAGASA warnings and LDRRMO advisories, and evacuate early when told to.</li>
         <li>Watch the Magat River and Diadi River levels if you live near them.</li>

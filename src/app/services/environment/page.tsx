@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
-import { TBV } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/services/environment', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -33,7 +33,7 @@ export default function EnvironmentGuide() {
           apart.
         </li>
       </ul>
-      <p>Collection schedule for your barangay: {TBV}.</p>
+      <p>Collection schedule for your barangay: {<Tbv />}.</p>
 
       <h2>Open burning is not allowed</h2>
       <p>

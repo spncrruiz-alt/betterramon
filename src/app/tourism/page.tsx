@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { pages } from '@/data/pages';
-import { lgu, TBV } from '@/data/ramon';
+import { lgu } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/tourism', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -124,7 +125,7 @@ export default function TourismPage() {
       <ul>
         <li>
           Access rules, hours and fees for the dam area are set by NIA and the plant operator and
-          can change. Ramon-specific visitor rules: {TBV}.
+          can change. Ramon-specific visitor rules: {<Tbv />}.
         </li>
         <li>Respect restricted areas around the spillway, intake gates and power plant.</li>
         <li>
@@ -134,7 +135,7 @@ export default function TourismPage() {
           </a>
           .
         </li>
-        <li>Town fiesta and festival dates: {TBV}.</li>
+        <li>Town fiesta and festival dates: {<Tbv />}.</li>
       </ul>
 
       <p>

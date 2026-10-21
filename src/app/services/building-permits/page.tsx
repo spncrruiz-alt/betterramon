@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
-import { TBV } from '@/data/ramon';
+import { Tbv } from '@/components/L';
 
 const page = pageFor('/services/building-permits', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -65,7 +65,7 @@ export default function BuildingPermitsGuide() {
         <li>Construction safety and health program, for works with workers on site</li>
         <li>Latest real property tax receipt</li>
       </ul>
-      <p>Ramon&rsquo;s exact checklist and fees: {TBV}.</p>
+      <p>Ramon&rsquo;s exact checklist and fees: {<Tbv />}.</p>
 
       <h2>Certificate of occupancy</h2>
       <p>Needed before you use or occupy the finished building. Apply at the same office with:</p>

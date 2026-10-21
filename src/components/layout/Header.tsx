@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
+import L from '@/components/L';
 
 function isMobileNav(): boolean {
   return typeof window !== 'undefined' && window.matchMedia('(max-width: 1024px)').matches;
@@ -131,19 +132,21 @@ export default function Header() {
         </div>
 
         <nav
+          id="main-navigation"
           ref={navRef}
           className={`main-nav ${mobileMenuOpen ? 'active' : ''}`}
           aria-label="Main Navigation"
         >
           <ul>
             <li>
-              <Link href="/" className={pathname === '/' ? 'active' : ''}>
+              <Link href="/" className={pathname === '/' ? 'active' : ''} aria-current={pathname === '/' ? 'page' : undefined}>
                 {t('nav-home')}
               </Link>
             </li>
             <li className={`has-dropdown ${openDropdown === 0 ? 'dropdown-open' : ''}`}>
               <Link
                 href="/services"
+                className={pathname.startsWith('/services') ? 'active' : ''}
                 aria-haspopup="true"
                 aria-expanded={openDropdown === 0 ? 'true' : 'false'}
                 onClick={(e) => toggleDropdown(0, e)}
@@ -151,6 +154,7 @@ export default function Header() {
                 {t('nav-services')}
               </Link>
               <ul className="dropdown-menu">
+                <li><Link href="/services"><L en="All services" fil="Lahat ng serbisyo" ilo="Amin a serbisio" /></Link></li>
                 <li>
                   <Link href="/services/certificates">{t('dropdown-certificates')}</Link>
                 </li>
@@ -184,17 +188,18 @@ export default function Header() {
               </ul>
             </li>
             <li>
-              <Link href="/government">{t('nav-government')}</Link>
+              <Link href="/government" className={pathname.startsWith('/government') ? 'active' : ''} aria-current={pathname === '/government' ? 'page' : undefined}>{t('nav-government')}</Link>
             </li>
             <li>
-              <Link href="/tourism">{t('nav-tourism')}</Link>
+              <Link href="/tourism" className={pathname.startsWith('/tourism') ? 'active' : ''} aria-current={pathname === '/tourism' ? 'page' : undefined}>{t('nav-tourism')}</Link>
             </li>
             <li>
-              <Link href="/statistics">{t('nav-statistics')}</Link>
+              <Link href="/statistics" className={pathname.startsWith('/statistics') ? 'active' : ''} aria-current={pathname === '/statistics' ? 'page' : undefined}>{t('nav-statistics')}</Link>
             </li>
             <li className={`has-dropdown ${openDropdown === 1 ? 'dropdown-open' : ''}`}>
               <Link
                 href="/legislative"
+                className={pathname.startsWith('/legislative') ? 'active' : ''}
                 aria-haspopup="true"
                 aria-expanded={openDropdown === 1 ? 'true' : 'false'}
                 onClick={(e) => toggleDropdown(1, e)}
@@ -202,6 +207,7 @@ export default function Header() {
                 {t('nav-legislative')}
               </Link>
               <ul className="dropdown-menu">
+                <li><Link href="/legislative"><L en="Legislative overview" fil="Pangkalahatang batas" ilo="Pakabuklan ti lehislatura" /></Link></li>
                 <li>
                   <Link href="/legislative/ordinance-framework">
                     {t('dropdown-ordinance-framework')}
@@ -215,10 +221,10 @@ export default function Header() {
               </ul>
             </li>
             <li>
-              <Link href="/budget">{t('nav-transparency')}</Link>
+              <Link href="/budget" className={pathname.startsWith('/budget') ? 'active' : ''} aria-current={pathname === '/budget' ? 'page' : undefined}>{t('nav-transparency')}</Link>
             </li>
             <li>
-              <Link href="/contact">{t('nav-contact')}</Link>
+              <Link href="/contact" className={pathname.startsWith('/contact') ? 'active' : ''} aria-current={pathname === '/contact' ? 'page' : undefined}>{t('nav-contact')}</Link>
             </li>
           </ul>
         </nav>
@@ -270,9 +276,11 @@ export default function Header() {
             }
           }}
           aria-label="Toggle Navigation"
+          aria-controls="main-navigation"
           aria-expanded={mobileMenuOpen ? 'true' : 'false'}
         >
           <i className={`bi ${mobileMenuOpen ? 'bi-x-lg' : 'bi-list'}`} aria-hidden="true"></i>
+          <span className="menu-toggle-label"><L en={mobileMenuOpen ? 'Close' : 'Menu'} fil={mobileMenuOpen ? 'Isara' : 'Menu'} ilo={mobileMenuOpen ? 'Iserra' : 'Menu'} /></span>
         </button>
       </div>
     </header>

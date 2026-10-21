@@ -148,6 +148,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Discover Ramon */}
+      <section className="section discover-section">
+        <div className="container">
+          <div className="home-section-header">
+            <h2>Discover Ramon</h2>
+          </div>
+          <div className="discover-grid">
+            <Link href="/tourism" className="discover-card discover-card--dam">
+              <span className="discover-tag">Tourism</span>
+              <h3>Magat Dam and the reservoir</h3>
+              <p>One of the largest dams in the Philippines, right here in Ramon.</p>
+            </Link>
+            <Link href="/about" className="discover-card discover-card--history">
+              <span className="discover-tag">History</span>
+              <h3>From Oscariz to Ramon</h3>
+              <p>Named after President Ramon Magsaysay in 1961.</p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Map */}
       <section className="section weather-map-section">
         <div className="container">

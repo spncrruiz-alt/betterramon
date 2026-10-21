@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 260" preserveAspectRatio="xMidYMax slice">
+  <!-- Ramon landscape from the seal: Sierra Madre/Cordillera hills, Magat Dam, rice fields, river -->
+  <circle cx="1180" cy="70" r="44" fill="#f2c91d" opacity="0.9"/>
+  <circle cx="1180" cy="70" r="70" fill="#f2c91d" opacity="0.15"/>
+  <path d="M0 150 C120 90 220 80 330 120 C430 155 520 95 640 85 C760 75 860 130 980 110 C1100 90 1220 60 1440 110 V260 H0 Z" fill="#2fa86a" opacity="0.55"/>
+  <path d="M0 175 C160 130 300 150 420 165 C560 182 700 120 860 135 C1020 150 1180 120 1440 150 V260 H0 Z" fill="#1f9158" opacity="0.8"/>
+  <!-- Magat Dam spillway -->
+  <g transform="translate(150 118)">
+    <path d="M0 70 L40 0 L120 0 L150 70 Z" fill="#cfd8dc"/>
+    <path d="M48 6 L60 6 L78 70 L64 70 Z M70 6 L82 6 L102 70 L88 70 Z M92 6 L104 6 L126 70 L112 70 Z" fill="#5dade2"/>
+    <rect x="36" y="-6" width="90" height="8" rx="2" fill="#b0bec5"/>
+  </g>
+  <!-- rice field grid -->
+  <g stroke="#7ed957" stroke-width="2" opacity="0.6" fill="none">
+    <path d="M520 205 L1440 185 M520 225 L1440 208 M520 245 L1440 232"/>
+    <path d="M620 200 L580 260 M760 197 L730 260 M900 194 L880 260 M1040 191 L1030 260 M1180 188 L1180 260 M1320 186 L1330 260"/>
+  </g>
+  <!-- river -->
+  <path d="M0 230 C200 210 380 250 600 232 C820 214 1000 250 1440 228 V260 H0 Z" fill="#5dade2" opacity="0.85"/>
+  <path d="M0 245 C220 232 420 258 640 246 C860 234 1080 258 1440 242" stroke="#ffffff" stroke-opacity="0.6" stroke-width="3" fill="none"/>
+</svg>

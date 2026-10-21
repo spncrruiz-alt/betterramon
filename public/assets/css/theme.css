@@ -334,3 +334,221 @@ a.service-item-card .service-item-title {
   padding: 12px 0 16px;
   margin: 0;
 }
+
+/* ---------- Lively pass: brighter sky, landscape, color per card ---------- */
+:root {
+  --ramon-sky-1: #1e88e5;
+  --ramon-teal: #12a39a;
+  --ramon-orange: #f57c00;
+  --ramon-purple: #7b4bd1;
+}
+
+/* Home hero: daytime sky over the Ramon landscape from the seal */
+.home-hero-v2 {
+  padding: 96px 0 230px;
+  background:
+    url('/assets/images/patterns/landscape.svg') bottom center / 100% auto no-repeat,
+    url('/assets/images/patterns/fields.svg') 0 0 / 160px 160px,
+    radial-gradient(circle at 80% 15%, rgba(242, 201, 29, 0.35), transparent 40%),
+    linear-gradient(180deg, #0f2a6b 0%, #1d3f9e 45%, #1e88e5 100%),
+    var(--hero-photo) center / cover no-repeat;
+}
+@media (max-width: 640px) {
+  .home-hero-v2 {
+    padding: 64px 0 140px;
+    background-size:
+      220% auto,
+      160px 160px,
+      auto,
+      auto,
+      cover;
+  }
+}
+.home-hero-v2::after {
+  display: none;
+}
+
+/* Bright call-to-action */
+.home-hero-v2 .btn-primary {
+  background: var(--ramon-yellow);
+  color: var(--ramon-blue-deep);
+  border-color: var(--ramon-yellow);
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(242, 201, 29, 0.35);
+}
+.home-hero-v2 .btn-primary:hover {
+  background: #ffd83a;
+}
+
+/* One seal color per service card, cycling */
+.home-service-card .home-service-icon,
+.service-item-card .service-item-title i {
+  border-radius: 12px;
+  color: #fff;
+}
+.home-service-card .home-service-icon {
+  background: linear-gradient(135deg, var(--ramon-blue), var(--ramon-sky-1));
+  box-shadow: 0 4px 12px rgba(29, 63, 158, 0.25);
+}
+.home-service-card:nth-child(6n + 2) .home-service-icon {
+  background: linear-gradient(135deg, var(--ramon-green), var(--ramon-teal));
+}
+.home-service-card:nth-child(6n + 3) .home-service-icon {
+  background: linear-gradient(135deg, var(--ramon-orange), var(--ramon-yellow));
+}
+.home-service-card:nth-child(6n + 4) .home-service-icon {
+  background: linear-gradient(135deg, var(--ramon-red), #ef5350);
+}
+.home-service-card:nth-child(6n + 5) .home-service-icon {
+  background: linear-gradient(135deg, var(--ramon-purple), #9c7ae6);
+}
+.home-service-card:nth-child(6n + 6) .home-service-icon {
+  background: linear-gradient(135deg, var(--ramon-teal), #4dd0c4);
+}
+.service-item-card .service-item-title i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-right: 6px;
+  background: linear-gradient(135deg, var(--ramon-green), var(--ramon-teal));
+}
+.grid > .service-item-card:nth-child(4n + 2) .service-item-title i {
+  background: linear-gradient(135deg, var(--ramon-blue), var(--ramon-sky-1));
+}
+.grid > .service-item-card:nth-child(4n + 3) .service-item-title i {
+  background: linear-gradient(135deg, var(--ramon-orange), var(--ramon-yellow));
+}
+.grid > .service-item-card:nth-child(4n + 4) .service-item-title i {
+  background: linear-gradient(135deg, var(--ramon-red), #ef5350);
+}
+.home-service-card--all {
+  background: linear-gradient(125deg, var(--ramon-blue), var(--ramon-green));
+}
+.home-service-card--all .home-service-icon {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Stats: colored icon chips and bold numbers */
+.home-stat-card-icon {
+  background: linear-gradient(135deg, var(--ramon-yellow), var(--ramon-orange));
+  color: #fff;
+  border-radius: 12px;
+}
+.home-stat-card:nth-child(2) .home-stat-card-icon {
+  background: linear-gradient(135deg, var(--ramon-green), var(--ramon-teal));
+}
+.home-stat-card:nth-child(3) .home-stat-card-icon {
+  background: linear-gradient(135deg, var(--ramon-red), #ef5350);
+}
+.home-stat-card:nth-child(4) .home-stat-card-icon {
+  background: linear-gradient(135deg, var(--ramon-blue), var(--ramon-sky-1));
+}
+.home-stat-card-value {
+  background: linear-gradient(90deg, var(--ramon-blue-deep), var(--ramon-green));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Warm sunlit band for leadership, cool band for stats */
+.home-leadership-section {
+  background:
+    url('/assets/images/patterns/waves-light.svg') bottom / 240px 40px repeat-x,
+    linear-gradient(180deg, #fff8e1, #fffdf5);
+}
+.home-leader-card {
+  border-top: 4px solid var(--ramon-yellow);
+}
+
+/* Page headers on inner pages: brighter sky */
+.page-header {
+  background:
+    url('/assets/images/patterns/waves.svg') bottom / 240px 40px repeat-x,
+    url('/assets/images/patterns/fields.svg') 0 0 / 160px 160px,
+    radial-gradient(circle at 85% 20%, rgba(242, 201, 29, 0.3), transparent 35%),
+    linear-gradient(125deg, #0f2a6b 0%, #1d3f9e 50%, #12a39a 100%);
+}
+
+/* Gentle reveal on scroll, only where supported and motion is welcome */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .home-service-card,
+    .home-stat-card,
+    .home-leader-card,
+    .home-contact-v2-card,
+    .service-item-card,
+    .faq-item {
+      animation: ramon-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+@keyframes ramon-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Discover Ramon teaser */
+.discover-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.discover-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 240px;
+  padding: 24px;
+  border-radius: 18px;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease;
+}
+.discover-card:hover {
+  transform: translateY(-4px);
+}
+.discover-card h3 {
+  color: #fff;
+  margin: 8px 0 4px;
+  font-size: 1.35rem;
+}
+.discover-card p {
+  margin: 0;
+  opacity: 0.92;
+}
+.discover-card--dam {
+  background:
+    url('/assets/images/patterns/landscape.svg') bottom center / 140% auto no-repeat,
+    linear-gradient(180deg, #0f2a6b, #1e88e5);
+  justify-content: flex-start;
+  min-height: 300px;
+}
+.discover-card--history {
+  background:
+    url('/assets/images/patterns/gear.svg') right -40px top -40px / 220px no-repeat,
+    linear-gradient(135deg, #d62828, #f57c00 60%, #f2c91d);
+}
+.discover-tag {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(4px);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}

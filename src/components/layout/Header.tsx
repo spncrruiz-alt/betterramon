@@ -187,6 +187,9 @@ export default function Header() {
               <Link href="/government">{t('nav-government')}</Link>
             </li>
             <li>
+              <Link href="/tourism">{t('nav-tourism')}</Link>
+            </li>
+            <li>
               <Link href="/statistics">{t('nav-statistics')}</Link>
             </li>
             <li className={`has-dropdown ${openDropdown === 1 ? 'dropdown-open' : ''}`}>

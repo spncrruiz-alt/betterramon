@@ -334,3 +334,4 @@ a.service-item-card:hover { background: #edf2ec; box-shadow: none; border-color:
 .home-council ul { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px 24px; margin: 0; padding: 0; list-style: none; }
 .home-council li { font-weight: 600; color: var(--color-text); }
 .home-council-note { margin-top: 12px; }
+.home-contact-emergency .home-contact-v2-icon, .home-contact-emergency .home-contact-v2-icon i { color: #fff; }

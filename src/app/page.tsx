@@ -140,7 +140,6 @@ export default function HomePage() {
                 <div className="home-stat-card-content">
                   <span className="home-stat-card-value">{stat.value ?? TBV}</span>
                   <span className="home-stat-card-label">{t(label)}</span>
-                  <span className="home-stat-card-source">{stat.source}</span>
                 </div>
               </div>
             ))}

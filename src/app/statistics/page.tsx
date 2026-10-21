@@ -20,7 +20,6 @@ export default function StatisticsPage() {
           <tr>
             <th scope="col">Indicator</th>
             <th scope="col">Value</th>
-            <th scope="col">Source</th>
           </tr>
         </thead>
         <tbody>
@@ -28,21 +27,21 @@ export default function StatisticsPage() {
             <tr key={label}>
               <th scope="row">{label}</th>
               <td>{s.value ?? TBV}</td>
-              <td>{s.source}</td>
             </tr>
           ))}
           <tr>
             <th scope="row">Region</th>
             <td>{lgu.region}</td>
-            <td>PhilAtlas</td>
           </tr>
           <tr>
             <th scope="row">ZIP code</th>
             <td>{lgu.zip}</td>
-            <td>PhilAtlas</td>
           </tr>
         </tbody>
       </table>
+      <p>
+        <small>Sources: PSA, PhilAtlas, DOF-BLGF.</small>
+      </p>
     </PageShell>
   );
 }

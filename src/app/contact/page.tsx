@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { pages } from '@/data/pages';
-import { contact, hotlineSource, hotlines, lgu } from '@/data/ramon';
+import { contact, hotlineSource, lgu } from '@/data/ramon';
+import Hotlines from '@/components/Hotlines';
 import L, { Tbv } from '@/components/L';
 
 const page = pageFor('/contact', pages);
@@ -17,14 +18,16 @@ export default function ContactPage() {
           ilo="Ti BetterRamon.org ket independiente a proyekto ti komunidad, saan nga opisial a website ti LGU. Para iti opisial a transaksion, makisarita a direkta iti LGU Ramon."
         />
       </p>
-      <div className="grid grid-3">
-        <div className="service-item-card">
-          <h2 className="service-item-title">
-            <i className="bi bi-telephone-fill" aria-hidden="true"></i>{' '}
-            <L en="Phone" fil="Telepono" ilo="Telepono" />
-          </h2>
-          <p>{contact.phone ?? <Tbv />}</p>
-        </div>
+      <div className="grid grid-2">
+        {contact.phone && (
+          <div className="service-item-card">
+            <h2 className="service-item-title">
+              <i className="bi bi-telephone-fill" aria-hidden="true"></i>{' '}
+              <L en="Phone" fil="Telepono" ilo="Telepono" />
+            </h2>
+            <p>{contact.phone}</p>
+          </div>
+        )}
         <div className="service-item-card">
           <h2 className="service-item-title">
             <i className="bi bi-envelope-fill" aria-hidden="true"></i> Email
@@ -60,13 +63,7 @@ export default function ContactPage() {
           ilo="Dagiti hotline iti emergency"
         />
       </h2>
-      <ul>
-        {hotlines.map((h) => (
-          <li key={h.label}>
-            {h.label}: {h.tel ? <a href={`tel:${h.tel}`}>{h.number}</a> : <Tbv />}
-          </li>
-        ))}
-      </ul>
+      <Hotlines />
       <p>
         <small>
           <L en="Local numbers:" fil="Lokal na numero:" ilo="Lokal a numero:" /> {hotlineSource}.{' '}

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SearchAutocomplete from '@/components/SearchAutocomplete';
 import Deadlines from '@/components/Deadlines';
-import { lgu, stats, officials, contact } from '@/data/ramon';
+import { lgu, stats, officials, councilors, contact } from '@/data/ramon';
 import L, { Tbv } from '@/components/L';
 import PhotoCredits from '@/components/PhotoCredits';
 
@@ -387,14 +387,30 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <p>
+          <div className="home-council">
+            <h3>
+              <L en="Sangguniang Bayan" fil="Sangguniang Bayan" ilo="Sangguniang Bayan" />
+            </h3>
+            <ul>
+              {councilors.map((c) => (
+                <li key={c}>{c}</li>
+              ))}
+            </ul>
+          </div>
+          <p className="home-council-note">
             <small>
               <L
                 en="Based on unofficial 2025 election results."
                 fil="Batay sa hindi opisyal na resulta ng halalan 2025."
                 ilo="Segun iti saan nga opisial a resulta ti eleksion 2025."
               />{' '}
-              <Link href="/government">Sources</Link>
+              <Link href="/government">
+                <L
+                  en="See all officials"
+                  fil="Tingnan ang lahat ng opisyal"
+                  ilo="Kitaen amin nga opisial"
+                />
+              </Link>
             </small>
           </p>
         </div>
@@ -407,15 +423,36 @@ export default function HomePage() {
             <h2>{t('section-contact')}</h2>
           </div>
           <div className="home-contact-v2-grid">
-            <div className="home-contact-v2-card">
-              <div className="home-contact-v2-icon">
-                <i className="bi bi-telephone-fill"></i>
+            {contact.phone ? (
+              <div className="home-contact-v2-card">
+                <div className="home-contact-v2-icon">
+                  <i className="bi bi-telephone-fill"></i>
+                </div>
+                <div className="home-contact-v2-content">
+                  <h3>{t('contact-phone')}</h3>
+                  <p className="home-contact-v2-value">{contact.phone}</p>
+                </div>
               </div>
-              <div className="home-contact-v2-content">
-                <h3>{t('contact-phone')}</h3>
-                <p className="home-contact-v2-value">{contact.phone ?? <Tbv />}</p>
-              </div>
-            </div>
+            ) : (
+              <Link href="/contact" className="home-contact-v2-card home-contact-emergency">
+                <div className="home-contact-v2-icon">
+                  <i className="bi bi-telephone-outbound-fill"></i>
+                </div>
+                <div className="home-contact-v2-content">
+                  <h3>
+                    <L en="Emergency" fil="Emergency" ilo="Emergency" />
+                  </h3>
+                  <p className="home-contact-v2-value">911</p>
+                  <span className="home-contact-v2-note">
+                    <L
+                      en="PNP, BFP, LDRRMO and ISELCO numbers"
+                      fil="Mga numero ng PNP, BFP, LDRRMO at ISELCO"
+                      ilo="Dagiti numero ti PNP, BFP, LDRRMO ken ISELCO"
+                    />
+                  </span>
+                </div>
+              </Link>
+            )}
             <div className="home-contact-v2-card">
               <div className="home-contact-v2-icon">
                 <i className="bi bi-envelope-fill"></i>

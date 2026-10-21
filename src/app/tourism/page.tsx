@@ -28,7 +28,16 @@ const food = [
     note: 'Farm-style setting, grilled dishes and boodle meals.',
   },
   { name: "The Captain's Restobar and Grill", where: 'town center', note: 'Grill and restobar.' },
-  { name: 'Cusina Sabrosa', where: 'National Highway, Burgos', note: 'Home-style Filipino meals.' },
+  {
+    name: 'Arubayan (formerly Rolling Mctea)',
+    where: 'Purok 6, Ambatali, Ramon–Alfonso Lista Road',
+    note: 'Café and drinks stop on the way to the Magat Dam area.',
+  },
+  {
+    name: '11 Dizzy Otso',
+    where: 'General Aguinaldo, Burgos–General Aguinaldo Road',
+    note: 'Restaurant in Barangay General Aguinaldo.',
+  },
 ];
 
 function Listing({

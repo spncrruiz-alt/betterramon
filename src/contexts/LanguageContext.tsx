@@ -267,142 +267,9 @@ const translations: Record<string, Record<string, string>> = {
     'footer-copyright-disclaimer':
       'Independiyenteng site ng komunidad, hindi opisyal na website ng LGU. Ang datos ay mula sa mga binanggit na pampublikong sanggunian.',
   },
-  ilo: {
-    // Navigation - Ilocano
-    'nav-home': 'Pagtaengan',
-    'nav-services': 'Dagiti Serbisyo',
-    'nav-government': 'Gobierno',
-    'nav-statistics': 'Estadistika',
-    'nav-legislative': 'Lehislatura',
-    'nav-transparency': 'Transparensiya',
-    'nav-contact': 'Kontaken',
-
-    // Hero Section
-    'hero-welcome': 'Naragsak nga Isasangbay iti BetterRamon.org',
-    'hero-subtitle':
-      'Aksesen dagiti serbisyo ti gobierno, impormasyon, ken dagiti resources para kadagiti umili ti Ramon, Isabela.',
-    'hero-find-service': 'Agsapul ti Serbisyo',
-
-    // Popular Services
-    'section-popular': 'Dagiti Popular a Serbisyo',
-    'service-certificates': 'Dagiti Sertipiko',
-    'service-certificates-desc': 'Sertipiko ti pannakayanak, kasar, ken patay',
-    'service-business': 'Permit ti Negosyo',
-    'service-business-desc': 'Baro a permit ken panagrenew',
-    'service-tax': 'Panagbayad ti Buwis',
-    'service-tax-desc': 'Buwis ti sanikua ken negosyo',
-    'service-social': 'Serbisyo Sosyal',
-    'service-social-desc': 'Serbisyo para kadagiti senior citizen ken PWD',
-    'service-health': 'Serbisyo ti Salun-at',
-    'service-health-desc': 'Tulong medikal ken dagiti programa',
-    'btn-view-all-services': 'Kitaen Amin a Serbisyo',
-
-    // Municipal Leadership
-    'section-leadership': 'Panguluan ti Munisipalidad',
-    'title-mayor': 'Mayor ti Munisipalidad',
-    'title-vice-mayor': 'Bise Mayor ti Munisipalidad',
-
-    // Contact Section
-    'section-contact': 'Impormasyon ti Panagkontak',
-    'contact-phone': 'Telepono',
-    'contact-email': 'Email',
-    'contact-address': 'Adres',
-    'contact-hours': 'Lunes-Biernes: 8:00 AM - 5:00 PM',
-    'contact-municipal-hall': 'Munisipio',
-
-    // Common Labels - Ilocano
-    'label-fee': 'Bayad:',
-    'label-time': 'Tiempo:',
-    'label-free': 'Libre',
-    'label-walk-in': 'Walk-in',
-
-    // Health Page - Ilocano
-    'health-page-title': 'Serbisio ti Salun-at',
-    'health-page-desc': 'Dagiti konsulta medikal, bakuna, ken programa ti salun-at',
-    'health-page-badge': 'Salun-at',
-    'health-consultation': 'Konsulta Medikal',
-    'health-consultation-desc': 'Libre a konsulta kadagiti Rural Health Units',
-    'health-vaccination': 'Dagiti Programa ti Bakuna',
-    'health-vaccination-desc': 'Libre nga immunization para kadagiti ubbing ken nataengan',
-    'label-schedule-varies': 'Agduduma ti iskedyul',
-    'label-by-appointment': 'Babaen ti appointment',
-    'label-free-subsidy': 'Libre (subsidiya)',
-    'label-1-3-days': '1-3 nga aldaw',
-    'health-maternal': 'Panangaywan iti Ina',
-    'health-maternal-desc': 'Serbisio ti salun-at sakbay ken kalpasan ti panaganak',
-    'health-medicine': 'Tulong iti Agas',
-    'health-medicine-desc': 'Tulong pinansyal para iti agas babaen ti MSWDO',
-    'health-hivcare-cta-eyebrow': 'Opisial a Direktorio manipud iti DOH',
-    'health-hivcare-cta-heading':
-      'Birukem ti Pasilidad para iti Panangagas ken Panangaywan iti HIV',
-    'health-hivcare-cta-desc':
-      'A searchable, mobile-first web directory of all 338 DOH-designated HIV treatment and care facilities in the Philippines, sourced from DOH Circular No. 2026-0065.',
-    'health-hivcare-cta-btn': 'Find HIV Care Facilities',
-    'health-hivcare-cta-stat-facilities': 'Pasilidad iti Intero a Pagilian',
-    'health-hivcare-cta-stat-mobile': 'Mobile-Friendly a Panagbirok',
-    'health-hivcare-cta-stat-verified': 'Naverify ti DOH',
-
-    // Header Dropdown Items
-    'dropdown-certificates': 'Dagiti Sertipiko',
-    'dropdown-business': 'Negosio',
-    'dropdown-tax-payments': 'Panagbayad ti Buwis',
-    'dropdown-social-services': 'Serbisio Sosyal',
-    'dropdown-health': 'Salun-at',
-    'dropdown-agriculture': 'Agrikultura',
-    'dropdown-infrastructure': 'Imprastraktura',
-    'dropdown-education': 'Edukasion',
-    'dropdown-public-safety': 'Kaligtasan Pampubliko',
-    'dropdown-environment': 'Aglawlaw',
-    'dropdown-ordinance-framework': 'Balangkas ti Ordinansa',
-    'dropdown-resolution-framework': 'Balangkas ti Resolusion',
-
-    // Homepage - Hero
-    'hero-browse-services': 'Kitaen dagiti Serbisio',
-    'hero-contact-us': 'Kontaken',
-    'hero-search-placeholder': 'kas pagarigan, birth certificate, business permit',
-    'hero-popular': 'Popular:',
-    'hero-birth-certificate': 'Birth Certificate',
-    'hero-business-permit': 'Permit ti Negosio',
-    'hero-real-property-tax': 'Buwis ti Kukua',
-
-    // Homepage - Popular Services
-    'popular-services-subtitle':
-      'Napartak a panag-akses kadagiti masansan a makiddaw a serbisio ti munisipalidad',
-    'popular-browse-directory': 'Kitaen ti kompleto a direktorio',
-
-    // Homepage - Stats
-    'stats-at-a-glance': 'Maysa a Panagkita iti Ramon',
-    'stats-population-label': 'Populasion',
-    'stats-barangays-label': 'Dagiti Barangay',
-    'stats-municipality-label': 'Munisipalidad',
-    'stats-land-area-label': 'Kalawa ti Daga',
-
-    // Homepage - Weather & Map
-    'weather-map-title': 'Mapa ti Ramon',
-
-    // Footer
-    'footer-tagline':
-      'Panangted ti bileg kadagiti umili ti Ramon nga addaan ti transparente a panag-akses kadagiti serbisio, programa, ken pampubliko a pondo ti LGU Ramon.',
-    'footer-quick-links': 'Dagiti Napartak a Silpo',
-    'footer-resources': 'Dagiti Rekurso',
-    'footer-sitemap': 'Mapa ti Site',
-    'footer-terms': 'Dagiti Kondision ti Panagusar',
-    'footer-privacy': 'Pagannurotan ti Pagkapribado',
-    'footer-accessibility': 'Aksesibilidad',
-    'footer-faq': 'FAQ',
-    'footer-open-data': 'Open Data Philippines',
-    'footer-foi': 'Wayawaya ti Impormasion',
-    'footer-blgf': 'BLGF Portal',
-    'footer-cmci': 'CMCI DTI Portal',
-    'footer-cost': 'Gastos kadagiti Umili ti Ramon =',
-    'footer-contribute': 'Ag-ambag ti code kadakami',
-    'footer-copyright-text': 'BetterRamon.org',
-    'footer-copyright-disclaimer':
-      'Independiente a site ti komunidad, saan nga opisial a website ti LGU. Ti datos ket nagtaud kadagiti nadakamat a pampubliko a gubuayan.',
-  },
 };
 
-type Language = 'en' | 'fil' | 'ilo';
+type Language = 'en' | 'fil';
 
 interface LanguageContextType {
   language: Language;
@@ -418,7 +285,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Load saved language from localStorage
     const savedLang = localStorage.getItem('betterramon_lang') as Language;
-    if (savedLang && ['en', 'fil', 'ilo'].includes(savedLang)) {
+    if (savedLang && ['en', 'fil'].includes(savedLang)) {
       setLanguageState(savedLang);
     }
   }, []);

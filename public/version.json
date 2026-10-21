@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "major": 0,
+  "minor": 1,
+  "patch": 0,
+  "lastUpdated": "2026-10-21",
+  "changelog": {
+    "0.1.0": "Initial Ramon, Isabela portal derived from BetterSolano (MIT)"
+  }
+}

@@ -1,0 +1,259 @@
+'use client';
+
+import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
+import SearchAutocomplete from '@/components/SearchAutocomplete';
+import { lgu, stats, officials, contact, TBV } from '@/data/ramon';
+
+export default function HomePage() {
+  const { t } = useLanguage();
+
+  return (
+    <>
+      {/* Hero Section */}
+      <section className="home-hero-v2">
+        <div className="container">
+          <div className="home-hero-v2-inner">
+            <div className="home-hero-v2-text">
+              <h1>{t('hero-welcome')}</h1>
+              <p>{t('hero-subtitle')}</p>
+              <div className="home-hero-v2-actions">
+                <Link href="/services" className="btn btn-primary">
+                  {t('hero-browse-services')} <i className="bi bi-arrow-right"></i>
+                </Link>
+                <Link href="/contact" className="btn btn-outline">
+                  {t('hero-contact-us')}
+                </Link>
+              </div>
+            </div>
+            <div className="home-hero-v2-search">
+              <div className="home-search-box">
+                <h2>
+                  <i className="bi bi-search"></i> {t('hero-find-service')}
+                </h2>
+                <form className="search-form" role="search" onSubmit={(e) => e.preventDefault()}>
+                  <div className="search-input-wrapper">
+                    <SearchAutocomplete placeholder={t('hero-search-placeholder')} />
+                    <button type="submit" className="search-submit-btn" aria-label="Search">
+                      <i className="bi bi-arrow-right"></i>
+                    </button>
+                  </div>
+                </form>
+                <div className="home-search-tags">
+                  <span>{t('hero-popular')}</span>
+                  <Link href="/service-details/birth-certificate">
+                    {t('hero-birth-certificate')}
+                  </Link>
+                  <Link href="/service-details/business-permits-licensing">
+                    {t('hero-business-permit')}
+                  </Link>
+                  <Link href="/service-details/municipal-treasurer">
+                    {t('hero-real-property-tax')}
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Services */}
+      <section className="section">
+        <div className="container">
+          <div className="home-section-header">
+            <h2>{t('section-popular')}</h2>
+            <p>{t('popular-services-subtitle')}</p>
+          </div>
+          <div className="home-services-grid">
+            <Link href="/services/certificates" className="home-service-card">
+              <div className="home-service-icon">
+                <i className="bi bi-file-earmark-text-fill"></i>
+              </div>
+              <div className="home-service-content">
+                <h3>{t('service-certificates')}</h3>
+                <p>{t('service-certificates-desc')}</p>
+              </div>
+              <i className="bi bi-arrow-right home-service-arrow"></i>
+            </Link>
+            <Link href="/services/business" className="home-service-card">
+              <div className="home-service-icon">
+                <i className="bi bi-shop"></i>
+              </div>
+              <div className="home-service-content">
+                <h3>{t('service-business')}</h3>
+                <p>{t('service-business-desc')}</p>
+              </div>
+              <i className="bi bi-arrow-right home-service-arrow"></i>
+            </Link>
+            <Link href="/services/tax-payments" className="home-service-card">
+              <div className="home-service-icon">
+                <i className="bi bi-cash-coin"></i>
+              </div>
+              <div className="home-service-content">
+                <h3>{t('service-tax')}</h3>
+                <p>{t('service-tax-desc')}</p>
+              </div>
+              <i className="bi bi-arrow-right home-service-arrow"></i>
+            </Link>
+            <Link href="/services/social-services" className="home-service-card">
+              <div className="home-service-icon">
+                <i className="bi bi-people-fill"></i>
+              </div>
+              <div className="home-service-content">
+                <h3>{t('service-social')}</h3>
+                <p>{t('service-social-desc')}</p>
+              </div>
+              <i className="bi bi-arrow-right home-service-arrow"></i>
+            </Link>
+            <Link href="/services/health" className="home-service-card">
+              <div className="home-service-icon">
+                <i className="bi bi-heart-pulse-fill"></i>
+              </div>
+              <div className="home-service-content">
+                <h3>{t('service-health')}</h3>
+                <p>{t('service-health-desc')}</p>
+              </div>
+              <i className="bi bi-arrow-right home-service-arrow"></i>
+            </Link>
+            <Link href="/services" className="home-service-card home-service-card--all">
+              <div className="home-service-icon">
+                <i className="bi bi-grid-fill"></i>
+              </div>
+              <div className="home-service-content">
+                <h3>{t('btn-view-all-services')}</h3>
+                <p>{t('popular-browse-directory')}</p>
+              </div>
+              <i className="bi bi-arrow-right home-service-arrow"></i>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Quick Stats */}
+      <section className="home-stats-v2">
+        <div className="container">
+          <div className="home-stats-v2-header">
+            <h2>{t('stats-at-a-glance')}</h2>
+          </div>
+          <div className="home-stats-v2-grid">
+            {[
+              { icon: 'bi-people-fill', label: 'stats-population-label', stat: stats.population },
+              { icon: 'bi-geo-alt-fill', label: 'stats-barangays-label', stat: stats.barangays },
+              { icon: 'bi-award-fill', label: 'stats-municipality-label', stat: stats.incomeClass },
+              { icon: 'bi-rulers', label: 'stats-land-area-label', stat: stats.landArea },
+            ].map(({ icon, label, stat }) => (
+              <div className="home-stat-card" key={label}>
+                <div className="home-stat-card-icon">
+                  <i className={`bi ${icon}`}></i>
+                </div>
+                <div className="home-stat-card-content">
+                  <span className="home-stat-card-value">{stat.value ?? TBV}</span>
+                  <span className="home-stat-card-label">{t(label)}</span>
+                  <span className="home-stat-card-source">{stat.source}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Map */}
+      <section className="section weather-map-section">
+        <div className="container">
+          <div className="home-stats-v2-header">
+            <h2>{t('weather-map-title')}</h2>
+          </div>
+          <div className="map-card">
+            <div
+              id="map-container"
+              role="application"
+              aria-label="Map of Ramon, Isabela"
+              data-map-loaded="iframe"
+            >
+              <iframe
+                src={`https://www.openstreetmap.org/export/embed.html?bbox=${lgu.coords.lon - 0.015}%2C${lgu.coords.lat - 0.015}%2C${lgu.coords.lon + 0.015}%2C${lgu.coords.lat + 0.015}&layer=mapnik&marker=${lgu.coords.lat}%2C${lgu.coords.lon}`}
+                className="map-iframe"
+                title="Map of Ramon, Isabela"
+                loading="lazy"
+              ></iframe>
+            </div>
+            <p className="map-attribution">
+              <i className="bi bi-geo-alt" aria-hidden="true"></i> {contact.address}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Municipal Leadership */}
+      <section className="section home-leadership-section">
+        <div className="container">
+          <div className="home-section-header">
+            <h2>{t('section-leadership')}</h2>
+          </div>
+          <div className="home-leadership-grid">
+            {officials.map((o) => (
+              <div className="home-leader-card" key={o.title}>
+                <div className="home-leader-badge">{t(`title-${o.title}`)}</div>
+                <h3>{o.name ?? TBV}</h3>
+                <div className="home-leader-contacts">
+                  {o.email && (
+                    <a href={`mailto:${o.email}`}>
+                      <i className="bi bi-envelope"></i> {o.email}
+                    </a>
+                  )}
+                  {o.phone && (
+                    <a href={`tel:${o.phone.replace(/\D/g, '')}`}>
+                      <i className="bi bi-telephone"></i> {o.phone}
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Information */}
+      <section className="section">
+        <div className="container">
+          <div className="home-section-header">
+            <h2>{t('section-contact')}</h2>
+          </div>
+          <div className="home-contact-v2-grid">
+            <div className="home-contact-v2-card">
+              <div className="home-contact-v2-icon">
+                <i className="bi bi-telephone-fill"></i>
+              </div>
+              <div className="home-contact-v2-content">
+                <h3>{t('contact-phone')}</h3>
+                <p className="home-contact-v2-value">{contact.phone ?? TBV}</p>
+                <span className="home-contact-v2-note">{t('contact-hours')}</span>
+              </div>
+            </div>
+            <div className="home-contact-v2-card">
+              <div className="home-contact-v2-icon">
+                <i className="bi bi-envelope-fill"></i>
+              </div>
+              <div className="home-contact-v2-content">
+                <h3>{t('contact-email')}</h3>
+                <p className="home-contact-v2-value">{contact.email ?? TBV}</p>
+              </div>
+            </div>
+            <div className="home-contact-v2-card">
+              <div className="home-contact-v2-icon">
+                <i className="bi bi-geo-alt-fill"></i>
+              </div>
+              <div className="home-contact-v2-content">
+                <h3>{t('contact-address')}</h3>
+                <p className="home-contact-v2-value">{t('contact-municipal-hall')}</p>
+                <span className="home-contact-v2-note">
+                  {lgu.name}, {lgu.province} {lgu.zip}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

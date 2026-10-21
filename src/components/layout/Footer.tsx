@@ -1,0 +1,128 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
+import { lgu } from '@/data/ramon';
+
+export default function Footer() {
+  const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
+  const [version, setVersion] = useState('');
+
+  useEffect(() => {
+    fetch('/version.json')
+      .then((r) => (r.ok ? r.json() : null))
+      .then((data) => {
+        if (data?.version) setVersion(data.version);
+      })
+      .catch(() => {});
+  }, []);
+
+  return (
+    <footer className="site-footer">
+      <div className="container">
+        <div className="footer-main-new">
+          <div className="footer-brand">
+            <img
+              src="/assets/images/logo/better-ramon-logo-white.svg"
+              alt="Better Ramon logo"
+              className="footer-logo"
+            />
+            <p className="footer-tagline">{t('footer-tagline')}</p>
+          </div>
+          <div className="footer-column">
+            <h4>{t('footer-quick-links')}</h4>
+            <ul className="footer-links-new">
+              <li>
+                <a href="/sitemap-page">{t('footer-sitemap')}</a>
+              </li>
+              <li>
+                <a href="/terms">{t('footer-terms')}</a>
+              </li>
+              <li>
+                <a href="/privacy">{t('footer-privacy')}</a>
+              </li>
+              <li>
+                <a href="/accessibility">{t('footer-accessibility')}</a>
+              </li>
+              <li>
+                <a href="/faq">{t('footer-faq')}</a>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-column">
+            <h4>{t('footer-resources')}</h4>
+            <ul className="footer-links-new">
+              <li>
+                <a href="https://data.gov.ph" target="_blank" rel="noopener noreferrer">
+                  {t('footer-open-data')}
+                </a>
+              </li>
+              <li>
+                <a href="https://www.foi.gov.ph/" target="_blank" rel="noopener noreferrer">
+                  {t('footer-foi')}
+                </a>
+              </li>
+              <li>
+                <a href="https://blgf.gov.ph/" target="_blank" rel="noopener noreferrer">
+                  {t('footer-blgf')}
+                </a>
+              </li>
+              <li>
+                <a href="https://cmci.dti.gov.ph/" target="_blank" rel="noopener noreferrer">
+                  {t('footer-cmci')}
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="footer-column">
+            <div
+              className="footer-cost"
+              role="status"
+              aria-label="Cost to the People of Ramon: Zero Pesos"
+            >
+              {t('footer-cost')} <span className="footer-cost-value">₱0</span>
+            </div>
+            <a
+              href={lgu.repo}
+              className="footer-contribute"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i className="bi bi-github"></i> {t('footer-contribute')}
+            </a>
+            <div className="footer-partners">
+              <a
+                href="https://bettergov.ph"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="BetterGov.ph"
+              >
+                <img
+                  src="/assets/images/logo/bettergov-footer.svg"
+                  alt="BetterGov.ph"
+                  className="footer-partner-logo"
+                  width="120"
+                  height="28"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="footer-bottom-new">
+          <div className="footer-copyright">
+            <span className="footer-copyright-text">
+              &copy; {currentYear} {t('footer-copyright-text')}
+            </span>
+            <span className="footer-copyright-license">MIT | CC BY 4.0</span>
+            <span className="footer-copyright-disclaimer">{t('footer-copyright-disclaimer')}</span>
+            <span className="footer-version">
+              <i className="bi bi-boxes"></i> {version ? `Ver. ${version}` : ''}
+            </span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}

@@ -2,7 +2,15 @@
 // "coming soon" placeholders, so no link on the site leads to a 404.
 // Set ready: true once a page has real content in its own route file.
 
-export type PageInfo = { path: string; title: string; icon: string; desc: string; ready?: boolean };
+export type PageInfo = {
+  path: string;
+  title: string;
+  icon: string;
+  desc: string;
+  ready?: boolean;
+  // Extra search words, including Filipino and Ilocano terms people use.
+  keywords?: string[];
+};
 
 export const pages: PageInfo[] = [
   {
@@ -18,6 +26,19 @@ export const pages: PageInfo[] = [
     icon: 'bi-file-earmark-text-fill',
     desc: 'Birth, marriage and death certificates from the Municipal Civil Registrar.',
     ready: true,
+    keywords: [
+      'birth',
+      'death',
+      'marriage',
+      'PSA',
+      'civil registrar',
+      'MCR',
+      'sertipiko',
+      'kapanganakan',
+      'kasal',
+      'correction',
+      'RA 9048',
+    ],
   },
   {
     path: '/services/business',
@@ -25,6 +46,17 @@ export const pages: PageInfo[] = [
     icon: 'bi-briefcase-fill',
     desc: 'New business permits and renewals.',
     ready: true,
+    keywords: [
+      'permit',
+      'mayors permit',
+      'BPLO',
+      'DTI',
+      'renewal',
+      'negosyo',
+      'lisensya',
+      'barangay clearance',
+      'BIR',
+    ],
   },
   {
     path: '/services/tax-payments',
@@ -32,6 +64,19 @@ export const pages: PageInfo[] = [
     icon: 'bi-cash-coin',
     desc: 'Real property tax, business tax and community tax certificates.',
     ready: true,
+    keywords: [
+      'amilyar',
+      'real property tax',
+      'RPT',
+      'cedula',
+      'sedula',
+      'community tax',
+      'official receipt',
+      'OR',
+      'buwis',
+      'treasurer',
+      'business tax',
+    ],
   },
   {
     path: '/services/social-services',
@@ -39,6 +84,16 @@ export const pages: PageInfo[] = [
     icon: 'bi-people-fill',
     desc: 'Senior citizen, PWD and assistance programs of the MSWDO.',
     ready: true,
+    keywords: [
+      'senior citizen',
+      'OSCA',
+      'PWD',
+      'solo parent',
+      'ayuda',
+      'assistance',
+      'MSWDO',
+      'indigency',
+    ],
   },
   {
     path: '/services/health',
@@ -46,6 +101,7 @@ export const pages: PageInfo[] = [
     icon: 'bi-heart-pulse-fill',
     desc: 'Medical consultations, vaccinations and health programs.',
     ready: true,
+    keywords: ['RHU', 'doctor', 'vaccine', 'bakuna', 'hospital', 'clinic', 'health center'],
   },
 
   {
@@ -54,6 +110,18 @@ export const pages: PageInfo[] = [
     icon: 'bi-map-fill',
     desc: 'Tax declarations, property values, tax maps and assessment appeals.',
     ready: true,
+    keywords: [
+      'tax declaration',
+      'TD',
+      'PIN',
+      'tax map',
+      'assessor',
+      'land',
+      'lupa',
+      'title',
+      'transfer',
+      'appeal',
+    ],
   },
   {
     path: '/services/building-permits',
@@ -61,6 +129,17 @@ export const pages: PageInfo[] = [
     icon: 'bi-house-gear-fill',
     desc: 'Steps and requirements for building and occupancy permits.',
     ready: true,
+    keywords: [
+      'building permit',
+      'occupancy',
+      'construction',
+      'engineering',
+      'OBO',
+      'bahay',
+      'balay',
+      'fire safety',
+      'FSEC',
+    ],
   },
   {
     path: '/services/agriculture',
@@ -98,6 +177,7 @@ export const pages: PageInfo[] = [
     icon: 'bi-file-earmark-person-fill',
     desc: 'Requirements and steps to request a birth certificate.',
     ready: true,
+    keywords: ['birth', 'PSA', 'kapanganakan', 'late registration'],
   },
   {
     path: '/service-details/business-permits-licensing',
@@ -105,6 +185,7 @@ export const pages: PageInfo[] = [
     icon: 'bi-briefcase-fill',
     desc: 'Requirements and steps for business permits.',
     ready: true,
+    keywords: ['permit', 'mayors permit', 'negosyo', 'renewal'],
   },
   {
     path: '/service-details/municipal-treasurer',
@@ -118,6 +199,17 @@ export const pages: PageInfo[] = [
     icon: 'bi-building-fill',
     desc: 'Officials and barangays of Ramon, Isabela.',
     ready: true,
+    keywords: [
+      'mayor',
+      'vice mayor',
+      'councilor',
+      'SB',
+      'sangguniang bayan',
+      'officials',
+      'barangay',
+      'opisyal',
+      'seal',
+    ],
   },
   {
     path: '/statistics',
@@ -125,6 +217,7 @@ export const pages: PageInfo[] = [
     icon: 'bi-bar-chart-fill',
     desc: 'Population, land area and other facts about Ramon.',
     ready: true,
+    keywords: ['population', 'land area', 'income class', 'zip code', 'populasyon'],
   },
   {
     path: '/legislative',
@@ -156,6 +249,21 @@ export const pages: PageInfo[] = [
     icon: 'bi-telephone-fill',
     desc: 'How to reach LGU Ramon.',
     ready: true,
+    keywords: [
+      'hotline',
+      'emergency',
+      'PNP',
+      'police',
+      'BFP',
+      'fire',
+      'LDRRMO',
+      'MDRRMO',
+      'ISELCO',
+      '911',
+      'email',
+      'pulis',
+      'bumbero',
+    ],
   },
   {
     path: '/sitemap-page',
@@ -190,5 +298,7 @@ export const pages: PageInfo[] = [
     title: 'FAQ',
     icon: 'bi-question-circle-fill',
     desc: 'Frequently asked questions.',
+    keywords: ['questions', 'help', 'tanong', 'saludsod'],
+    ready: true,
   },
 ];

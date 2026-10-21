@@ -274,3 +274,63 @@ a.service-item-card .service-item-title {
   display: block;
   margin: 0 auto 0.5rem;
 }
+
+/* Search results */
+.search-autocomplete-list {
+  border-radius: 12px;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  z-index: 20;
+}
+.search-autocomplete-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  text-align: left;
+  cursor: pointer;
+}
+.search-autocomplete-item i {
+  color: var(--ramon-green);
+  margin-top: 3px;
+}
+.search-autocomplete-item span {
+  display: flex;
+  flex-direction: column;
+}
+.search-autocomplete-item small {
+  color: var(--color-text-light);
+}
+.search-autocomplete-item.is-active,
+.search-autocomplete-item:hover {
+  background: var(--ramon-sky);
+}
+.search-autocomplete-empty {
+  cursor: default;
+  color: var(--color-text-light);
+}
+
+/* FAQ */
+.faq-list {
+  display: grid;
+  gap: 12px;
+}
+.faq-item {
+  background: #fff;
+  border: 1px solid rgba(15, 42, 107, 0.1);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  padding: 0 18px;
+}
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  padding: 16px 0;
+  color: var(--ramon-blue-deep);
+}
+.faq-item[open] summary {
+  border-bottom: 1px solid rgba(15, 42, 107, 0.08);
+}
+.faq-item p {
+  padding: 12px 0 16px;
+  margin: 0;
+}

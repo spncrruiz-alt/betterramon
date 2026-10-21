@@ -31,14 +31,7 @@ export default function HomePage() {
                 <h2>
                   <i className="bi bi-search"></i> {t('hero-find-service')}
                 </h2>
-                <form className="search-form" role="search" onSubmit={(e) => e.preventDefault()}>
-                  <div className="search-input-wrapper">
-                    <SearchAutocomplete placeholder={t('hero-search-placeholder')} />
-                    <button type="submit" className="search-submit-btn" aria-label="Search">
-                      <i className="bi bi-arrow-right"></i>
-                    </button>
-                  </div>
-                </form>
+                <SearchAutocomplete placeholder={t('hero-search-placeholder')} />
                 <div className="home-search-tags">
                   <span>{t('hero-popular')}</span>
                   <Link href="/service-details/birth-certificate">
@@ -47,9 +40,7 @@ export default function HomePage() {
                   <Link href="/service-details/business-permits-licensing">
                     {t('hero-business-permit')}
                   </Link>
-                  <Link href="/service-details/municipal-treasurer">
-                    {t('hero-real-property-tax')}
-                  </Link>
+                  <Link href="/services/tax-payments">{t('hero-real-property-tax')}</Link>
                 </div>
               </div>
             </div>

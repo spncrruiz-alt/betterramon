@@ -564,3 +564,276 @@ a.service-item-card .service-item-title {
 .empty-state i {
   margin-right: 6px;
 }
+
+/* ---------- Engagement pass ---------- */
+
+/* "I want to..." tiles */
+.want-section {
+  background: linear-gradient(180deg, #ffffff, #f4f9ff);
+}
+.want-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 14px;
+}
+.want-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(15, 42, 107, 0.08);
+  box-shadow: var(--shadow-sm);
+  color: var(--ramon-blue-deep);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.want-tile i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  font-size: 1.3rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ramon-blue), var(--ramon-sky-1));
+}
+.want-tile:nth-child(8n + 2) i {
+  background: linear-gradient(135deg, var(--ramon-orange), var(--ramon-yellow));
+}
+.want-tile:nth-child(8n + 3) i {
+  background: linear-gradient(135deg, var(--ramon-green), var(--ramon-teal));
+}
+.want-tile:nth-child(8n + 4) i {
+  background: linear-gradient(135deg, var(--ramon-purple), #9c7ae6);
+}
+.want-tile:nth-child(8n + 5) i {
+  background: linear-gradient(135deg, #8d6e63, #bcaaa4);
+}
+.want-tile:nth-child(8n + 6) i {
+  background: linear-gradient(135deg, #ec407a, #f48fb1);
+}
+.want-tile:nth-child(8n + 7) i {
+  background: linear-gradient(135deg, var(--ramon-red), #ef5350);
+}
+.want-tile:nth-child(8n + 8) i {
+  background: linear-gradient(135deg, var(--ramon-teal), #4dd0c4);
+}
+.want-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Deadline countdown */
+.deadlines-heading {
+  margin: 2rem 0 0.75rem;
+  color: var(--ramon-blue-deep);
+}
+.deadlines-heading i {
+  color: var(--ramon-orange);
+}
+.deadlines {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+.deadline-card {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(15, 42, 107, 0.08);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+  color: var(--color-text);
+}
+.deadline-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 58px;
+  height: 58px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--ramon-red), var(--ramon-orange));
+  color: #fff;
+  line-height: 1.1;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.deadline-date strong {
+  font-size: 1.4rem;
+}
+.deadline-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.deadline-title {
+  font-weight: 600;
+}
+.deadline-left {
+  align-self: flex-start;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  background: #e8f5e9;
+  color: var(--ramon-green-deep);
+}
+.deadline-left.is-soon {
+  background: #ffebee;
+  color: #b71c1c;
+}
+
+/* Numbered steps in guides */
+.section .container > ol {
+  list-style: none;
+  counter-reset: step;
+  padding-left: 0;
+}
+.section .container > ol > li {
+  counter-increment: step;
+  position: relative;
+  padding: 14px 16px 14px 60px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid rgba(15, 42, 107, 0.08);
+  box-shadow: var(--shadow-sm);
+}
+.section .container > ol > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--ramon-green), var(--ramon-teal));
+}
+
+/* Colored bullets in guides */
+.section .container > ul:not(.grid) {
+  list-style: none;
+  padding-left: 0;
+}
+.section .container > ul:not(.grid) > li {
+  position: relative;
+  padding-left: 28px;
+}
+.section .container > ul:not(.grid) > li::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0.6em;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ramon-yellow), var(--ramon-orange));
+}
+
+/* Tourism cards with illustrated headers */
+.tour-card {
+  padding-top: 0;
+}
+.tour-card-art {
+  margin: 0 -24px 16px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #fff;
+  background:
+    url('/assets/images/patterns/landscape.svg') bottom center / 160% auto no-repeat,
+    linear-gradient(180deg, #0f2a6b, #1e88e5);
+}
+.grid > .tour-card:nth-child(2) .tour-card-art {
+  background:
+    url('/assets/images/patterns/waves.svg') bottom / 240px 40px repeat-x,
+    linear-gradient(135deg, #0277bd, #26c6da);
+}
+.grid > .tour-card:nth-child(3) .tour-card-art {
+  background:
+    url('/assets/images/patterns/fields.svg') 0 0 / 120px,
+    linear-gradient(135deg, #2e7d32, #9ccc65);
+}
+.grid > .tour-card:nth-child(4) .tour-card-art {
+  background:
+    url('/assets/images/patterns/fields.svg') 0 0 / 120px,
+    linear-gradient(135deg, #558b2f, #f2c91d);
+}
+.grid > .tour-card:nth-child(5) .tour-card-art {
+  background:
+    url('/assets/images/patterns/waves.svg') bottom / 240px 40px repeat-x,
+    linear-gradient(135deg, #00695c, #4db6ac);
+}
+.grid > .tour-card .service-item-title i {
+  display: none;
+}
+
+/* Flowing river at the bottom of the home hero */
+.home-hero-v2::after {
+  display: block;
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: auto;
+  bottom: 6px;
+  width: auto;
+  height: 40px;
+  background: url('/assets/images/patterns/waves.svg') 0 0 / 240px 40px repeat-x;
+  opacity: 0.8;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .home-hero-v2::after {
+    animation: ramon-river 12s linear infinite;
+  }
+}
+@keyframes ramon-river {
+  to {
+    background-position: 240px 0;
+  }
+}
+
+/* Back to top */
+.back-to-top {
+  position: fixed;
+  right: 16px;
+  bottom: 20px;
+  z-index: 50;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--ramon-blue), var(--ramon-green));
+  box-shadow: var(--shadow-md);
+}
+.back-to-top:focus-visible,
+.want-tile:focus-visible,
+.deadline-card:focus-visible {
+  outline: 3px solid var(--ramon-yellow);
+  outline-offset: 2px;
+}
+
+/* Sticky header gets a soft glass look */
+.site-header {
+  backdrop-filter: saturate(160%) blur(8px);
+}

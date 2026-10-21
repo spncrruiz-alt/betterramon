@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import InfoBar from '@/components/layout/InfoBar';
 import Footer from '@/components/layout/Footer';
 import PWAManager from '@/components/PWAManager';
+import BackToTop from '@/components/BackToTop';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { lgu } from '@/data/ramon';
 
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main id="main-content">{children}</main>
           <Footer />
           <PWAManager />
+          <BackToTop />
         </LanguageProvider>
       </body>
     </html>

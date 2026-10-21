@@ -98,10 +98,11 @@ export default function TourismPage() {
     <PageShell page={page}>
       <div className="grid grid-2">
         {places.map((p) => (
-          <div key={p.name} className="service-item-card">
-            <h2 className="service-item-title">
-              <i className={`bi ${p.icon}`} aria-hidden="true"></i> {p.name}
-            </h2>
+          <div key={p.name} className="service-item-card tour-card">
+            <div className="tour-card-art" aria-hidden="true">
+              <i className={`bi ${p.icon}`}></i>
+            </div>
+            <h2 className="service-item-title">{p.name}</h2>
             <p>{p.text}</p>
           </div>
         ))}

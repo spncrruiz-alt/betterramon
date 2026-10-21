@@ -4,7 +4,6 @@ import { pages } from '@/data/pages';
 import { lgu } from '@/data/ramon';
 import type { ReactNode } from 'react';
 import L, { Tbv } from '@/components/L';
-import PhotoCredits from '@/components/PhotoCredits';
 
 const page = pageFor('/tourism', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -115,7 +114,6 @@ function Listing({
 const places = [
   {
     name: 'Magat Dam',
-    art: '/assets/images/home/magat-dam.webp',
     text: (
       <L
         en="One of the largest dams in the Philippines, inaugurated in 1982 and shared by Ramon and Alfonso Lista, Ifugao. Its 114-meter rock-fill wall holds an 11.7 km² reservoir that irrigates about 85,000 hectares and feeds a 360 MW hydropower plant. Reach it by tricycle from Ramon through Oscariz."
@@ -126,7 +124,6 @@ const places = [
   },
   {
     name: 'Magat Reservoir boat rides',
-    art: '/assets/images/home/reservoir.webp',
     text: (
       <L
         en="Boat rides on the lake behind the dam give wide views of the reservoir and the hills of Ifugao. The reservoir also hosts a floating solar power project."
@@ -137,7 +134,6 @@ const places = [
   },
   {
     name: 'Camp Vizcarra Ecology Park',
-    art: null,
     text: (
       <L
         en="A green space for picnics and nature walks near the dam area."
@@ -148,7 +144,6 @@ const places = [
   },
   {
     name: 'Rolling Hills of Ramon',
-    art: '/assets/images/home/rolling-hills.webp',
     text: (
       <L
         en="Grassy rolling hills with a view deck in Barangay Planas, west of the town center. A short hike rewards you with wide views and fresh air; best in the early morning or late afternoon."
@@ -159,7 +154,6 @@ const places = [
   },
   {
     name: 'Maris Dam',
-    art: null,
     text: (
       <L
         en="The smaller diversion dam of the Magat River Irrigation System, on the Ramon–Alfonso Lista boundary, where local fishers often cast their nets."
@@ -176,26 +170,11 @@ export default function TourismPage() {
       <div className="grid grid-2">
         {places.map((p) => (
           <div key={p.name} className="service-item-card tour-card">
-            {p.art && (
-              <div className="tour-photo">
-                <img
-                  className="tour-card-art"
-                  src={p.art}
-                  alt={p.name === 'Magat Reservoir boat rides' ? 'Magat Reservoir and surrounding hills' : p.name}
-                  loading="lazy"
-                  decoding="async"
-                  width="1400"
-                  height="1050"
-                />
-              </div>
-            )}
             <h2 className="service-item-title">{p.name}</h2>
             <p>{p.text}</p>
           </div>
         ))}
       </div>
-
-      <PhotoCredits />
 
       <h2>
         <L en="Resorts" fil="Mga resort" ilo="Dagiti resort" />
@@ -258,9 +237,9 @@ export default function TourismPage() {
 
       <p>
         <L
-          en="Know a place in Ramon that belongs here? Send it with a photo you own through our GitHub issues."
-          fil="May alam kang lugar sa Ramon na dapat narito? Ipadala ito kasama ang sarili mong larawan sa aming GitHub issues."
-          ilo="Adda ammom a lugar iti Ramon a rumbeng ditoy? Ipatulod daytoy agraman ti bukodmo a retrato iti GitHub issues mi."
+          en="Know a place in Ramon that belongs here? Send it through our GitHub issues."
+          fil="May alam kang lugar sa Ramon na dapat narito? Ipadala ito sa aming GitHub issues."
+          ilo="Adda ammom a lugar iti Ramon a rumbeng ditoy? Ipatulod daytoy iti GitHub issues mi."
         />
       </p>
     </PageShell>

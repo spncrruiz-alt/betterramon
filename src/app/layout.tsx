@@ -7,7 +7,7 @@ import PWAManager from '@/components/PWAManager';
 import { LanguageProvider } from '@/contexts/LanguageContext';
 
 export const viewport: Viewport = {
-  themeColor: '#0032a0',
+  themeColor: '#1d3f9e',
 };
 
 export const metadata: Metadata = {
@@ -54,6 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="stylesheet" href="/assets/css/responsive.css" />
         <link rel="stylesheet" href="/assets/css/accessibility.css" />
         <link rel="stylesheet" href="/assets/css/footer.css" />
+        <link rel="stylesheet" href="/assets/css/theme.css" />
       </head>
       <body>
         <LanguageProvider>

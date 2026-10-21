@@ -3,7 +3,7 @@
  * Enterprise-grade PWA with versioned caching, runtime strategies, and offline resilience.
  */
 
-var CACHE_VERSION = 'v3';
+var CACHE_VERSION = 'v4';
 var STATIC_CACHE = 'betterramon-static-' + CACHE_VERSION;
 var RUNTIME_CACHE = 'betterramon-runtime-' + CACHE_VERSION;
 var OFFLINE_URL = '/offline.html';
@@ -16,6 +16,7 @@ var PRECACHE_URLS = [
   '/assets/css/responsive.css',
   '/assets/css/footer.css',
   '/assets/css/accessibility.css',
+  '/assets/css/theme.css',
   '/assets/images/logo/better-ramon-logo.svg',
   '/assets/images/logo/better-ramon-logo-white.svg',
   '/assets/images/logo/favicon.svg',

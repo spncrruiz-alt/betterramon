@@ -1,0 +1,214 @@
+/* BetterRamon theme: colors and patterns drawn from the Ramon seal
+   (Magat Dam, river, rice fields, gear). Loaded after the base styles. */
+
+:root {
+  --ramon-blue: #1d3f9e;
+  --ramon-blue-deep: #0f2a6b;
+  --ramon-green: #0b8a4f;
+  --ramon-green-deep: #06603a;
+  --ramon-yellow: #f2c91d;
+  --ramon-red: #d62828;
+  --ramon-sky: #e8f4fb;
+  --color-primary: var(--ramon-blue);
+  --color-primary-dark: var(--ramon-blue-deep);
+  --color-secondary: var(--ramon-green);
+  --border-radius: 14px;
+  --shadow-sm: 0 1px 2px rgba(15, 42, 107, 0.06), 0 2px 8px rgba(15, 42, 107, 0.05);
+  --shadow-md: 0 6px 24px rgba(15, 42, 107, 0.12);
+  --ramon-gradient: linear-gradient(
+    125deg,
+    var(--ramon-blue-deep) 0%,
+    var(--ramon-blue) 45%,
+    var(--ramon-green) 100%
+  );
+  /* Set to url('/assets/images/hero.jpg') to put a photo behind the hero. */
+  --hero-photo: none;
+}
+
+/* Hero and page headers: dam-to-fields gradient with river waves and field lines */
+.home-hero-v2,
+.page-header {
+  position: relative;
+  overflow: hidden;
+  background:
+    url('/assets/images/patterns/waves.svg') bottom / 240px 40px repeat-x,
+    url('/assets/images/patterns/fields.svg') 0 0 / 160px 160px,
+    linear-gradient(
+      125deg,
+      rgba(15, 42, 107, 0.92),
+      rgba(29, 63, 158, 0.85) 45%,
+      rgba(11, 138, 79, 0.88)
+    ),
+    var(--hero-photo) center / cover no-repeat,
+    var(--ramon-blue);
+}
+
+.home-hero-v2::after,
+.page-header::after {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -120px;
+  top: -140px;
+  background: url('/assets/images/patterns/gear.svg') center / contain no-repeat;
+  pointer-events: none;
+}
+
+.home-hero-v2 > *,
+.page-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Thin seal-colored stripe under heroes */
+.home-hero-v2::before,
+.page-header::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  z-index: 2;
+  background: linear-gradient(
+    90deg,
+    var(--ramon-blue) 0 33%,
+    var(--ramon-yellow) 33% 66%,
+    var(--ramon-red) 66%
+  );
+}
+
+/* Section headings get a short seal-colored underline */
+.home-section-header h2,
+.home-stats-v2-header h2,
+.section .container > h2 {
+  position: relative;
+  padding-bottom: 10px;
+}
+.home-section-header h2::after,
+.home-stats-v2-header h2::after,
+.section .container > h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 48px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--ramon-green), var(--ramon-yellow));
+}
+
+/* Tinted sections instead of flat gray */
+.home-stats-v2,
+.bg-alt {
+  background:
+    url('/assets/images/patterns/waves-light.svg') bottom / 240px 40px repeat-x,
+    linear-gradient(180deg, var(--ramon-sky), #f3faf6);
+}
+
+/* Cards: rounded, soft shadow, accent bar, gentle lift on hover */
+.home-service-card,
+.home-stat-card,
+.home-leader-card,
+.home-contact-v2-card,
+.service-item-card,
+.map-card {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(15, 42, 107, 0.08);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.home-service-card,
+.home-stat-card,
+.service-item-card {
+  position: relative;
+  overflow: hidden;
+}
+.home-service-card::before,
+.home-stat-card::before,
+.service-item-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--ramon-blue), var(--ramon-green));
+}
+
+a.home-service-card:hover,
+a.service-item-card:hover,
+.home-stat-card:hover,
+.home-leader-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.home-leader-badge,
+.page-header-badge {
+  background: var(--ramon-yellow);
+  color: var(--ramon-blue-deep);
+}
+
+/* Tables used on statistics and contact pages */
+.section table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.section th,
+.section td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid rgba(15, 42, 107, 0.08);
+}
+.section thead th {
+  background: var(--ramon-blue);
+  color: #fff;
+}
+.section tbody tr:nth-child(even) {
+  background: #f6f9fd;
+}
+
+/* Footer: deep green-navy with river waves */
+.site-footer {
+  background:
+    url('/assets/images/patterns/waves.svg') top / 240px 40px repeat-x,
+    linear-gradient(160deg, #0b1f4d 0%, #062b25 100%);
+}
+
+/* Hotline bar keeps its emergency red but gains depth */
+.hotline-bar {
+  background: linear-gradient(90deg, #b51f1f, var(--ramon-red));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-service-card,
+  .home-stat-card,
+  .home-leader-card,
+  .service-item-card {
+    transition: none;
+  }
+  a.home-service-card:hover,
+  a.service-item-card:hover,
+  .home-stat-card:hover,
+  .home-leader-card:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-hero-v2::after,
+  .page-header::after {
+    width: 260px;
+    height: 260px;
+    right: -100px;
+    top: -90px;
+  }
+}

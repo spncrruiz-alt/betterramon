@@ -5,12 +5,14 @@ import InfoBar from '@/components/layout/InfoBar';
 import Footer from '@/components/layout/Footer';
 import PWAManager from '@/components/PWAManager';
 import { LanguageProvider } from '@/contexts/LanguageContext';
+import { lgu } from '@/data/ramon';
 
 export const viewport: Viewport = {
   themeColor: '#1d3f9e',
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL(lgu.site),
   title: {
     default: 'BetterRamon.org | Community Portal for Ramon, Isabela',
     template: '%s | BetterRamon.org',
@@ -21,7 +23,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_PH',
-    url: 'https://betterramon.org/',
+    url: '/',
+    images: [
+      {
+        url: '/assets/images/banners/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'BetterRamon.org',
+      },
+    ],
     siteName: 'BetterRamon.org',
     title: 'BetterRamon.org | Community Portal for Ramon, Isabela',
     description: 'Empowering the people of Ramon with transparent access to services.',

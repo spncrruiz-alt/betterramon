@@ -17,7 +17,8 @@ export const lgu = {
   zip: '3319', // PhilAtlas
   // Municipal center, PhilAtlas
   coords: { lat: 16.7815, lon: 121.5351 },
-  site: 'https://betterramon.org',
+  // Live address; switch to https://betterramon.org once that domain is registered.
+  site: 'https://betterramon.pages.dev',
   repo: 'https://github.com/spncrruiz-alt/betterramon',
   officialSite: null as string | null,
   // Official page of the LGU Public Information Office (the LGU has no website).

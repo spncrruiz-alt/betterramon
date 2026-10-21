@@ -327,7 +327,7 @@ a.home-service-card--all:hover .home-service-arrow { color: #fff; }
 
 /* About: history as a vertical timeline */
 .section .container > ul.history-timeline { position: relative; list-style: none; padding: 0 0 0 32px; margin: 8px 0 40px; }
-.history-timeline::before { content: ''; position: absolute; left: 8px; top: 10px; bottom: 10px; width: 2px; background: var(--line); }
+.history-timeline::before { content: ''; position: absolute; left: 8px; top: 10px; bottom: 10px; width: 2px; background: #c7d2fe; }
 .section .container > ul.history-timeline li { position: relative; margin: 0 0 14px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--border-radius); box-shadow: var(--shadow-sm); line-height: 1.7; color: #334155; }
 .history-timeline li::before { content: ''; position: absolute; left: -30px; top: 22px; width: 14px; height: 14px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); }
 .history-timeline li:last-child { margin-bottom: 0; }

@@ -114,8 +114,8 @@ function Listing({
 const places = [
   {
     name: 'Magat Dam',
-    // Swap for a .jpg you own in the same folder to show a real photo.
-    art: '/assets/images/places/magat-dam.svg',
+    art: '/assets/images/places/magat-dam.webp',
+    photo: 'Magat Dam wide (Ramon, Isabela; 11-24-2022).jpg',
     text: (
       <L
         en="One of the largest dams in the Philippines, inaugurated in 1982 and shared by Ramon and Alfonso Lista, Ifugao. Its 114-meter rock-fill wall holds an 11.7 km² reservoir that irrigates about 85,000 hectares and feeds a 360 MW hydropower plant. Reach it by tricycle from Ramon through Oscariz."
@@ -126,8 +126,8 @@ const places = [
   },
   {
     name: 'Magat Reservoir boat rides',
-    // Swap for a .jpg you own in the same folder to show a real photo.
-    art: '/assets/images/places/reservoir.svg',
+    art: '/assets/images/places/reservoir.webp',
+    photo: 'Magat Dam reservoir (Ramon, Isabela; 11-24-2022).jpg',
     text: (
       <L
         en="Boat rides on the lake behind the dam give wide views of the reservoir and the hills of Ifugao. The reservoir also hosts a floating solar power project."
@@ -138,8 +138,8 @@ const places = [
   },
   {
     name: 'Camp Vizcarra Ecology Park',
-    // Swap for a .jpg you own in the same folder to show a real photo.
-    art: '/assets/images/places/ecology-park.svg',
+    art: null,
+    photo: null,
     text: (
       <L
         en="A green space for picnics and nature walks near the dam area."
@@ -150,8 +150,8 @@ const places = [
   },
   {
     name: 'Rolling Hills of Ramon',
-    // Swap for a .jpg you own in the same folder to show a real photo.
-    art: '/assets/images/places/rolling-hills.svg',
+    art: '/assets/images/places/rolling-hills.webp',
+    photo: 'Ramon Isabela rolling hills (Ramon, Isabela; 11-24-2022).jpg',
     text: (
       <L
         en="Grassy rolling hills with a view deck in Barangay Planas, west of the town center. A short hike rewards you with wide views and fresh air; best in the early morning or late afternoon."
@@ -162,8 +162,8 @@ const places = [
   },
   {
     name: 'Maris Dam',
-    // Swap for a .jpg you own in the same folder to show a real photo.
-    art: '/assets/images/places/maris-dam.svg',
+    art: null,
+    photo: null,
     text: (
       <L
         en="The smaller diversion dam of the Magat River Irrigation System, on the Ramon–Alfonso Lista boundary, where local fishers often cast their nets."
@@ -177,17 +177,36 @@ const places = [
 export default function TourismPage() {
   return (
     <PageShell page={page}>
-      <div className="grid grid-2">
-        {places.map((p) => (
+      <div className="grid grid-2 tourism-places">
+        {places.filter((p) => p.art).map((p) => (
           <div key={p.name} className="service-item-card tour-card">
-            <img
-              className="tour-card-art"
-              src={p.art}
-              alt=""
-              loading="lazy"
-              width="600"
-              height="300"
-            />
+            <figure className="tour-photo">
+              <img
+                className="tour-card-art"
+                src={p.art!}
+                alt={p.name === 'Magat Reservoir boat rides' ? 'Water and surrounding hills of Magat Reservoir' : p.name}
+                loading="lazy"
+                decoding="async"
+                width="1400"
+                height="1050"
+              />
+              <figcaption>
+                <a href={`https://commons.wikimedia.org/wiki/File:${encodeURIComponent(p.photo!)}`} target="_blank" rel="noopener noreferrer">
+                  Photo: Patrickroque01
+                </a>
+                {' · '}<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>
+                {' · '}<L en="Resized; display cropped" fil="Binago ang laki; naka-crop" ilo="Nabaliwan ti kadakkel; na-crop" />
+              </figcaption>
+            </figure>
+            <h2 className="service-item-title">{p.name}</h2>
+            <p>{p.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <div className="grid grid-2 tourism-more">
+        {places.filter((p) => !p.art).map((p) => (
+          <div key={p.name} className="service-item-card">
             <h2 className="service-item-title">{p.name}</h2>
             <p>{p.text}</p>
           </div>

@@ -166,22 +166,40 @@ const places = [
 
 export default function TourismPage() {
   return (
+    <div className="tourism-page">
     <PageShell page={page}>
-      <div className="grid grid-2">
-        {places.map((p) => (
-          <div key={p.name} className="service-item-card tour-card">
-            <h2 className="service-item-title">{p.name}</h2>
-            <p>{p.text}</p>
-          </div>
+      <nav className="tourism-jump-links" aria-label="Tourism sections">
+        <a href="#places"><L en="Places to explore" fil="Mga pasyalan" ilo="Dagiti pagpasiaran" /></a>
+        <a href="#resorts"><L en="Resorts" fil="Mga resort" ilo="Dagiti resort" /></a>
+        <a href="#food"><L en="Where to eat" fil="Saan kakain" ilo="Sadino ti pangan" /></a>
+        <a href="#visit"><L en="Before you go" fil="Bago pumunta" ilo="Sakbay a mapan" /></a>
+      </nav>
+      <section id="places" className="tourism-block" aria-labelledby="places-title">
+      <h2 id="places-title" className="tourism-section-title"><L en="Places to explore" fil="Mga pasyalan" ilo="Dagiti pagpasiaran" /></h2>
+      <div className="tourism-places">
+        {places.map((p, index) => (
+          <article key={p.name} className="tourism-place">
+            <span className="tourism-place-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>{p.name}</h3>
+              <p>{p.text}</p>
+            </div>
+          </article>
         ))}
       </div>
 
-      <h2>
+      </section>
+
+      <section id="resorts" className="tourism-block tourism-resorts" aria-labelledby="resorts-title">
+      <h2 id="resorts-title" className="tourism-section-title">
         <L en="Resorts" fil="Mga resort" ilo="Dagiti resort" />
       </h2>
       <Listing items={resorts} icon="bi-water" />
 
-      <h2>
+      </section>
+
+      <section id="food" className="tourism-block tourism-food" aria-labelledby="food-title">
+      <h2 id="food-title" className="tourism-section-title">
         <L en="Where to eat" fil="Saan kakain" ilo="Sadino ti pangan" />
       </h2>
       <Listing items={food} icon="bi-egg-fried" />
@@ -195,7 +213,10 @@ export default function TourismPage() {
         </small>
       </p>
 
-      <h2>
+      </section>
+
+      <section id="visit" className="tourism-block tourism-visit" aria-labelledby="visit-title">
+      <h2 id="visit-title" className="tourism-section-title">
         <L en="Before you go" fil="Bago pumunta" ilo="Sakbay a mapan" />
       </h2>
       <ul>
@@ -242,6 +263,8 @@ export default function TourismPage() {
           ilo="Adda ammom a lugar iti Ramon a rumbeng ditoy? Ipatulod daytoy iti GitHub issues mi."
         />
       </p>
+      </section>
     </PageShell>
+    </div>
   );
 }

@@ -15,12 +15,24 @@ export default function HomePage() {
     <>
       {/* Hero Section */}
       <section className="home-hero-v2">
-        <img className="home-hero-photo" src="/assets/images/home/reservoir.webp" alt="" width="1400" height="1050" fetchPriority="high" />
+        <img
+          className="home-hero-photo"
+          src="/assets/images/home/reservoir.webp"
+          alt=""
+          width="1400"
+          height="1050"
+          fetchPriority="high"
+        />
         <div className="container">
           <div className="home-hero-v2-inner">
             <div className="home-hero-v2-text">
-              <span className="home-eyebrow"><L en="Community information · Isabela" fil="Impormasyon ng komunidad · Isabela" ilo="Impormasion ti komunidad · Isabela" /></span>
-              <h1><L en="Your guide to Ramon." fil="Ang iyong gabay sa Ramon." ilo="Ti giya mo iti Ramon." /></h1>
+              <h1>
+                <L
+                  en="Your guide to Ramon."
+                  fil="Ang iyong gabay sa Ramon."
+                  ilo="Ti giya mo iti Ramon."
+                />
+              </h1>
               <p>{t('hero-subtitle')}</p>
               <div className="home-hero-v2-actions">
                 <Link href="/services" className="btn btn-primary">
@@ -220,22 +232,52 @@ export default function HomePage() {
             <h2>{t('stats-at-a-glance')}</h2>
           </div>
           <div className="home-stats-v2-grid">
+            {/* Only verified figures show here; unverified ones stay on the Statistics page. */}
             {[
-              { icon: 'bi-people-fill', label: 'stats-population-label', stat: stats.population },
-              { icon: 'bi-geo-alt-fill', label: 'stats-barangays-label', stat: stats.barangays },
-              { icon: 'bi-award-fill', label: 'stats-municipality-label', stat: stats.incomeClass },
-              { icon: 'bi-rulers', label: 'stats-land-area-label', stat: stats.landArea },
-            ].map(({ icon, label, stat }) => (
-              <div className="home-stat-card" key={label}>
-                <div className="home-stat-card-icon">
-                  <i className={`bi ${icon}`}></i>
+              {
+                icon: 'bi-people-fill',
+                label: <L en="Population" fil="Populasyon" ilo="Populasion" />,
+                value: stats.population.value,
+              },
+              {
+                icon: 'bi-geo-alt-fill',
+                label: <L en="Barangays" fil="Barangay" ilo="Barangay" />,
+                value: stats.barangays.value,
+              },
+              {
+                icon: 'bi-award-fill',
+                label: <L en="Income class" fil="Klase ng kita" ilo="Klase ti sapul" />,
+                value: stats.incomeClass.value,
+              },
+              {
+                icon: 'bi-rulers',
+                label: <L en="Land area" fil="Lawak ng lupa" ilo="Kalawa ti daga" />,
+                value: stats.landArea.value,
+              },
+              {
+                icon: 'bi-mailbox2',
+                label: <L en="ZIP code" fil="ZIP code" ilo="ZIP code" />,
+                value: lgu.zip,
+              },
+              {
+                icon: 'bi-water',
+                label: <L en="Home of" fil="Tahanan ng" ilo="Pagtaengan ti" />,
+                value: 'Magat Dam',
+              },
+            ]
+              .filter((s) => s.value)
+              .slice(0, 4)
+              .map(({ icon, label, value }) => (
+                <div className="home-stat-card" key={icon}>
+                  <div className="home-stat-card-icon">
+                    <i className={`bi ${icon}`}></i>
+                  </div>
+                  <div className="home-stat-card-content">
+                    <span className="home-stat-card-value">{value}</span>
+                    <span className="home-stat-card-label">{label}</span>
+                  </div>
                 </div>
-                <div className="home-stat-card-content">
-                  <span className="home-stat-card-value">{stat.value ?? <Tbv />}</span>
-                  <span className="home-stat-card-label">{t(label)}</span>
-                </div>
-              </div>
-            ))}
+              ))}
           </div>
         </div>
       </section>

@@ -120,7 +120,7 @@ a.service-item-card .service-item-title { color: var(--ramon-blue); }
 .discover-card:hover { color: #fff; text-decoration: none; }
 .discover-card h3 { color: #fff; margin: 12px 0 8px; font-size: 1.4rem; }
 .discover-card p { margin: 0; color: #f1f5f8; }
-.discover-tag { align-self: flex-start; padding: 4px 9px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.35); border-radius: 4px; font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; }
+.discover-tag { align-self: flex-start; padding: 4px 9px; background: rgba(255,255,255,.16); border: 1px solid rgba(255,255,255,.35); border-radius: 4px; font-size: .7rem; letter-spacing: .02em; }
 .home-photo-credits { margin-top: 16px; color: #596b7b; font-size: .75rem; line-height: 1.8; }
 .home-photo-credits a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
 
@@ -201,7 +201,6 @@ a.service-item-card .service-item-title { color: var(--ramon-blue); }
 .home-section-header { text-align: left; margin-bottom: 28px; }
 .home-section-header h2, .home-stats-v2-header h2 { font-size: clamp(1.5rem, 2.8vw, 1.9rem); font-weight: 600; letter-spacing: -.03em; }
 .home-section-header p { margin-top: 8px; font-size: .95rem; }
-.home-eyebrow { display: block; font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: #d1e1db; margin-bottom: 20px; font-weight: 600; }
 .home-hero-v2-text { text-align: left; }
 .home-hero-v2-actions { justify-content: flex-start; }
 .home-search-box { border-radius: 4px; box-shadow: none; padding: 28px; background: #f5f6f2; border: 1px solid #d6dfda; }
@@ -258,7 +257,7 @@ a.service-item-card:hover { background: #edf2ec; box-shadow: none; border-color:
 /* Service directory: useful shortcuts beside a continuous, scannable list. */
 .service-directory-layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 48px; align-items: start; }
 .service-directory-aside { padding: 28px 24px; background: #dbe5df; border-top: 3px solid #255963; }
-.service-directory-aside h2 { margin: 0 0 18px; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: #294b4c; }
+.service-directory-aside h2 { margin: 0 0 18px; font-size: .95rem; font-weight: 700; color: #294b4c; }
 .service-directory-aside a { display: block; padding: 12px 0; border-bottom: 1px solid #bacdc2; font-size: .9rem; font-weight: 500; color: #244750; }
 .service-directory-aside a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .service-directory-aside .directory-help { margin-top: 30px; }
@@ -288,7 +287,6 @@ a.service-item-card:hover { background: #edf2ec; box-shadow: none; border-color:
 .tourism-section-title { font-size: 1.6rem; font-weight: 600; margin: 0 0 24px; color: #203943; }
 .tourism-places { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 40px; }
 .tourism-place { display: flex; gap: 24px; padding: 28px 0; border-bottom: 1px solid #bccac4; min-width: 0; }
-.tourism-place-number { font-size: .8rem; color: #4d7272; font-variant-numeric: tabular-nums; padding-top: 4px; }
 .tourism-place h3 { font-size: 1.15rem; font-weight: 600; margin: 0 0 12px; color: #203943; }
 .tourism-place p { font-size: .94rem; line-height: 1.8; margin: 0; color: #4e6369; }
 .tourism-place:first-child { grid-column: 1 / -1; background: #dbe5df; padding: 32px; border: 0; margin-bottom: 12px; }
@@ -308,3 +306,8 @@ a.service-item-card:hover { background: #edf2ec; box-shadow: none; border-color:
   .want-tile { flex-direction: row; align-items: center; }
   .home-stats-v2 .home-stat-card { padding: 12px 16px; }
 }
+
+/* Footer: sentence-case headings and a labelled BetterGov.ph mark */
+.footer-column h4 { text-transform: none; letter-spacing: 0; font-size: .95rem; color: rgba(255,255,255,.72); }
+.footer-partners { display: flex; align-items: center; gap: 10px; }
+.footer-partner-label { font-size: .85rem; color: rgba(255,255,255,.62); }

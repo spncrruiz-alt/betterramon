@@ -6,7 +6,7 @@ import { useState, useEffect, useCallback } from 'react';
 
 export default function InfoBar() {
   const [rate, setRate] = useState('1 USD = ₱ --');
-  const [temp, setTemp] = useState('--°C');
+  const [temp, setTemp] = useState('');
   const [dateStr, setDateStr] = useState('--- --, ----');
   const [timeStr, setTimeStr] = useState('--:-- --');
 
@@ -70,11 +70,13 @@ export default function InfoBar() {
               <span className="rate-display">{rate}</span>
             </span>
           </div>
-          <div className="info-bar-item info-bar-weather" aria-label="Current weather in Ramon">
-            <i className="bi bi-thermometer-half" aria-hidden="true" />
-            <span className="weather-location">Ramon</span>
-            <span className="weather-temp">{temp}</span>
-          </div>
+          {temp && (
+            <div className="info-bar-item info-bar-weather" aria-label="Current weather in Ramon">
+              <i className="bi bi-thermometer-half" aria-hidden="true" />
+              <span className="weather-location">Ramon</span>
+              <span className="weather-temp">{temp}</span>
+            </div>
+          )}
           <div className="info-bar-item info-bar-datetime" aria-label="Philippine Date and Time">
             <i className="bi bi-calendar3" aria-hidden="true" />
             <span className="date-value">{dateStr}</span>

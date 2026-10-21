@@ -167,104 +167,114 @@ const places = [
 export default function TourismPage() {
   return (
     <div className="tourism-page">
-    <PageShell page={page}>
-      <nav className="tourism-jump-links" aria-label="Tourism sections">
-        <a href="#places"><L en="Places to explore" fil="Mga pasyalan" ilo="Dagiti pagpasiaran" /></a>
-        <a href="#resorts"><L en="Resorts" fil="Mga resort" ilo="Dagiti resort" /></a>
-        <a href="#food"><L en="Where to eat" fil="Saan kakain" ilo="Sadino ti pangan" /></a>
-        <a href="#visit"><L en="Before you go" fil="Bago pumunta" ilo="Sakbay a mapan" /></a>
-      </nav>
-      <section id="places" className="tourism-block" aria-labelledby="places-title">
-      <h2 id="places-title" className="tourism-section-title"><L en="Places to explore" fil="Mga pasyalan" ilo="Dagiti pagpasiaran" /></h2>
-      <div className="tourism-places">
-        {places.map((p, index) => (
-          <article key={p.name} className="tourism-place">
-            <span className="tourism-place-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-            <div>
-              <h3>{p.name}</h3>
-              <p>{p.text}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      </section>
-
-      <section id="resorts" className="tourism-block tourism-resorts" aria-labelledby="resorts-title">
-      <h2 id="resorts-title" className="tourism-section-title">
-        <L en="Resorts" fil="Mga resort" ilo="Dagiti resort" />
-      </h2>
-      <Listing items={resorts} icon="bi-water" />
-
-      </section>
-
-      <section id="food" className="tourism-block tourism-food" aria-labelledby="food-title">
-      <h2 id="food-title" className="tourism-section-title">
-        <L en="Where to eat" fil="Saan kakain" ilo="Sadino ti pangan" />
-      </h2>
-      <Listing items={food} icon="bi-egg-fried" />
-      <p>
-        <small>
-          <L
-            en="Resorts and restaurants are listed for convenience, not endorsed or ranked. Check rates, hours and bookings with each place directly. Own a place in Ramon? Ask us to add it."
-            fil="Nakalista ang mga resort at kainan para sa kaginhawaan, hindi inirerekomenda o niraranggo. Alamin ang presyo, oras at booking sa mismong lugar. May negosyo ka sa Ramon? Ipaalam sa amin para maidagdag."
-            ilo="Nailista dagiti resort ken pagmanganan para iti kombeniensia, saan nga irekomenda wenno iranggo. Saludsoden ti presio, oras ken booking iti mismo a lugar. Adda negosiom iti Ramon? Ipakaammom kadakami tapno mainayon."
-          />
-        </small>
-      </p>
-
-      </section>
-
-      <section id="visit" className="tourism-block tourism-visit" aria-labelledby="visit-title">
-      <h2 id="visit-title" className="tourism-section-title">
-        <L en="Before you go" fil="Bago pumunta" ilo="Sakbay a mapan" />
-      </h2>
-      <ul>
-        <li>
-          <L
-            en="Access rules, hours and fees for the dam area are set by NIA and the plant operator and can change. Ramon-specific visitor rules:"
-            fil="Ang patakaran, oras at bayad sa lugar ng dam ay itinatakda ng NIA at ng operator ng planta at maaaring magbago. Mga patakaran para sa bisita sa Ramon:"
-            ilo="Dagiti pagannurotan, oras ken bayad iti lugar ti dam ket ikeddeng ti NIA ken ti operator ti planta ken mabalin nga agbaliw. Dagiti pagannurotan para kadagiti bisita iti Ramon:"
-          />{' '}
-          <Tbv />.
-        </li>
-        <li>
-          <L
-            en="Respect restricted areas around the spillway, intake gates and power plant."
-            fil="Igalang ang mga bawal na lugar sa paligid ng spillway, intake gate at power plant."
-            ilo="Raemen dagiti maiparit a lugar iti aglawlaw ti spillway, intake gate ken power plant."
-          />
-        </li>
-        <li>
-          <L
-            en="For updates and events, follow"
-            fil="Para sa balita at kaganapan, i-follow ang"
-            ilo="Para kadagiti damag ken pasamak, i-follow ti"
-          />{' '}
-          <a href={lgu.officialFacebook ?? '#'} target="_blank" rel="noopener noreferrer">
-            PIO Ramon, Isabela (Facebook)
+      <PageShell page={page}>
+        <nav className="tourism-jump-links" aria-label="Tourism sections">
+          <a href="#places">
+            <L en="Places to explore" fil="Mga pasyalan" ilo="Dagiti pagpasiaran" />
           </a>
-          .
-        </li>
-        <li>
-          <L
-            en="Town fiesta and festival dates:"
-            fil="Petsa ng pista at festival ng bayan:"
-            ilo="Petsa ti fiesta ken festival ti ili:"
-          />{' '}
-          <Tbv />.
-        </li>
-      </ul>
+          <a href="#resorts">
+            <L en="Resorts" fil="Mga resort" ilo="Dagiti resort" />
+          </a>
+          <a href="#food">
+            <L en="Where to eat" fil="Saan kakain" ilo="Sadino ti pangan" />
+          </a>
+          <a href="#visit">
+            <L en="Before you go" fil="Bago pumunta" ilo="Sakbay a mapan" />
+          </a>
+        </nav>
+        <section id="places" className="tourism-block" aria-labelledby="places-title">
+          <h2 id="places-title" className="tourism-section-title">
+            <L en="Places to explore" fil="Mga pasyalan" ilo="Dagiti pagpasiaran" />
+          </h2>
+          <div className="tourism-places">
+            {places.map((p) => (
+              <article key={p.name} className="tourism-place">
+                <div>
+                  <h3>{p.name}</h3>
+                  <p>{p.text}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
-      <p>
-        <L
-          en="Know a place in Ramon that belongs here? Send it through our GitHub issues."
-          fil="May alam kang lugar sa Ramon na dapat narito? Ipadala ito sa aming GitHub issues."
-          ilo="Adda ammom a lugar iti Ramon a rumbeng ditoy? Ipatulod daytoy iti GitHub issues mi."
-        />
-      </p>
-      </section>
-    </PageShell>
+        <section
+          id="resorts"
+          className="tourism-block tourism-resorts"
+          aria-labelledby="resorts-title"
+        >
+          <h2 id="resorts-title" className="tourism-section-title">
+            <L en="Resorts" fil="Mga resort" ilo="Dagiti resort" />
+          </h2>
+          <Listing items={resorts} icon="bi-water" />
+        </section>
+
+        <section id="food" className="tourism-block tourism-food" aria-labelledby="food-title">
+          <h2 id="food-title" className="tourism-section-title">
+            <L en="Where to eat" fil="Saan kakain" ilo="Sadino ti pangan" />
+          </h2>
+          <Listing items={food} icon="bi-egg-fried" />
+          <p>
+            <small>
+              <L
+                en="Resorts and restaurants are listed for convenience, not endorsed or ranked. Check rates, hours and bookings with each place directly. Own a place in Ramon? Ask us to add it."
+                fil="Nakalista ang mga resort at kainan para sa kaginhawaan, hindi inirerekomenda o niraranggo. Alamin ang presyo, oras at booking sa mismong lugar. May negosyo ka sa Ramon? Ipaalam sa amin para maidagdag."
+                ilo="Nailista dagiti resort ken pagmanganan para iti kombeniensia, saan nga irekomenda wenno iranggo. Saludsoden ti presio, oras ken booking iti mismo a lugar. Adda negosiom iti Ramon? Ipakaammom kadakami tapno mainayon."
+              />
+            </small>
+          </p>
+        </section>
+
+        <section id="visit" className="tourism-block tourism-visit" aria-labelledby="visit-title">
+          <h2 id="visit-title" className="tourism-section-title">
+            <L en="Before you go" fil="Bago pumunta" ilo="Sakbay a mapan" />
+          </h2>
+          <ul>
+            <li>
+              <L
+                en="Access rules, hours and fees for the dam area are set by NIA and the plant operator and can change. Ramon-specific visitor rules:"
+                fil="Ang patakaran, oras at bayad sa lugar ng dam ay itinatakda ng NIA at ng operator ng planta at maaaring magbago. Mga patakaran para sa bisita sa Ramon:"
+                ilo="Dagiti pagannurotan, oras ken bayad iti lugar ti dam ket ikeddeng ti NIA ken ti operator ti planta ken mabalin nga agbaliw. Dagiti pagannurotan para kadagiti bisita iti Ramon:"
+              />{' '}
+              <Tbv />.
+            </li>
+            <li>
+              <L
+                en="Respect restricted areas around the spillway, intake gates and power plant."
+                fil="Igalang ang mga bawal na lugar sa paligid ng spillway, intake gate at power plant."
+                ilo="Raemen dagiti maiparit a lugar iti aglawlaw ti spillway, intake gate ken power plant."
+              />
+            </li>
+            <li>
+              <L
+                en="For updates and events, follow"
+                fil="Para sa balita at kaganapan, i-follow ang"
+                ilo="Para kadagiti damag ken pasamak, i-follow ti"
+              />{' '}
+              <a href={lgu.officialFacebook ?? '#'} target="_blank" rel="noopener noreferrer">
+                PIO Ramon, Isabela (Facebook)
+              </a>
+              .
+            </li>
+            <li>
+              <L
+                en="Town fiesta and festival dates:"
+                fil="Petsa ng pista at festival ng bayan:"
+                ilo="Petsa ti fiesta ken festival ti ili:"
+              />{' '}
+              <Tbv />.
+            </li>
+          </ul>
+
+          <p>
+            <L
+              en="Know a place in Ramon that belongs here? Send it through our GitHub issues."
+              fil="May alam kang lugar sa Ramon na dapat narito? Ipadala ito sa aming GitHub issues."
+              ilo="Adda ammom a lugar iti Ramon a rumbeng ditoy? Ipatulod daytoy iti GitHub issues mi."
+            />
+          </p>
+        </section>
+      </PageShell>
     </div>
   );
 }

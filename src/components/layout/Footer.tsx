@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import L from '@/components/L';
 import { lgu } from '@/data/ramon';
 
 export default function Footer() {
@@ -92,6 +93,9 @@ export default function Footer() {
               <i className="bi bi-github"></i> {t('footer-contribute')}
             </a>
             <div className="footer-partners">
+              <span className="footer-partner-label">
+                <L en="Part of the" fil="Bahagi ng" ilo="Paset ti" />
+              </span>
               <a
                 href="https://bettergov.ph"
                 target="_blank"

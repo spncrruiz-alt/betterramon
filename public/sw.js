@@ -3,7 +3,7 @@
  * Enterprise-grade PWA with versioned caching, runtime strategies, and offline resilience.
  */
 
-var CACHE_VERSION = 'v17';
+var CACHE_VERSION = 'v20';
 var STATIC_CACHE = 'betterramon-static-' + CACHE_VERSION;
 var RUNTIME_CACHE = 'betterramon-runtime-' + CACHE_VERSION;
 var OFFLINE_URL = '/offline.html';

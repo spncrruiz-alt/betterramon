@@ -14,3 +14,11 @@ assert.deepEqual(searchPages('build perm', pages).map((p) => p.path), ['/c']);
 assert.deepEqual(searchPages('xyz', pages), []);
 assert.deepEqual(searchPages('   ', pages), []);
 console.log('search ok');
+
+// Deadlines self-check
+import { upcoming } from '../src/lib/deadlines.ts';
+const oct21 = upcoming(new Date(2026, 9, 21));
+assert.deepEqual(oct21.map((d) => d.daysLeft), [71, 91, 130]); // Dec 31, Jan 20, Feb 28 (2027)
+assert.equal(oct21[1].due.getUTCFullYear(), 2027);
+assert.equal(upcoming(new Date(2026, 2, 31))[0].daysLeft, 0); // due today counts
+console.log('deadlines ok');

@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import SearchAutocomplete from '@/components/SearchAutocomplete';
+import Deadlines from '@/components/Deadlines';
 import { lgu, stats, officials, contact, TBV } from '@/data/ramon';
 
 export default function HomePage() {
@@ -45,6 +46,53 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* I want to... */}
+      <section className="section want-section">
+        <div className="container">
+          <div className="home-section-header">
+            <h2>I want to&hellip;</h2>
+          </div>
+          <div className="want-grid">
+            {[
+              {
+                href: '/services/tax-payments',
+                icon: 'bi-house-check-fill',
+                label: 'Pay amilyar (property tax)',
+              },
+              {
+                href: '/services/tax-payments',
+                icon: 'bi-person-vcard-fill',
+                label: 'Get a cedula',
+              },
+              { href: '/services/business', icon: 'bi-shop', label: 'Start or renew a business' },
+              {
+                href: '/services/certificates',
+                icon: 'bi-file-earmark-person-fill',
+                label: 'Get a birth certificate',
+              },
+              { href: '/services/building-permits', icon: 'bi-bricks', label: 'Build or renovate' },
+              {
+                href: '/services/social-services',
+                icon: 'bi-person-heart',
+                label: 'Get a senior, PWD or solo parent ID',
+              },
+              { href: '/contact', icon: 'bi-telephone-outbound-fill', label: 'Call for help' },
+              { href: '/tourism', icon: 'bi-compass-fill', label: 'Explore Ramon' },
+            ].map((w) => (
+              <Link key={w.label} href={w.href} className="want-tile">
+                <i className={`bi ${w.icon}`} aria-hidden="true"></i>
+                <span>{w.label}</span>
+              </Link>
+            ))}
+          </div>
+
+          <h3 className="deadlines-heading">
+            <i className="bi bi-alarm-fill" aria-hidden="true"></i> Coming deadlines
+          </h3>
+          <Deadlines />
         </div>
       </section>
 

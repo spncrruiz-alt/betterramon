@@ -33,6 +33,15 @@ export default function ContactPage() {
           <p>{contact.address}</p>
         </div>
       </div>
+      {lgu.officialFacebook && (
+        <p>
+          Official announcements:{' '}
+          <a href={lgu.officialFacebook} target="_blank" rel="noopener noreferrer">
+            PIO Ramon, Isabela on Facebook
+          </a>
+          . LGU Ramon has no official website.
+        </p>
+      )}
       <h2>Emergency hotlines</h2>
       <ul>
         {hotlines.map((h) => (

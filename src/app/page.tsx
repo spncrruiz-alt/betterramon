@@ -210,6 +210,11 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+          <p>
+            <small>
+              Based on unofficial 2025 election results. <Link href="/government">Sources</Link>
+            </small>
+          </p>
         </div>
       </section>
 

@@ -60,4 +60,4 @@ Issues and pull requests are welcome, especially verified data for `src/data/ram
 
 Based on [BetterSolano.org](https://github.com/BetterSolano/bettersolano) by Ramon Logan Jr., used under the MIT License. This project is also MIT-licensed; see [LICENSE](LICENSE).
 
-Population and place data from [PhilAtlas](https://www.philatlas.com/luzon/r02/isabela/ramon.html), citing the PSA 2020 Census of Population and Housing.
+Place data from [PhilAtlas](https://www.philatlas.com/luzon/r02/isabela/ramon.html). 2025 officials from the [unofficial 2025 election results](https://ph.rappler.com/elections/2025/local-race/isabela/ramon) (Rappler / Comelec media server). Dated figures are published only if they are from 2025 or later.

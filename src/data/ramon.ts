@@ -20,12 +20,13 @@ export const lgu = {
   site: 'https://betterramon.org',
   repo: 'https://github.com/spncrruiz-alt/betterramon',
   officialSite: null as string | null,
-  officialFacebook: null as string | null,
+  // Official page of the LGU Public Information Office (the LGU has no website).
+  officialFacebook: 'https://www.facebook.com/ramonlgupio' as string | null,
 };
 
-// PhilAtlas, citing PSA 2020 Census of Population and Housing
+// Dated figures (population, income class) are shown only if from 2025 or later.
 export const stats = {
-  population: { value: '56,523', source: 'PSA 2020 Census' },
+  population: { value: null as string | null, source: 'PSA' },
   barangays: { value: '19', source: 'PhilAtlas' },
   landArea: { value: '135.17 km²', source: 'PhilAtlas' },
   incomeClass: { value: null as string | null, source: 'DOF-BLGF' },
@@ -53,15 +54,34 @@ export const barangays = [
   'Villa Marcos',
 ];
 
+// Source for all 2025 names below; replace with the official proclamation when available.
+export const electionSource = {
+  label:
+    '2025 election results (partial, unofficial), Rappler / Comelec media server, May 15, 2025',
+  href: 'https://ph.rappler.com/elections/2025/local-race/isabela/ramon',
+};
+
 export const officials: Official[] = [
-  { title: 'mayor', name: null, email: null, phone: null },
-  { title: 'vice-mayor', name: null, email: null, phone: null },
+  { title: 'mayor', name: 'Giovanni Vizcarra', email: null, phone: null },
+  { title: 'vice-mayor', name: 'Jon-Jon Dela Cruz', email: null, phone: null },
+];
+
+// Top 8 councilor vote-getters, in vote order.
+export const councilors = [
+  'William Vizcarra',
+  'Melvin Cristobal',
+  'Myrna Navarro',
+  'Adriano Sabado',
+  'Rita Banhan',
+  'Candido Natividad Jr.',
+  'Charmayne Honorio',
+  'Rodrigo Terte',
 ];
 
 export const contact = {
   phone: null as string | null,
-  email: null as string | null,
-  address: 'Municipal Hall, Ramon, Isabela 3319',
+  email: 'pamahalaangramon@gmail.com' as string | null, // PIO Ramon Facebook page, About
+  address: 'Municipal Hall, Bugallon Proper, Ramon, Isabela 3319', // PIO Ramon Facebook page, About
 };
 
 export const hotlines: (Contact & { icon: string })[] = [
@@ -69,7 +89,12 @@ export const hotlines: (Contact & { icon: string })[] = [
   { icon: 'bi-heart-fill', label: 'MSWDO', number: null, tel: null },
   { icon: 'bi-fire', label: 'Fire', number: null, tel: null },
   { icon: 'bi-exclamation-triangle-fill', label: 'MDRRMO', number: null, tel: null },
+  { icon: 'bi-hospital', label: 'Rural Health Unit', number: null, tel: null },
+  // National hotlines (toll-free nationwide)
   { icon: 'bi-telephone-fill', label: 'National Emergency', number: '911', tel: '911' },
+  { icon: 'bi-plus-circle-fill', label: 'Philippine Red Cross', number: '143', tel: '143' },
+  { icon: 'bi-heart-pulse-fill', label: 'DOH Health Hotline', number: '1555', tel: '1555' },
+  { icon: 'bi-chat-heart-fill', label: 'NCMH Crisis Hotline', number: '1553', tel: '1553' },
 ];
 
 export const TBV = 'To be verified';

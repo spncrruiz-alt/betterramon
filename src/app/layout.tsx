@@ -9,7 +9,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import { lgu } from '@/data/ramon';
 
 export const viewport: Viewport = {
-  themeColor: '#1d3f9e',
+  themeColor: '#1e4fd8',
 };
 
 export const metadata: Metadata = {

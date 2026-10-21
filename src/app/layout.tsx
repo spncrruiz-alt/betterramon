@@ -11,7 +11,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: { default: 'BetterRamon.org | Community Portal for Ramon, Isabela', template: '%s | BetterRamon.org' },
+  title: {
+    default: 'BetterRamon.org | Community Portal for Ramon, Isabela',
+    template: '%s | BetterRamon.org',
+  },
   description: 'BetterRamon.org - Your digital gateway to LGU Ramon services.',
   keywords: ['BetterRamon', 'Ramon Isabela', 'LGU Ramon', 'municipal services'],
   authors: [{ name: 'BetterRamon contributors' }],

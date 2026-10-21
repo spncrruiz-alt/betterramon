@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { GuideNotice, Sources } from '@/components/Guide';
+import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
 import { TBV } from '@/data/ramon';
 
@@ -93,13 +93,6 @@ export default function RealPropertyGuide() {
         Due dates, discounts and penalties are in the{' '}
         <Link href="/services/tax-payments">tax payments guide</Link>.
       </p>
-
-      <Sources
-        items={[
-          { label: 'Local Government Code of 1991 (RA 7160), Sections 201–226, 252' },
-          { label: 'Real Property Valuation and Assessment Reform Act (RA 12001)' },
-        ]}
-      />
     </PageShell>
   );
 }

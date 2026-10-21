@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { Sources } from '@/components/Guide';
 import { pages } from '@/data/pages';
-import { barangays, lgu, stats } from '@/data/ramon';
+import { barangays, stats } from '@/data/ramon';
 
 const page = pageFor('/about', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -75,21 +74,6 @@ export default function AboutPage() {
         See what to visit on the <Link href="/tourism">tourism page</Link>, or browse the{' '}
         <Link href="/government">barangays and officials</Link>.
       </p>
-
-      <Sources
-        items={[
-          {
-            label: 'Wikipedia: Ramon, Isabela',
-            href: 'https://en.wikipedia.org/wiki/Ramon,_Isabela',
-          },
-          { label: 'Province of Isabela: Municipality of Ramon (boundaries)' },
-          {
-            label: 'Benjie Layug: Magat Dam (2024)',
-            href: 'https://benjielayug.com/2024/01/magat-dam-ramon-isabela-and-alfonso-lista-ifugao.html',
-          },
-          { label: `Map coordinates: PhilAtlas (${lgu.coords.lat}, ${lgu.coords.lon})` },
-        ]}
-      />
     </PageShell>
   );
 }

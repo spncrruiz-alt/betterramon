@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { GuideNotice, Sources } from '@/components/Guide';
+import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
 import { TBV } from '@/data/ramon';
 
@@ -83,19 +83,6 @@ export default function TaxPaymentsGuide() {
         Municipal Treasurer&rsquo;s Office, Municipal Hall, Ramon, Isabela. Office hours and any
         online payment channel: {TBV}.
       </p>
-
-      <Sources
-        items={[
-          {
-            label:
-              'Local Government Code of 1991 (RA 7160), Sections 157–161, 165, 168, 233, 235, 250–251, 255',
-          },
-          {
-            label: 'Official Gazette: RA 7160',
-            href: 'https://www.officialgazette.gov.ph/1991/10/10/republic-act-no-7160/',
-          },
-        ]}
-      />
     </PageShell>
   );
 }

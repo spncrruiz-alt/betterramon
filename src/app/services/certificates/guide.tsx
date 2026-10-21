@@ -1,4 +1,4 @@
-import { GuideNotice, Sources } from '@/components/Guide';
+import { GuideNotice } from '@/components/Guide';
 import { TBV } from '@/data/ramon';
 
 // Shared by /services/certificates and /service-details/birth-certificate.
@@ -53,17 +53,6 @@ export default function CertificatesGuide() {
         order.
       </p>
       <p>Ramon MCR fees and schedule: {TBV}.</p>
-
-      <Sources
-        items={[
-          { label: 'Civil Registry Law (Act No. 3753)' },
-          { label: 'RA 9048 as amended by RA 10172 (administrative correction of entries)' },
-          {
-            label: 'PSA Serbilis (civil registry documents online)',
-            href: 'https://www.psaserbilis.com.ph',
-          },
-        ]}
-      />
     </>
   );
 }

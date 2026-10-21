@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { GuideNotice, Sources } from '@/components/Guide';
+import { GuideNotice } from '@/components/Guide';
 import { TBV } from '@/data/ramon';
 
 // Shared by /services/business and /service-details/business-permits-licensing.
@@ -67,22 +67,6 @@ export default function BusinessGuide() {
         simple transactions, 7 for complex ones and 20 for highly technical ones, once your
         requirements are complete.
       </p>
-
-      <Sources
-        items={[
-          { label: 'DTI Business Name Registration System', href: 'https://bnrs.dti.gov.ph' },
-          {
-            label: 'BIR Online Registration and Update System (ORUS)',
-            href: 'https://orus.bir.gov.ph',
-          },
-          {
-            label:
-              'Ease of Doing Business and Efficient Government Service Delivery Act (RA 11032)',
-          },
-          { label: 'Ease of Paying Taxes Act (RA 11976)' },
-          { label: 'Local Government Code of 1991 (RA 7160), Sections 165, 168' },
-        ]}
-      />
     </>
   );
 }

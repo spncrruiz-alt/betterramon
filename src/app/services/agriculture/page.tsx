@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { GuideNotice, Sources } from '@/components/Guide';
+import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
 import { TBV } from '@/data/ramon';
 
@@ -47,13 +46,6 @@ export default function AgricultureGuide() {
         <li>Referral to DA, PhilRice and Landbank programs</li>
       </ul>
       <p>Current Ramon distributions and schedules: {TBV}.</p>
-
-      <Sources
-        items={[
-          { label: 'Department of Agriculture: RSBSA' },
-          { label: 'Philippine Crop Insurance Corporation', href: 'https://pcic.gov.ph' },
-        ]}
-      />
     </PageShell>
   );
 }

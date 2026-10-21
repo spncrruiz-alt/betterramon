@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { GuideNotice, Sources } from '@/components/Guide';
+import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
 import { TBV } from '@/data/ramon';
 
@@ -58,15 +58,6 @@ export default function PublicSafetyGuide() {
         <li>Follow PAGASA warnings and LDRRMO advisories, and evacuate early when told to.</li>
         <li>Watch the Magat River and Diadi River levels if you live near them.</li>
       </ul>
-
-      <Sources
-        items={[
-          { label: 'National Police Clearance System', href: 'https://pnpclearance.ph' },
-          { label: 'NBI Clearance', href: 'https://clearance.nbi.gov.ph' },
-          { label: 'Fire Code of the Philippines (RA 9514)' },
-          { label: 'Philippine DRRM Act (RA 10121)' },
-        ]}
-      />
     </PageShell>
   );
 }

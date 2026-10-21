@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { GuideNotice, Sources } from '@/components/Guide';
+import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
 import { TBV } from '@/data/ramon';
 
@@ -36,8 +36,6 @@ export default function TreasurerGuide() {
         <li>Always get and keep your official receipt.</li>
       </ul>
       <p>Office hours and online payment options: {TBV}.</p>
-
-      <Sources items={[{ label: 'Local Government Code of 1991 (RA 7160)' }]} />
     </PageShell>
   );
 }

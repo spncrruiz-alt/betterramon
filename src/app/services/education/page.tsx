@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { GuideNotice, Sources } from '@/components/Guide';
+import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
 import { TBV } from '@/data/ramon';
 
@@ -48,15 +47,6 @@ export default function EducationGuide() {
         Alternative Learning System (ALS). Ask the nearest public school or the DepEd district
         office.
       </p>
-
-      <Sources
-        items={[
-          { label: 'Universal Access to Quality Tertiary Education Act (RA 10931)' },
-          { label: 'UniFAST', href: 'https://unifast.gov.ph' },
-          { label: 'CHED', href: 'https://ched.gov.ph' },
-          { label: 'DOST Science Education Institute', href: 'https://www.sei.dost.gov.ph' },
-        ]}
-      />
     </PageShell>
   );
 }

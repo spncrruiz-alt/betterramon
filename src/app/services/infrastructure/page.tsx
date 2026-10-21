@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { GuideNotice, Sources } from '@/components/Guide';
+import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
 import { TBV } from '@/data/ramon';
 
@@ -41,15 +41,6 @@ export default function InfrastructureGuide() {
         Pangulo portal for flood control projects.
       </p>
       <p>A list of public works projects in Ramon: {TBV}.</p>
-
-      <Sources
-        items={[
-          { label: 'National Building Code of the Philippines (PD 1096)' },
-          {
-            label: 'Government Procurement Reform Act (RA 9184) and its IRR on project signboards',
-          },
-        ]}
-      />
     </PageShell>
   );
 }

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Sources } from '@/components/Guide';
 import MeasuresTable from '@/components/MeasuresTable';
 import { ordinances, resolutions } from '@/data/ramon';
 
@@ -43,10 +42,6 @@ export default function LegislativeGuide() {
           which must be announced in advance.
         </li>
       </ul>
-
-      <Sources
-        items={[{ label: 'Local Government Code of 1991 (RA 7160), Sections 48–59, 186–187' }]}
-      />
     </>
   );
 }

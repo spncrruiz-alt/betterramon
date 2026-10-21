@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { GuideNotice, Sources } from '@/components/Guide';
+import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
 import { TBV } from '@/data/ramon';
 
@@ -85,18 +85,6 @@ export default function BuildingPermitsGuide() {
         requirements are complete. Ask for the office&rsquo;s Citizen&rsquo;s Charter, which lists
         each step and its time limit.
       </p>
-
-      <Sources
-        items={[
-          { label: 'National Building Code of the Philippines (PD 1096) and its IRR' },
-          { label: 'Fire Code of the Philippines (RA 9514)' },
-          {
-            label:
-              'Ease of Doing Business and Efficient Government Service Delivery Act (RA 11032)',
-          },
-          { label: 'Occupational Safety and Health Standards Act (RA 11058)' },
-        ]}
-      />
     </PageShell>
   );
 }

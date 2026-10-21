@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { Sources } from '@/components/Guide';
 import { pages } from '@/data/pages';
 import { lgu, TBV } from '@/data/ramon';
 
@@ -141,19 +140,6 @@ export default function TourismPage() {
         Know a place in Ramon that belongs here? Send it with a photo you own through our GitHub
         issues.
       </p>
-
-      <Sources
-        items={[
-          {
-            label: 'Benjie Layug: Magat Dam (2024)',
-            href: 'https://benjielayug.com/2024/01/magat-dam-ramon-isabela-and-alfonso-lista-ifugao.html',
-          },
-          {
-            label: 'Ivan Henares: Ramon posts',
-            href: 'https://www.ivanhenares.com/search/label/Ramon',
-          },
-        ]}
-      />
     </PageShell>
   );
 }

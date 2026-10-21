@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { GuideNotice, Sources } from '@/components/Guide';
+import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
 import { TBV } from '@/data/ramon';
 
@@ -47,14 +47,6 @@ export default function SocialServicesGuide() {
         medical abstract, prescription, billing statement or death certificate.
       </p>
       <p>Ramon&rsquo;s office schedule and exact requirements: {TBV}.</p>
-
-      <Sources
-        items={[
-          { label: 'Expanded Senior Citizens Act (RA 9994)' },
-          { label: 'Magna Carta for Disabled Persons (RA 7277) and RA 10754' },
-          { label: 'Expanded Solo Parents Welfare Act (RA 11861)' },
-        ]}
-      />
     </PageShell>
   );
 }

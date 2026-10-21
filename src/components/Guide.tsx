@@ -19,24 +19,3 @@ export function GuideNotice({ children }: { children?: ReactNode }) {
     </div>
   );
 }
-
-export function Sources({ items }: { items: { label: string; href?: string }[] }) {
-  return (
-    <>
-      <h2>Sources</h2>
-      <ul>
-        {items.map((s) => (
-          <li key={s.label}>
-            {s.href ? (
-              <a href={s.href} target="_blank" rel="noopener noreferrer">
-                {s.label}
-              </a>
-            ) : (
-              s.label
-            )}
-          </li>
-        ))}
-      </ul>
-    </>
-  );
-}

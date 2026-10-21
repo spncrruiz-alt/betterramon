@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { Sources } from '@/components/Guide';
 import { pages } from '@/data/pages';
 import { fiscalDocs } from '@/data/ramon';
 
@@ -94,14 +93,6 @@ export default function BudgetPage() {
           keep these records. Bring a written request with your name, the document and the year.
         </li>
       </ul>
-
-      <Sources
-        items={[
-          { label: 'DILG Full Disclosure Policy Portal', href: 'https://fdpp.dilg.gov.ph' },
-          { label: 'Commission on Audit: audit reports', href: 'https://www.coa.gov.ph' },
-          { label: 'Local Government Code of 1991 (RA 7160), Sections 305–352' },
-        ]}
-      />
     </PageShell>
   );
 }

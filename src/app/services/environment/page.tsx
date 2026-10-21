@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import PageShell, { pageFor } from '@/components/PageShell';
-import { GuideNotice, Sources } from '@/components/Guide';
+import { GuideNotice } from '@/components/Guide';
 import { pages } from '@/data/pages';
 import { TBV } from '@/data/ramon';
 
@@ -47,14 +46,6 @@ export default function EnvironmentGuide() {
         Cutting, moving or selling trees, even on private land, usually needs a permit from the DENR
         Community Environment and Natural Resources Office (CENRO) covering Ramon.
       </p>
-
-      <Sources
-        items={[
-          { label: 'Ecological Solid Waste Management Act (RA 9003)' },
-          { label: 'Philippine Clean Air Act (RA 8749)' },
-          { label: 'DENR', href: 'https://denr.gov.ph' },
-        ]}
-      />
     </PageShell>
   );
 }

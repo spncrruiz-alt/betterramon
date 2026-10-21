@@ -84,11 +84,31 @@ export const contact = {
   address: 'Municipal Hall, Bugallon Proper, Ramon, Isabela 3319', // PIO Ramon Facebook page, About
 };
 
+// Local numbers: "Ramon Emergency Hotlines" public graphic (2025).
+export const hotlineSource = 'Ramon Emergency Hotlines public graphic (2025)';
+
 export const hotlines: (Contact & { icon: string })[] = [
-  { icon: 'bi-shield-fill', label: 'Police', number: null, tel: null },
+  { icon: 'bi-shield-fill', label: 'PNP Ramon', number: '0906 233 7819', tel: '09062337819' },
+  { icon: 'bi-fire', label: 'BFP Ramon', number: '0906 941 1743', tel: '09069411743' },
+  {
+    icon: 'bi-exclamation-triangle-fill',
+    label: 'LDRRMO',
+    number: '0906 713 5314',
+    tel: '09067135314',
+  },
+  {
+    icon: 'bi-exclamation-triangle-fill',
+    label: 'LDRRMO (2nd line)',
+    number: '0933 814 5364',
+    tel: '09338145364',
+  },
+  {
+    icon: 'bi-lightning-charge-fill',
+    label: 'ISELCO',
+    number: '0975 773 0687',
+    tel: '09757730687',
+  },
   { icon: 'bi-heart-fill', label: 'MSWDO', number: null, tel: null },
-  { icon: 'bi-fire', label: 'Fire', number: null, tel: null },
-  { icon: 'bi-exclamation-triangle-fill', label: 'MDRRMO', number: null, tel: null },
   { icon: 'bi-hospital', label: 'Rural Health Unit', number: null, tel: null },
   // National hotlines (toll-free nationwide)
   { icon: 'bi-telephone-fill', label: 'National Emergency', number: '911', tel: '911' },

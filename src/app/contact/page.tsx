@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import PageShell, { pageFor } from '@/components/PageShell';
 import { pages } from '@/data/pages';
-import { contact, hotlines, lgu, TBV } from '@/data/ramon';
+import { contact, hotlineSource, hotlines, lgu, TBV } from '@/data/ramon';
 
 const page = pageFor('/contact', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
@@ -50,6 +50,9 @@ export default function ContactPage() {
           </li>
         ))}
       </ul>
+      <p>
+        <small>Local numbers: {hotlineSource}. National numbers are toll-free nationwide.</small>
+      </p>
       <h2>About this site</h2>
       <p>
         Corrections and suggestions:{' '}

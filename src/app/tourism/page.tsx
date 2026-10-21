@@ -7,6 +7,56 @@ import { lgu, TBV } from '@/data/ramon';
 const page = pageFor('/tourism', pages);
 export const metadata: Metadata = { title: page.title, description: page.desc };
 
+const resorts = [
+  {
+    name: 'Water World Grand Resort',
+    where: 'Purok 5, Conde Street',
+    note: 'Swimming pools for adults and kids, cottages and a man-made lake.',
+  },
+  {
+    name: 'Camp Bali Resort',
+    where: 'near the town center',
+    note: 'Pools and villas for family outings and group events.',
+  },
+  { name: 'Ramon Skypark', where: 'Purok 3, San Miguel', note: 'Swimming and recreation spot.' },
+];
+
+const food = [
+  {
+    name: "Mansaya's Barrio Grill and Restaurant",
+    where: 'Burgos–General Aguinaldo Road',
+    note: 'Farm-style setting, grilled dishes and boodle meals.',
+  },
+  { name: "The Captain's Restobar and Grill", where: 'town center', note: 'Grill and restobar.' },
+  { name: 'Cusina Sabrosa', where: 'National Highway, Burgos', note: 'Home-style Filipino meals.' },
+];
+
+function Listing({
+  items,
+  icon,
+}: {
+  items: { name: string; where: string; note: string }[];
+  icon: string;
+}) {
+  return (
+    <div className="grid grid-3">
+      {items.map((r) => (
+        <div key={r.name} className="service-item-card">
+          <h3 className="service-item-title">
+            <i className={`bi ${icon}`} aria-hidden="true"></i> {r.name}
+          </h3>
+          <p>{r.note}</p>
+          <p>
+            <small>
+              <i className="bi bi-geo-alt" aria-hidden="true"></i> {r.where}, Ramon
+            </small>
+          </p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 const places = [
   {
     name: 'Magat Dam',
@@ -22,6 +72,11 @@ const places = [
     name: 'Camp Vizcarra Ecology Park',
     icon: 'bi-tree-fill',
     text: 'A green space for picnics and nature walks near the dam area.',
+  },
+  {
+    name: 'Rolling Hills of Ramon',
+    icon: 'bi-image-alt',
+    text: 'Grassy rolling hills with a view deck in Barangay Planas, west of the town center. A short hike rewards you with wide views and fresh air; best in the early morning or late afternoon.',
   },
   {
     name: 'Maris Dam',
@@ -43,6 +98,18 @@ export default function TourismPage() {
           </div>
         ))}
       </div>
+
+      <h2>Resorts</h2>
+      <Listing items={resorts} icon="bi-water" />
+
+      <h2>Where to eat</h2>
+      <Listing items={food} icon="bi-egg-fried" />
+      <p>
+        <small>
+          Resorts and restaurants are listed for convenience, not endorsed or ranked. Check rates,
+          hours and bookings with each place directly. Own a place in Ramon? Ask us to add it.
+        </small>
+      </p>
 
       <h2>Before you go</h2>
       <ul>

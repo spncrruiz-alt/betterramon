@@ -552,3 +552,15 @@ a.service-item-card .service-item-title {
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
+
+/* Empty data states */
+.empty-state {
+  padding: 18px 20px;
+  border-radius: var(--border-radius);
+  background: #fff8e1;
+  border: 1px dashed var(--ramon-yellow);
+  color: #6b5200;
+}
+.empty-state i {
+  margin-right: 6px;
+}

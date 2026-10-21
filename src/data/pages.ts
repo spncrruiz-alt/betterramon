@@ -1,6 +1,6 @@
 // Every internal page the site links to. Drives the sitemap and the
-// "coming soon" placeholders, so no link on the site leads to a 404.
-// Set ready: true once a page has real content in its own route file.
+// sitemap; every entry needs its own route file.
+// ready: false keeps a page out of the sitemap.
 
 export type PageInfo = {
   path: string;
@@ -245,7 +245,7 @@ export const pages: PageInfo[] = [
     path: '/tourism',
     title: 'Tourism',
     icon: 'bi-camera-fill',
-    desc: 'Places to visit in Ramon, from Magat Dam to the reservoir.',
+    desc: 'Magat Dam, the Rolling Hills, resorts and places to eat in Ramon.',
     ready: true,
     keywords: [
       'Magat Dam',
@@ -255,6 +255,15 @@ export const pages: PageInfo[] = [
       'picnic',
       'travel',
       'turismo',
+      'rolling hills',
+      'Planas',
+      'resort',
+      'swimming',
+      'pool',
+      'restaurant',
+      'food',
+      'kainan',
+      'pagkanan',
     ],
   },
   {
@@ -288,24 +297,42 @@ export const pages: PageInfo[] = [
     title: 'Legislative',
     icon: 'bi-journal-text',
     desc: 'Ordinances and resolutions of the Sangguniang Bayan.',
+    ready: true,
+    keywords: ['ordinance', 'resolution', 'SB', 'session', 'batas', 'ordinansa'],
   },
   {
     path: '/legislative/ordinance-framework',
     title: 'Ordinances',
     icon: 'bi-journal-bookmark-fill',
     desc: 'Municipal ordinances of Ramon, Isabela.',
+    ready: true,
+    keywords: ['ordinance', 'ordinansa', 'local law'],
   },
   {
     path: '/legislative/resolution-framework',
     title: 'Resolutions',
     icon: 'bi-journal-check',
     desc: 'Resolutions of the Sangguniang Bayan.',
+    ready: true,
+    keywords: ['resolution', 'resolusyon'],
   },
   {
     path: '/budget',
     title: 'Transparency',
     icon: 'bi-cash-stack',
     desc: 'Budget, income and audit reports of LGU Ramon.',
+    ready: true,
+    keywords: [
+      'budget',
+      'pondo',
+      'transparency',
+      'SRE',
+      'audit',
+      'COA',
+      'full disclosure',
+      'AIP',
+      'bids',
+    ],
   },
   {
     path: '/contact',

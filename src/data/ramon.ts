@@ -119,3 +119,12 @@ export const hotlines: (Contact & { icon: string })[] = [
 ];
 
 export const TBV = 'To be verified';
+
+// Legislative records. Add only items dated 2025 or later, each with its source.
+export type Measure = { number: string; title: string; date: string; source: string };
+export const ordinances: Measure[] = [];
+export const resolutions: Measure[] = [];
+
+// Fiscal documents. Add only items for fiscal year 2025 or later.
+export type FiscalDoc = { year: number; title: string; href: string; source: string };
+export const fiscalDocs: FiscalDoc[] = [];

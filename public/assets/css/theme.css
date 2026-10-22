@@ -419,15 +419,49 @@ a.home-service-card--all:hover .home-service-arrow { color: #fff; }
   .hotline-info .info-bar-item { font-size: .72rem; }
 }
 
-/* Barangay details table (Government page). */
-.table-scroll { overflow-x: auto; margin-bottom: 12px; border: 1px solid var(--line); border-radius: var(--border-radius); background: var(--surface); }
+/* Barangay directory (Government page). */
+.barangay-section { margin-top: 48px; }
+.barangay-heading h2 { margin: 0 0 4px; }
+.barangay-heading p { margin: 0 0 20px; color: var(--ink-soft); }
+.barangay-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin: 0 0 20px; }
+.barangay-stats > div { padding: 16px 18px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
+.barangay-stats dt { margin: 0 0 6px; font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); }
+.barangay-stats dd { margin: 0; font-size: 1.45rem; font-weight: 750; line-height: 1.2; color: var(--ink); font-variant-numeric: tabular-nums; }
+.barangay-stats dd small { display: block; margin-top: 2px; font-size: .82rem; font-weight: 500; color: var(--ink-soft); }
+.table-scroll { overflow-x: auto; margin-bottom: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
 .barangay-table { width: 100%; margin: 0; border-collapse: collapse; font-size: .92rem; }
-.barangay-table th, .barangay-table td { padding: 10px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-.barangay-table thead th { background: var(--surface-alt); font-size: .8rem; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
-.barangay-table tbody th { font-weight: 600; white-space: nowrap; }
-.barangay-table tbody th a { color: var(--ink); text-decoration: none; }
-.barangay-table tbody th a:hover, .barangay-table tbody th a:focus-visible { color: var(--accent); text-decoration: underline; }
-.barangay-table tbody th a i { color: var(--accent); font-size: .8em; }
+.barangay-table th, .barangay-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle; }
+.barangay-table thead th { position: sticky; top: 0; background: var(--surface-alt); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; }
+.barangay-table tbody tr:nth-child(even) { background: #fafbfd; }
+.barangay-table tbody tr:hover { background: var(--accent-soft); }
+.barangay-table tbody th { font-weight: 600; color: var(--ink); }
+.barangay-table .idx { width: 1%; color: #64748b; font-size: .8rem; font-variant-numeric: tabular-nums; }
+.brgy-name { display: block; white-space: nowrap; }
+.brgy-note { display: inline-block; margin-top: 4px; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--accent-dark); font-size: .74rem; font-weight: 500; line-height: 1.5; }
 .barangay-table .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
-.barangay-table td:last-child { color: var(--ink-soft); min-width: 180px; }
-.barangay-table tfoot th, .barangay-table tfoot td { border-bottom: 0; font-weight: 700; background: var(--surface-alt); }
+.barangay-table .share { min-width: 170px; }
+.share-cell { display: flex; align-items: center; gap: 10px; }
+.share-bar { flex: 1; height: 8px; border-radius: 999px; background: #e8edf7; overflow: hidden; }
+.share-bar span { display: block; height: 100%; border-radius: inherit; background: var(--accent); }
+.share-value { min-width: 3.2em; text-align: right; font-variant-numeric: tabular-nums; color: var(--ink-soft); font-size: .85rem; }
+.barangay-table .map { width: 1%; text-align: right; }
+.map-link { display: inline-flex; align-items: center; gap: 4px; padding: 5px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--accent); font-size: .78rem; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.map-link:hover, .map-link:focus-visible { border-color: var(--accent); background: var(--accent-soft); text-decoration: none; }
+.barangay-table tfoot th, .barangay-table tfoot td { border-bottom: 0; background: var(--surface-alt); font-weight: 700; color: var(--ink); }
+.source-note { display: flex; gap: 10px; align-items: flex-start; margin: 0; padding: 12px 14px; border-radius: 10px; background: var(--surface-alt); color: var(--ink-soft); font-size: .82rem; line-height: 1.6; }
+.source-note i { color: var(--accent); margin-top: 2px; }
+.source-note a { text-decoration: underline; text-underline-offset: 2px; }
+@media (max-width: 760px) {
+  .barangay-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .barangay-stats dd { font-size: 1.2rem; }
+  .section .barangay-table th, .section .barangay-table td { padding: 10px 8px; overflow-wrap: normal; }
+  .section .barangay-table th:first-of-type, .section .barangay-table td:first-child { padding-left: 14px; }
+  .barangay-table thead th { white-space: normal; letter-spacing: .03em; }
+  .barangay-table .elev, .barangay-table .idx { display: none; }
+  .barangay-table .share { min-width: 0; }
+  .share-bar { display: none; }
+  .brgy-name { white-space: normal; }
+  .brgy-note { display: block; padding: 0; background: none; border-radius: 0; color: var(--ink-soft); font-size: .76rem; line-height: 1.4; }
+  .map-link { padding: 6px 8px; }
+  .map-link span { display: none; }
+}

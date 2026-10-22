@@ -32,6 +32,12 @@ const barangayNotes: Record<string, JSX.Element> = {
 };
 const fmt = (n: number) => n.toLocaleString('en-US');
 const total = barangays.reduce((sum, b) => sum + (barangayInfo[b]?.population2020 ?? 0), 0);
+const withInfo = barangays.filter((b) => barangayInfo[b]);
+const largest = withInfo.reduce((a, b) =>
+  barangayInfo[b].population2020 > barangayInfo[a].population2020 ? b : a
+);
+const maxShare = (barangayInfo[largest].population2020 / total) * 100;
+const elevations = withInfo.map((b) => barangayInfo[b].elevationM);
 export const metadata: Metadata = { title: page.title, description: page.desc };
 
 const titles = {
@@ -107,85 +113,161 @@ export default function GovernmentPage() {
           <Tbv />.
         </small>
       </p>
-      <h2>
-        <L en="Barangays" fil="Mga Barangay" ilo="Dagiti Barangay" /> ({barangays.length})
-      </h2>
-      <div className="table-scroll">
-        <table className="barangay-table">
-          <thead>
-            <tr>
-              <th scope="col">Barangay</th>
-              <th scope="col" className="num">
-                <L en="Population (2020)" fil="Populasyon (2020)" ilo="Populasion (2020)" />
-              </th>
-              <th scope="col" className="num">
-                <L en="Share" fil="Bahagi" ilo="Paset" />
-              </th>
-              <th scope="col" className="num">
-                <L en="Elevation" fil="Taas" ilo="Kangato" />
-              </th>
-              <th scope="col">
-                <L en="Notes" fil="Tala" ilo="Nota" />
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {barangays.map((b) => {
-              const info = barangayInfo[b];
-              return (
-                <tr key={b}>
-                  <th scope="row">
-                    {info ? (
-                      <a
-                        href={`https://www.openstreetmap.org/?mlat=${info.lat}&mlon=${info.lon}#map=15/${info.lat}/${info.lon}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${b} on the map`}
-                      >
-                        {b} <i className="bi bi-geo-alt" aria-hidden="true"></i>
-                      </a>
-                    ) : (
-                      b
-                    )}
-                  </th>
-                  <td className="num">{info ? fmt(info.population2020) : <Tbv />}</td>
-                  <td className="num">
-                    {info ? `${((info.population2020 / total) * 100).toFixed(1)}%` : ''}
-                  </td>
-                  <td className="num">{info ? `${info.elevationM} m` : ''}</td>
-                  <td>{barangayNotes[b] ?? ''}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-          <tfoot>
-            <tr>
-              <th scope="row">
-                <L en="Total" fil="Kabuuan" ilo="Dagup" />
-              </th>
-              <td className="num">{fmt(total)}</td>
-              <td className="num">100%</td>
-              <td colSpan={2}></td>
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-      <p>
-        <small>
-          <L
-            en="Population: PSA 2020 Census of Population and Housing, via PhilAtlas. The 2024 census counts each barangay too, but those figures were not reachable for this page yet. Elevation is an estimate from PhilAtlas. Tap a name to see it on OpenStreetMap."
-            fil="Populasyon: PSA 2020 Census of Population and Housing, sa pamamagitan ng PhilAtlas. Binilang din ng 2024 census ang bawat barangay, ngunit hindi pa makuha ang mga bilang na iyon para sa pahinang ito. Tantya ng PhilAtlas ang taas. Pindutin ang pangalan para makita sa OpenStreetMap."
-            ilo="Populasion: PSA 2020 Census of Population and Housing, babaen ti PhilAtlas. Binilang met ti 2024 census ti tunggal barangay, ngem saan pay a magala dagidiay a bilang para iti daytoy a panid. Pattapatta ti PhilAtlas ti kangato. Pindutem ti nagan tapno makita iti OpenStreetMap."
-          />{' '}
-          <a
-            href="https://www.philatlas.com/luzon/r02/isabela/ramon.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            PhilAtlas: Ramon
-          </a>
-        </small>
-      </p>
+      <section className="barangay-section" aria-labelledby="barangays-heading">
+        <div className="barangay-heading">
+          <h2 id="barangays-heading">
+            <L en="Barangays" fil="Mga Barangay" ilo="Dagiti Barangay" />
+          </h2>
+          <p>
+            <L
+              en="The 19 barangays of Ramon, by population at the 2020 census."
+              fil="Ang 19 na barangay ng Ramon, ayon sa populasyon sa 2020 census."
+              ilo="Dagiti 19 a barangay ti Ramon, segun iti populasion iti 2020 census."
+            />
+          </p>
+        </div>
+
+        <dl className="barangay-stats">
+          <div>
+            <dt>
+              <L en="Barangays" fil="Barangay" ilo="Barangay" />
+            </dt>
+            <dd>{barangays.length}</dd>
+          </div>
+          <div>
+            <dt>
+              <L en="Population (2020)" fil="Populasyon (2020)" ilo="Populasion (2020)" />
+            </dt>
+            <dd>{fmt(total)}</dd>
+          </div>
+          <div>
+            <dt>
+              <L en="Most populous" fil="Pinakamataong" ilo="Kaaduan ti tao" />
+            </dt>
+            <dd>
+              {largest}
+              <small>{fmt(barangayInfo[largest].population2020)}</small>
+            </dd>
+          </div>
+          <div>
+            <dt>
+              <L en="Elevation range" fil="Saklaw ng taas" ilo="Kangato" />
+            </dt>
+            <dd>
+              {Math.min(...elevations)}–{Math.max(...elevations)} m
+            </dd>
+          </div>
+        </dl>
+
+        <div className="table-scroll">
+          <table className="barangay-table">
+            <caption className="sr-only">
+              <L
+                en="Barangays of Ramon with 2020 population, share of the town and elevation"
+                fil="Mga barangay ng Ramon na may populasyon noong 2020, bahagi sa bayan at taas"
+                ilo="Dagiti barangay ti Ramon nga addaan populasion idi 2020, paset ti ili ken kangato"
+              />
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col" className="idx">
+                  #
+                </th>
+                <th scope="col">Barangay</th>
+                <th scope="col" className="num">
+                  <L en="Population" fil="Populasyon" ilo="Populasion" />
+                </th>
+                <th scope="col" className="share">
+                  <L en="Share of town" fil="Bahagi sa bayan" ilo="Paset ti ili" />
+                </th>
+                <th scope="col" className="num elev">
+                  <L en="Elevation" fil="Taas" ilo="Kangato" />
+                </th>
+                <th scope="col" className="map">
+                  <span className="sr-only">
+                    <L en="Map" fil="Mapa" ilo="Mapa" />
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {barangays.map((b, i) => {
+                const info = barangayInfo[b];
+                const share = info ? (info.population2020 / total) * 100 : 0;
+                return (
+                  <tr key={b}>
+                    <td className="idx">{i + 1}</td>
+                    <th scope="row">
+                      <span className="brgy-name">{b}</span>
+                      {barangayNotes[b] && <span className="brgy-note">{barangayNotes[b]}</span>}
+                    </th>
+                    <td className="num">{info ? fmt(info.population2020) : <Tbv />}</td>
+                    <td className="share">
+                      {info && (
+                        <span className="share-cell">
+                          <span className="share-bar" aria-hidden="true">
+                            <span style={{ width: `${(share / maxShare) * 100}%` }} />
+                          </span>
+                          <span className="share-value">{share.toFixed(1)}%</span>
+                        </span>
+                      )}
+                    </td>
+                    <td className="num elev">{info ? `${info.elevationM} m` : ''}</td>
+                    <td className="map">
+                      {info && (
+                        <a
+                          className="map-link"
+                          href={`https://www.openstreetmap.org/?mlat=${info.lat}&mlon=${info.lon}#map=15/${info.lat}/${info.lon}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`${b}: open map`}
+                        >
+                          <i className="bi bi-geo-alt" aria-hidden="true"></i>
+                          <span>
+                            <L en="Map" fil="Mapa" ilo="Mapa" />
+                          </span>
+                        </a>
+                      )}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td className="idx"></td>
+                <th scope="row">
+                  <L en="Total" fil="Kabuuan" ilo="Dagup" />
+                </th>
+                <td className="num">{fmt(total)}</td>
+                <td className="share">
+                  <span className="share-value">100%</span>
+                </td>
+                <td className="elev"></td>
+                <td className="map"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
+        <p className="source-note">
+          <i className="bi bi-info-circle" aria-hidden="true"></i>
+          <span>
+            <L
+              en="Population: PSA 2020 Census of Population and Housing, via PhilAtlas. The 2024 census counts each barangay too, but those figures were not reachable for this page yet. Elevation is an estimate from PhilAtlas."
+              fil="Populasyon: PSA 2020 Census of Population and Housing, sa pamamagitan ng PhilAtlas. Binilang din ng 2024 census ang bawat barangay, ngunit hindi pa makuha ang mga bilang na iyon para sa pahinang ito. Tantya ng PhilAtlas ang taas."
+              ilo="Populasion: PSA 2020 Census of Population and Housing, babaen ti PhilAtlas. Binilang met ti 2024 census ti tunggal barangay, ngem saan pay a magala dagidiay a bilang para iti daytoy a panid. Pattapatta ti PhilAtlas ti kangato."
+            />{' '}
+            <a
+              href="https://www.philatlas.com/luzon/r02/isabela/ramon.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              PhilAtlas: Ramon
+            </a>
+          </span>
+        </p>
+      </section>
     </PageShell>
   );
 }

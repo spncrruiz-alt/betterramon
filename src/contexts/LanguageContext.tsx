@@ -14,6 +14,9 @@ const translations: Record<string, Record<string, string>> = {
     'nav-legislative': 'Legislative',
     'nav-transparency': 'Transparency',
     'nav-contact': 'Contact',
+    'nav-all-services': 'All services',
+    'nav-town': 'Town',
+    'nav-legislative-overview': 'Overview',
 
     // Hero Section
     'hero-welcome': 'Welcome to BetterRamon.org',
@@ -146,6 +149,9 @@ const translations: Record<string, Record<string, string>> = {
     'nav-legislative': 'Lehislatura',
     'nav-transparency': 'Transparensiya',
     'nav-contact': 'Makipag-ugnayan',
+    'nav-all-services': 'Lahat ng serbisyo',
+    'nav-town': 'Bayan',
+    'nav-legislative-overview': 'Pangkalahatang-ideya',
 
     // Hero Section
     'hero-welcome': 'Maligayang Pagdating sa BetterRamon.org',
@@ -279,6 +285,9 @@ const translations: Record<string, Record<string, string>> = {
     'nav-legislative': 'Lehislatura',
     'nav-transparency': 'Transparensiya',
     'nav-contact': 'Kontaken',
+    'nav-all-services': 'Amin a serbisio',
+    'nav-town': 'Ili',
+    'nav-legislative-overview': 'Pakabuklan',
 
     // Hero Section
     'hero-welcome': 'Naragsak nga Isasangbay iti BetterRamon.org',

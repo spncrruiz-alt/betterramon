@@ -36,10 +36,10 @@ export default function HealthPage() {
         <div className="container">
           <div className="grid grid-3">
             <div className="service-item-card">
-              <h3 className="service-item-title">
+              <h2 className="service-item-title">
                 <i className="bi bi-hospital"></i>
                 <span>{t('health-consultation')}</span>
-              </h3>
+              </h2>
               <p className="service-item-desc">{t('health-consultation-desc')}</p>
               <div className="service-item-meta">
                 <span>
@@ -52,10 +52,10 @@ export default function HealthPage() {
             </div>
 
             <div className="service-item-card">
-              <h3 className="service-item-title">
+              <h2 className="service-item-title">
                 <i className="bi bi-shield-plus"></i>
                 <span>{t('health-vaccination')}</span>
-              </h3>
+              </h2>
               <p className="service-item-desc">{t('health-vaccination-desc')}</p>
               <div className="service-item-meta">
                 <span>
@@ -68,10 +68,10 @@ export default function HealthPage() {
             </div>
 
             <div className="service-item-card">
-              <h3 className="service-item-title">
+              <h2 className="service-item-title">
                 <i className="bi bi-heart"></i>
                 <span>{t('health-maternal')}</span>
-              </h3>
+              </h2>
               <p className="service-item-desc">{t('health-maternal-desc')}</p>
               <div className="service-item-meta">
                 <span>
@@ -84,10 +84,10 @@ export default function HealthPage() {
             </div>
 
             <div className="service-item-card">
-              <h3 className="service-item-title">
+              <h2 className="service-item-title">
                 <i className="bi bi-prescription2"></i>
                 <span>{t('health-medicine')}</span>
-              </h3>
+              </h2>
               <p className="service-item-desc">{t('health-medicine-desc')}</p>
               <div className="service-item-meta">
                 <span>

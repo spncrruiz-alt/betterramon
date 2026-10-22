@@ -6,283 +6,174 @@ import { usePathname } from 'next/navigation';
 import { useLanguage } from '@/contexts/LanguageContext';
 import L from '@/components/L';
 
-function isMobileNav(): boolean {
-  return typeof window !== 'undefined' && window.matchMedia('(max-width: 1024px)').matches;
-}
+type NavItem = { href: string; key: string; icon: string };
+type NavGroup = { label?: string; items: NavItem[] };
+
+// Main navigation, grouped like the KPL Network staff sidebar. Labels are LanguageContext keys.
+const groups: NavGroup[] = [
+  { items: [{ href: '/', key: 'nav-home', icon: 'bi-house-door' }] },
+  {
+    label: 'nav-services',
+    items: [
+      { href: '/services', key: 'nav-all-services', icon: 'bi-grid' },
+      { href: '/services/certificates', key: 'dropdown-certificates', icon: 'bi-file-earmark-text' },
+      { href: '/services/business', key: 'dropdown-business', icon: 'bi-shop' },
+      { href: '/services/tax-payments', key: 'dropdown-tax-payments', icon: 'bi-cash-coin' },
+      { href: '/services/social-services', key: 'dropdown-social-services', icon: 'bi-people' },
+      { href: '/services/health', key: 'dropdown-health', icon: 'bi-heart-pulse' },
+      { href: '/services/agriculture', key: 'dropdown-agriculture', icon: 'bi-flower1' },
+      { href: '/services/infrastructure', key: 'dropdown-infrastructure', icon: 'bi-cone-striped' },
+      { href: '/services/education', key: 'dropdown-education', icon: 'bi-mortarboard' },
+      { href: '/services/public-safety', key: 'dropdown-public-safety', icon: 'bi-shield-check' },
+      { href: '/services/environment', key: 'dropdown-environment', icon: 'bi-tree' },
+    ],
+  },
+  {
+    label: 'nav-town',
+    items: [
+      { href: '/government', key: 'nav-government', icon: 'bi-bank' },
+      { href: '/tourism', key: 'nav-tourism', icon: 'bi-geo-alt' },
+      { href: '/statistics', key: 'nav-statistics', icon: 'bi-bar-chart' },
+      { href: '/budget', key: 'nav-transparency', icon: 'bi-wallet2' },
+      { href: '/contact', key: 'nav-contact', icon: 'bi-telephone' },
+    ],
+  },
+  {
+    label: 'nav-legislative',
+    items: [
+      { href: '/legislative', key: 'nav-legislative-overview', icon: 'bi-journal-text' },
+      { href: '/legislative/ordinance-framework', key: 'dropdown-ordinance-framework', icon: 'bi-file-ruled' },
+      { href: '/legislative/resolution-framework', key: 'dropdown-resolution-framework', icon: 'bi-file-check' },
+    ],
+  },
+];
+
+const languages = [
+  { code: 'en', label: 'EN', name: 'English' },
+  { code: 'fil', label: 'FIL', name: 'Filipino' },
+  { code: 'ilo', label: 'ILO', name: 'Ilocano' },
+] as const;
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const { language, setLanguage, t } = useLanguage();
-  const navRef = useRef<HTMLElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
-
   const scrollYRef = useRef(0);
-  const isAnimatingRef = useRef(false);
 
-  const lockBodyScroll = useCallback(() => {
+  const close = useCallback(() => {
+    setOpen(false);
+    if (document.body.classList.contains('mobile-menu-open')) {
+      document.body.classList.remove('mobile-menu-open');
+      document.body.style.top = '';
+      window.scrollTo(0, scrollYRef.current);
+    }
+  }, []);
+
+  function openMenu() {
     scrollYRef.current = window.scrollY;
     document.body.classList.add('mobile-menu-open');
     document.body.style.top = `-${scrollYRef.current}px`;
-  }, []);
+    setOpen(true);
+  }
 
-  const unlockBodyScroll = useCallback(() => {
-    document.body.classList.remove('mobile-menu-open');
-    document.body.style.top = '';
-    window.scrollTo(0, scrollYRef.current);
-  }, []);
-
-  const closeMenu = useCallback(() => {
-    if (isAnimatingRef.current) return;
-    isAnimatingRef.current = true;
-    setMobileMenuOpen(false);
-    setOpenDropdown(null);
-    unlockBodyScroll();
-    setTimeout(() => {
-      isAnimatingRef.current = false;
-    }, 320);
-  }, [unlockBodyScroll]);
-
-  const toggleDropdown = useCallback((index: number, e: React.MouseEvent) => {
-    if (isMobileNav()) {
-      e.preventDefault();
-      setOpenDropdown((prev) => (prev === index ? null : index));
-    }
-  }, []);
-
-  // Close menu on route change
+  // Close on route change, Escape, and when the window grows to desktop width.
+  useEffect(() => close(), [pathname, close]);
   useEffect(() => {
-    isAnimatingRef.current = false;
-    closeMenu();
-  }, [pathname, closeMenu]);
-
-  // Cleanup body scroll lock on unmount
-  useEffect(() => {
-    return () => {
-      document.body.classList.remove('mobile-menu-open');
-      document.body.style.top = '';
-    };
-  }, []);
-
-  // Click outside to close
-  useEffect(() => {
-    function handleClickOutside(e: MouseEvent) {
-      const target = e.target as Node;
-      if (
-        navRef.current &&
-        !navRef.current.contains(target) &&
-        toggleRef.current &&
-        !toggleRef.current.contains(target)
-      ) {
-        closeMenu();
-      }
-    }
-
-    if (mobileMenuOpen) {
-      document.addEventListener('click', handleClickOutside);
-      return () => document.removeEventListener('click', handleClickOutside);
-    }
-  }, [mobileMenuOpen, closeMenu]);
-
-  // Escape key to close
-  useEffect(() => {
-    function handleEscape(e: KeyboardEvent) {
-      if (e.key === 'Escape' && mobileMenuOpen) {
-        closeMenu();
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        close();
         toggleRef.current?.focus();
       }
-    }
-
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [mobileMenuOpen, closeMenu]);
-
-  // Close mobile menu on resize to desktop (debounced)
-  useEffect(() => {
-    let timer: ReturnType<typeof setTimeout>;
-    function handleResize() {
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        if (!isMobileNav() && mobileMenuOpen) {
-          isAnimatingRef.current = false;
-          closeMenu();
-        }
-      }, 150);
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('resize', handleResize);
     };
-  }, [mobileMenuOpen, closeMenu]);
+    const desktop = window.matchMedia('(min-width: 1025px)');
+    const onWide = () => desktop.matches && close();
+    document.addEventListener('keydown', onKey);
+    desktop.addEventListener('change', onWide);
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      desktop.removeEventListener('change', onWide);
+    };
+  }, [open, close]);
+
+  const isActive = (href: string) =>
+    href === '/' || href === '/services' || href === '/legislative'
+      ? pathname === href
+      : pathname === href || pathname.startsWith(href + '/');
 
   return (
-    <header className="site-header">
-      <div className="container header-inner">
-        <div className="logo-container">
-          <Link href="/">
-            <img
-              src="/assets/images/logo/ramon-seal-logo.svg"
-              alt="Better Ramon Logo"
-              className="logo-img"
-            />
-          </Link>
-        </div>
-
-        <nav
-          id="main-navigation"
-          ref={navRef}
-          className={`main-nav ${mobileMenuOpen ? 'active' : ''}`}
-          aria-label="Main Navigation"
-        >
-          <ul>
-            <li>
-              <Link href="/" className={pathname === '/' ? 'active' : ''} aria-current={pathname === '/' ? 'page' : undefined}>
-                {t('nav-home')}
-              </Link>
-            </li>
-            <li className={`has-dropdown ${openDropdown === 0 ? 'dropdown-open' : ''}`}>
-              <Link
-                href="/services"
-                className={pathname.startsWith('/services') ? 'active' : ''}
-                aria-haspopup="true"
-                aria-expanded={openDropdown === 0 ? 'true' : 'false'}
-                onClick={(e) => toggleDropdown(0, e)}
-              >
-                {t('nav-services')}
-              </Link>
-              <ul className="dropdown-menu">
-                <li><Link href="/services"><L en="All services" fil="Lahat ng serbisyo" ilo="Amin a serbisio" /></Link></li>
-                <li>
-                  <Link href="/services/certificates">{t('dropdown-certificates')}</Link>
-                </li>
-                <li>
-                  <Link href="/services/business">{t('dropdown-business')}</Link>
-                </li>
-                <li>
-                  <Link href="/services/tax-payments">{t('dropdown-tax-payments')}</Link>
-                </li>
-                <li>
-                  <Link href="/services/social-services">{t('dropdown-social-services')}</Link>
-                </li>
-                <li>
-                  <Link href="/services/health">{t('dropdown-health')}</Link>
-                </li>
-                <li>
-                  <Link href="/services/agriculture">{t('dropdown-agriculture')}</Link>
-                </li>
-                <li>
-                  <Link href="/services/infrastructure">{t('dropdown-infrastructure')}</Link>
-                </li>
-                <li>
-                  <Link href="/services/education">{t('dropdown-education')}</Link>
-                </li>
-                <li>
-                  <Link href="/services/public-safety">{t('dropdown-public-safety')}</Link>
-                </li>
-                <li>
-                  <Link href="/services/environment">{t('dropdown-environment')}</Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link href="/government" className={pathname.startsWith('/government') ? 'active' : ''} aria-current={pathname === '/government' ? 'page' : undefined}>{t('nav-government')}</Link>
-            </li>
-            <li>
-              <Link href="/tourism" className={pathname.startsWith('/tourism') ? 'active' : ''} aria-current={pathname === '/tourism' ? 'page' : undefined}>{t('nav-tourism')}</Link>
-            </li>
-            <li>
-              <Link href="/statistics" className={pathname.startsWith('/statistics') ? 'active' : ''} aria-current={pathname === '/statistics' ? 'page' : undefined}>{t('nav-statistics')}</Link>
-            </li>
-            <li className={`has-dropdown ${openDropdown === 1 ? 'dropdown-open' : ''}`}>
-              <Link
-                href="/legislative"
-                className={pathname.startsWith('/legislative') ? 'active' : ''}
-                aria-haspopup="true"
-                aria-expanded={openDropdown === 1 ? 'true' : 'false'}
-                onClick={(e) => toggleDropdown(1, e)}
-              >
-                {t('nav-legislative')}
-              </Link>
-              <ul className="dropdown-menu">
-                <li><Link href="/legislative"><L en="Legislative overview" fil="Pangkalahatang batas" ilo="Pakabuklan ti lehislatura" /></Link></li>
-                <li>
-                  <Link href="/legislative/ordinance-framework">
-                    {t('dropdown-ordinance-framework')}
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/legislative/resolution-framework">
-                    {t('dropdown-resolution-framework')}
-                  </Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link href="/budget" className={pathname.startsWith('/budget') ? 'active' : ''} aria-current={pathname === '/budget' ? 'page' : undefined}>{t('nav-transparency')}</Link>
-            </li>
-            <li>
-              <Link href="/contact" className={pathname.startsWith('/contact') ? 'active' : ''} aria-current={pathname === '/contact' ? 'page' : undefined}>{t('nav-contact')}</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <div className="header-actions">
-          <div className="lang-selector">
-            <button
-              type="button"
-              className={`btn btn-secondary btn-sm lang-btn ${language === 'en' ? 'active' : ''}`}
-              onClick={() => setLanguage('en')}
-              aria-label="Switch to English"
-            >
-              EN
-            </button>
-            <button
-              type="button"
-              className={`btn btn-secondary btn-sm lang-btn ${language === 'fil' ? 'active' : ''}`}
-              onClick={() => setLanguage('fil')}
-              aria-label="Switch to Filipino"
-            >
-              FIL
-            </button>
-            <button
-              type="button"
-              className={`btn btn-secondary btn-sm lang-btn ${language === 'ilo' ? 'active' : ''}`}
-              onClick={() => setLanguage('ilo')}
-              aria-label="Switch to Ilocano"
-            >
-              ILO
-            </button>
-          </div>
-        </div>
-
+    <>
+      <header className="site-topbar">
+        <Link href="/" className="site-topbar-brand">
+          <img src="/assets/images/logo/ramon-seal-logo.svg" alt="Better Ramon home" className="site-topbar-logo" />
+        </Link>
         <button
           ref={toggleRef}
           type="button"
-          className="mobile-menu-toggle btn btn-secondary"
-          onClick={() => {
-            if (isAnimatingRef.current) return;
-            if (mobileMenuOpen) {
-              closeMenu();
-            } else {
-              isAnimatingRef.current = true;
-              setMobileMenuOpen(true);
-              lockBodyScroll();
-              setTimeout(() => {
-                isAnimatingRef.current = false;
-              }, 320);
-            }
-          }}
-          aria-label="Toggle Navigation"
-          aria-controls="main-navigation"
-          aria-expanded={mobileMenuOpen ? 'true' : 'false'}
+          className="site-topbar-menu"
+          onClick={() => (open ? close() : openMenu())}
+          aria-controls="site-sidebar"
+          aria-expanded={open}
         >
-          <i className={`bi ${mobileMenuOpen ? 'bi-x-lg' : 'bi-list'}`} aria-hidden="true"></i>
-          <span className="menu-toggle-label"><L en={mobileMenuOpen ? 'Close' : 'Menu'} fil={mobileMenuOpen ? 'Isara' : 'Menu'} ilo={mobileMenuOpen ? 'Iserra' : 'Menu'} /></span>
+          <i className="bi bi-list" aria-hidden="true"></i>
+          <span><L en="Menu" fil="Menu" ilo="Menu" /></span>
         </button>
-      </div>
-    </header>
+      </header>
+
+      <div className={`site-sidebar-scrim${open ? ' is-open' : ''}`} onClick={close} aria-hidden="true"></div>
+
+      <aside id="site-sidebar" className={`site-sidebar${open ? ' is-open' : ''}`}>
+        <div className="site-sidebar-head">
+          <Link href="/" className="site-sidebar-brand">
+            <img src="/assets/images/logo/ramon-seal-logo-white.svg" alt="" />
+            <span>
+              <strong>BetterRamon</strong>
+              <small>Ramon, Isabela</small>
+            </span>
+          </Link>
+          <button type="button" className="site-sidebar-close" onClick={close} aria-label="Close menu">
+            <i className="bi bi-x-lg" aria-hidden="true"></i>
+          </button>
+        </div>
+
+        <nav id="main-navigation" className="site-sidebar-nav" aria-label="Main Navigation">
+          {groups.map((g, i) => (
+            <div key={i} className="site-sidebar-group">
+              {g.label && <p className="site-sidebar-label">{t(g.label)}</p>}
+              <ul>
+                {g.items.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className={isActive(item.href) ? 'is-active' : undefined}
+                      aria-current={pathname === item.href ? 'page' : undefined}
+                    >
+                      <i className={`bi ${item.icon}`} aria-hidden="true"></i>
+                      <span>{t(item.key)}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </nav>
+
+        <div className="site-sidebar-lang" role="group" aria-label="Language">
+          {languages.map((l) => (
+            <button
+              key={l.code}
+              type="button"
+              className={`lang-btn${language === l.code ? ' active' : ''}`}
+              onClick={() => setLanguage(l.code)}
+              aria-label={`Switch to ${l.name}`}
+              aria-pressed={language === l.code}
+            >
+              {l.label}
+            </button>
+          ))}
+        </div>
+      </aside>
+    </>
   );
 }

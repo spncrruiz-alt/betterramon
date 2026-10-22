@@ -7,6 +7,7 @@ import Deadlines from '@/components/Deadlines';
 import { lgu, stats, officials, councilors, contact } from '@/data/ramon';
 import L, { Tbv } from '@/components/L';
 import PhotoCredits from '@/components/PhotoCredits';
+import BarangayMap from '@/components/BarangayMap';
 
 export default function HomePage() {
   const { t } = useLanguage();
@@ -342,6 +343,7 @@ export default function HomePage() {
           <div className="home-stats-v2-header">
             <h2>{t('weather-map-title')}</h2>
           </div>
+          <BarangayMap />
           <div className="map-card">
             <div
               id="map-container"

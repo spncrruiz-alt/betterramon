@@ -467,7 +467,7 @@ a.home-service-card--all:hover .home-service-arrow { color: #fff; }
 }
 
 /* Barangay boundary map (Sitemap page). */
-.barangay-map { margin: 0 0 40px; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
+.barangay-map { margin: 0 0 24px; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
 .barangay-map svg { display: block; width: 100%; height: auto; }
 .barangay-map-area path { stroke: #fff; stroke-width: 2; stroke-linejoin: round; transition: fill .15s ease; }
 .barangay-map-area:hover path, .barangay-map-area:focus-visible path { fill: #f7c51e; }

@@ -117,7 +117,7 @@ const faqs: {
     aIlo: (
       <>
         Iti uneg ti umuna a 20 nga aldaw ti Enero kada tawen. Kitaen ti{' '}
-        <Link href="/services/business">giya ti negosio</Link>.
+        <Link href="/services/business">giya ti negosyo</Link>.
       </>
     ),
     a: (
@@ -189,7 +189,7 @@ const faqs: {
     aIlo: (
       <>
         Ag-apply iti OSCA (senior citizen) wenno iti MSWDO. Kitaen ti{' '}
-        <Link href="/services/social-services">serbisio sosial</Link>.
+        <Link href="/services/social-services">serbisio sosyal</Link>.
       </>
     ),
     a: (
@@ -242,7 +242,7 @@ const faqs: {
         <a href={`${lgu.repo}/issues`} target="_blank" rel="noopener noreferrer">
           GitHub page
         </a>{' '}
-        mi a kadua ti umno nga impormasion ken ti pampubliko a nagtaudanna.
+        mi a kadua ti umno nga impormasyon ken ti pampubliko a nagtaudanna.
       </>
     ),
     a: (

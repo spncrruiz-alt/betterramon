@@ -127,15 +127,15 @@ const fil = (
 
 const ilo = (
   <>
-    <h2>Baro a negosio: addang ti addang</h2>
+    <h2>Baro a negosyo: addang ti addang</h2>
     <ol>
       <li>
-        <strong>Irehistro ti nagan wenno entity ti negosio.</strong> Dagiti sole proprietor ket
+        <strong>Irehistro ti nagan wenno entity ti negosyo.</strong> Dagiti sole proprietor ket
         agparehistro iti DTI (online iti Business Name Registration System). Dagiti korporasion ken
         partnership ket iti SEC; dagiti kooperatiba ket iti CDA.
       </li>
       <li>
-        <strong>Agala ti barangay business clearance</strong> iti barangay a yan ti negosio.
+        <strong>Agala ti barangay business clearance</strong> iti barangay a yan ti negosyo.
       </li>
       <li>
         <strong>Ag-apply ti Mayor&rsquo;s (business) permit</strong> iti BPLO / Business One-Stop
@@ -164,7 +164,7 @@ const ilo = (
       <li>Pammaneknek ti lokasion: kontrata ti abang, wenno tax declaration / titulo no kukua</li>
       <li>Valid a government ID ti makinkukua</li>
       <li>
-        Dadduma pay a dokumento segun iti negosio (kas pagarigan, sanitary permit para iti taraon)
+        Dadduma pay a dokumento segun iti negosyo (kas pagarigan, sanitary permit para iti taraon)
       </li>
     </ul>
     <p>

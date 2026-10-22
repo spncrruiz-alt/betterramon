@@ -95,7 +95,7 @@ const ilo = (
     </p>
     <h2>Dagiti ordinansa</h2>
     <p>
-      Ti ordinansa ket lokal a linteg, kas iti buis, bayad, pagannurotan ti trapiko wenno zoning.
+      Ti ordinansa ket lokal a linteg, kas iti buwis, bayad, pagannurotan ti trapiko wenno zoning.
       Kasapulanna ti pammalubos ti Mayor ken repasuen ti Sangguniang Panlalawigan.
     </p>
     {tables.ord}
@@ -117,7 +117,7 @@ const ilo = (
         Secretary iti Municipal Hall. Mangiyeg iti valid ID ken ti titulo wenno numero no ammom.
       </li>
       <li>
-        <strong>Agsao iti public hearing</strong> maipapan kadagiti maisingasing a buis, bayad ken
+        <strong>Agsao iti public hearing</strong> maipapan kadagiti maisingasing a buwis, bayad ken
         dadakkel nga ordinansa, a masapul a maipakaammo a nasapa.
       </li>
     </ul>

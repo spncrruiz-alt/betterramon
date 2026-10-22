@@ -68,7 +68,7 @@ const ilo = (
       <li>Bayad ti permiso, sertipiko ken dadduma pay a serbisio ti munisipio</li>
     </ul>
     <p>
-      Adda iti <Link href="/services/tax-payments">giya iti panagbayad iti buis</Link> dagiti petsa,
+      Adda iti <Link href="/services/tax-payments">giya iti panagbayad iti buwis</Link> dagiti petsa,
       gatad ken multa.
     </p>
     <h2>Sakbay nga agbayad</h2>
@@ -92,7 +92,7 @@ export default function TreasurerGuide() {
         <L
           en="The Municipal Treasurer’s Office is the only office that collects taxes and fees and issues official receipts."
           fil="Ang Municipal Treasurer’s Office lamang ang nangongolekta ng buwis at bayarin at naglalabas ng opisyal na resibo."
-          ilo="Ti Municipal Treasurer’s Office laeng ti agur-urnong iti buis ken bayad ken mangited iti opisial a resibo."
+          ilo="Ti Municipal Treasurer’s Office laeng ti agur-urnong iti buwis ken bayad ken mangited iti opisial a resibo."
         />
       </GuideNotice>
       <L en={en} fil={fil} ilo={ilo} />

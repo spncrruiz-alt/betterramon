@@ -118,7 +118,7 @@ const ilo = (
     </ul>
     <h2>Kinatalged iti uram</h2>
     <p>
-      Kasapulan dagiti negosio ken pasdek ti Fire Safety Inspection Certificate manipud iti Bureau
+      Kasapulan dagiti negosyo ken pasdek ti Fire Safety Inspection Certificate manipud iti Bureau
       of Fire Protection. Iti balay, itakder ti tangke ti LPG ken iyadayo iti pudot, dimo pagadduen
       ti maisaksak, ken dimo panawan ti agluto.
     </p>

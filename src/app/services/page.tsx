@@ -16,8 +16,8 @@ export default function ServicesPage() {
         <div className="service-directory-aside">
           <h2><L en="Quick access" fil="Mabilis na access" ilo="Napartak a panagserrek" /></h2>
           <Link href="/service-details/birth-certificate"><L en="Birth certificate" fil="Sertipiko ng kapanganakan" ilo="Sertipiko ti pannakayanak" /></Link>
-          <Link href="/service-details/business-permits-licensing"><L en="Business permits" fil="Mga permit sa negosyo" ilo="Dagiti permiso ti negosyo" /></Link>
-          <Link href="/services/tax-payments"><L en="Tax payments" fil="Pagbabayad ng buwis" ilo="Panagbayad ti buis" /></Link>
+          <Link href="/service-details/business-permits-licensing"><L en="Business permits" fil="Mga permit sa negosyo" ilo="Dagiti permit ti negosyo" /></Link>
+          <Link href="/services/tax-payments"><L en="Tax payments" fil="Pagbabayad ng buwis" ilo="Panagbayad ti buwis" /></Link>
           <div className="directory-help">
             <h2><L en="Need help?" fil="Kailangan ng tulong?" ilo="Kasapulam ti tulong?" /></h2>
             <p><L en="Find contact details for municipal offices and emergency services." fil="Hanapin ang mga detalye sa pakikipag-ugnayan sa mga tanggapan at serbisyong pang-emergency." ilo="Sapulen dagiti detalye ti pakasaritaan kadagiti opisina ti munisipio ken dagiti serbisio ti emerhensia." /></p>

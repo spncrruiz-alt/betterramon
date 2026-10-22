@@ -14,7 +14,7 @@ export const deadlines: Deadline[] = [
     day: 20,
     title: 'Business permit renewal and business tax',
     fil: 'Pag-renew ng business permit at buwis sa negosyo',
-    ilo: 'Panag-renew ti business permit ken buwis ti negosio',
+    ilo: 'Panag-renew ti business permit ken buwis ti negosyo',
     href: '/services/business',
   },
   {
@@ -22,7 +22,7 @@ export const deadlines: Deadline[] = [
     day: 28,
     title: 'Community tax certificate (cedula)',
     fil: 'Cedula',
-    ilo: 'Sedula',
+    ilo: 'Cedula',
     href: '/services/tax-payments',
   },
   {

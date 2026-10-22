@@ -89,14 +89,14 @@ export default function HomePage() {
                 icon: 'bi-person-vcard-fill',
                 label: 'Get a cedula',
                 fil: 'Kumuha ng cedula',
-                ilo: 'Agala ti sedula',
+                ilo: 'Agala ti cedula',
               },
               {
                 href: '/services/business',
                 icon: 'bi-shop',
                 label: 'Start or renew a business',
                 fil: 'Magsimula o mag-renew ng negosyo',
-                ilo: 'Mangrugi wenno ag-renew ti negosio',
+                ilo: 'Mangrugi wenno ag-renew ti negosyo',
               },
               {
                 href: '/services/certificates',

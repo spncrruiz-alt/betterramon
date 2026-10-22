@@ -175,12 +175,12 @@ const ilo = (
       </li>
     </ul>
 
-    <h2>Sedula (community tax certificate)</h2>
+    <h2>Cedula (community tax certificate)</h2>
     <ul>
       <li>
         <strong>Siasino ti agbayad:</strong> dagiti agnanaed nga 18 ti tawenna nga agpangato nga
-        addaan trabaho, negosio, wenno sanikua nga addaan assessed value a &#8369;1,000 nga
-        agpangato; ken dagiti negosio.
+        addaan trabaho, negosyo, wenno sanikua nga addaan assessed value a &#8369;1,000 nga
+        agpangato; ken dagiti negosyo.
       </li>
       <li>
         <strong>Mano (indibidual):</strong> &#8369;5 a basic, nayonan ti &#8369;1 iti tunggal
@@ -196,12 +196,12 @@ const ilo = (
       </li>
     </ul>
 
-    <h2>Buwis ti negosio ken bayad ti Mayor&rsquo;s permit</h2>
+    <h2>Buwis ti negosyo ken bayad ti Mayor&rsquo;s permit</h2>
     <p>
       Mabayadan iti uneg ti umuna a 20 nga aldaw ti Enero, wenno kada quarter iti uneg ti umuna a 20
       nga aldawna no maipalubos. No naladaw: surcharge nga agingga iti 25% ken interes nga agingga
       iti 2% kada bulan. Dagiti addang ti panag-renew ket adda iti{' '}
-      <Link href="/services/business">giya ti negosio</Link>.
+      <Link href="/services/business">giya ti negosyo</Link>.
     </p>
 
     <h2>Ti opisial a resibom (OR)</h2>
@@ -209,7 +209,7 @@ const ilo = (
       <li>
         Kanayon a dawaten ti opisial a resibo iti tunggal bayad. Daytoy ti pammaneknek ti bayadmo.
       </li>
-      <li>Siguraduem nga umno ti nagan, sanikua wenno negosio, gatad ken petsa.</li>
+      <li>Siguraduem nga umno ti nagan, sanikua wenno negosyo, gatad ken petsa.</li>
       <li>Idulinmo. Masapul daytoy iti clearance, panangiyalis ken iti sumaruno a tawen.</li>
       <li>Dika agbayad iti asinoman a saan a makaited ti opisial a resibo.</li>
     </ul>

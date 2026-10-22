@@ -74,8 +74,8 @@ const ilo = (
     </p>
     <h2>Kinapudno</h2>
     <p>
-      Impormasion laeng manipud kadagiti publiko a nagtaudan ti ipablaakmi. Mabalin nga agbaliw
-      wenno agbiddut ti impormasion; kanayon a kumpirmaen iti maseknan nga opisina sakbay nga
+      Impormasyon laeng manipud kadagiti publiko a nagtaudan ti ipablaakmi. Mabalin nga agbaliw
+      wenno agbiddut ti impormasyon; kanayon a kumpirmaen iti maseknan nga opisina sakbay nga
       agtignay. Dagiti saanmi pay a nakumpirma ket addaan iti marka a &ldquo;Saan pay a
       naberipika.&rdquo;
     </p>

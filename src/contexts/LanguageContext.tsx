@@ -272,7 +272,7 @@ const translations: Record<string, Record<string, string>> = {
   ilo: {
     // Navigation - Ilocano
     'nav-home': 'Pagtaengan',
-    'nav-services': 'Dagiti Serbisyo',
+    'nav-services': 'Dagiti Serbisio',
     'nav-government': 'Gobierno',
     'nav-tourism': 'Turismo',
     'nav-statistics': 'Estadistika',
@@ -283,22 +283,22 @@ const translations: Record<string, Record<string, string>> = {
     // Hero Section
     'hero-welcome': 'Naragsak nga Isasangbay iti BetterRamon.org',
     'hero-subtitle':
-      'Aksesen dagiti serbisyo ti gobierno, impormasyon, ken dagiti resources para kadagiti umili ti Ramon, Isabela.',
-    'hero-find-service': 'Agsapul ti Serbisyo',
+      'Aksesen dagiti serbisio ti gobierno, impormasyon, ken dagiti resources para kadagiti umili ti Ramon, Isabela.',
+    'hero-find-service': 'Agsapul ti Serbisio',
 
     // Popular Services
-    'section-popular': 'Dagiti Popular a Serbisyo',
+    'section-popular': 'Dagiti Popular a Serbisio',
     'service-certificates': 'Dagiti Sertipiko',
     'service-certificates-desc': 'Sertipiko ti pannakayanak, kasar, ken patay',
     'service-business': 'Permit ti Negosyo',
     'service-business-desc': 'Baro a permit ken panagrenew',
     'service-tax': 'Panagbayad ti Buwis',
     'service-tax-desc': 'Buwis ti sanikua ken negosyo',
-    'service-social': 'Serbisyo Sosyal',
-    'service-social-desc': 'Serbisyo para kadagiti senior citizen ken PWD',
-    'service-health': 'Serbisyo ti Salun-at',
+    'service-social': 'Serbisio Sosyal',
+    'service-social-desc': 'Serbisio para kadagiti senior citizen ken PWD',
+    'service-health': 'Serbisio ti Salun-at',
     'service-health-desc': 'Tulong medikal ken dagiti programa',
-    'btn-view-all-services': 'Kitaen Amin a Serbisyo',
+    'btn-view-all-services': 'Kitaen Amin a Serbisio',
 
     // Municipal Leadership
     'section-leadership': 'Panguluan ti Munisipalidad',
@@ -347,7 +347,7 @@ const translations: Record<string, Record<string, string>> = {
 
     // Header Dropdown Items
     'dropdown-certificates': 'Dagiti Sertipiko',
-    'dropdown-business': 'Negosio',
+    'dropdown-business': 'Negosyo',
     'dropdown-tax-payments': 'Panagbayad ti Buwis',
     'dropdown-social-services': 'Serbisio Sosyal',
     'dropdown-health': 'Salun-at',
@@ -365,7 +365,7 @@ const translations: Record<string, Record<string, string>> = {
     'hero-search-placeholder': 'kas pagarigan, birth certificate, business permit',
     'hero-popular': 'Popular:',
     'hero-birth-certificate': 'Birth Certificate',
-    'hero-business-permit': 'Permit ti Negosio',
+    'hero-business-permit': 'Permit ti Negosyo',
     'hero-real-property-tax': 'Buwis ti Kukua',
 
     // Homepage - Popular Services
@@ -394,7 +394,7 @@ const translations: Record<string, Record<string, string>> = {
     'footer-accessibility': 'Aksesibilidad',
     'footer-faq': 'FAQ',
     'footer-open-data': 'Open Data Philippines',
-    'footer-foi': 'Wayawaya ti Impormasion',
+    'footer-foi': 'Wayawaya ti Impormasyon',
     'footer-blgf': 'BLGF Portal',
     'footer-cmci': 'CMCI DTI Portal',
     'footer-cost': 'Gastos kadagiti Umili ti Ramon =',

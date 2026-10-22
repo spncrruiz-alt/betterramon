@@ -68,7 +68,7 @@ const ilo = (
     <h2>Ania ti ur-urnongenmi</h2>
     <p>
       Awan. Awan ti account, porma, cookie, analytics wenno ads ti BetterRamon.org, ken saankami nga
-      agur-urnong iti personal nga impormasion.
+      agur-urnong iti personal nga impormasyon.
     </p>
     <h2>Naidulin iti devicem</h2>
     <ul>

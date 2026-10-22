@@ -219,7 +219,7 @@ export default function TourismPage() {
               <L
                 en="Resorts and restaurants are listed for convenience, not endorsed or ranked. Check rates, hours and bookings with each place directly. Own a place in Ramon? Ask us to add it."
                 fil="Nakalista ang mga resort at kainan para sa kaginhawaan, hindi inirerekomenda o niraranggo. Alamin ang presyo, oras at booking sa mismong lugar. May negosyo ka sa Ramon? Ipaalam sa amin para maidagdag."
-                ilo="Nailista dagiti resort ken pagmanganan para iti kombeniensia, saan nga irekomenda wenno iranggo. Saludsoden ti presio, oras ken booking iti mismo a lugar. Adda negosiom iti Ramon? Ipakaammom kadakami tapno mainayon."
+                ilo="Nailista dagiti resort ken pagmanganan para iti kombeniensia, saan nga irekomenda wenno iranggo. Saludsoden ti presio, oras ken booking iti mismo a lugar. Adda negosyom iti Ramon? Ipakaammom kadakami tapno mainayon."
               />
             </small>
           </p>

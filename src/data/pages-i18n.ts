@@ -18,15 +18,15 @@ export const pagesI18n: Record<string, { fil: T; ilo: T }> = {
   },
   '/services/business': {
     fil: ['Permit sa Negosyo', 'Bagong business permit at pag-renew.'],
-    ilo: ['Permiso ti Negosio', 'Baro a business permit ken panag-renew.'],
+    ilo: ['Permit ti Negosyo', 'Baro a business permit ken panag-renew.'],
   },
   '/services/tax-payments': {
     fil: ['Pagbabayad ng Buwis', 'Amilyar, buwis sa negosyo at cedula.'],
-    ilo: ['Panagbayad ti Buwis', 'Amilyar, buwis ti negosio ken sedula.'],
+    ilo: ['Panagbayad ti Buwis', 'Amilyar, buwis ti negosyo ken cedula.'],
   },
   '/services/social-services': {
     fil: ['Serbisyong Panlipunan', 'Senior citizen, PWD, solo parent at tulong mula sa MSWDO.'],
-    ilo: ['Serbisio Sosial', 'Senior citizen, PWD, solo parent ken tulong manipud iti MSWDO.'],
+    ilo: ['Serbisio Sosyal', 'Senior citizen, PWD, solo parent ken tulong manipud iti MSWDO.'],
   },
   '/services/health': {
     fil: ['Serbisyong Pangkalusugan', 'Konsulta, bakuna at mga programang pangkalusugan.'],

@@ -1,64 +1,117 @@
-import { barangayInfo } from '@/data/ramon';
-import { barangayShapes, mapSize, municipalOutline } from '@/data/ramon-map';
+'use client';
+
+import { useEffect, useRef } from 'react';
+import 'leaflet/dist/leaflet.css';
+import { barangayInfo, contact } from '@/data/ramon';
+import { barangayGeo, municipalOutlineGeo } from '@/data/ramon-geo';
 import L from '@/components/L';
 
-// Map of Ramon's municipal boundary and its 19 barangays, shaded by 2020 population.
-// Each barangay links to OpenStreetMap at its center.
-const shades = ['#e6edff', '#c7d6ff', '#9db7fb', '#6a8ff0', '#3d67de'];
+// Interactive map of Ramon: OpenStreetMap streets underneath, barangay boundaries
+// shaded by 2020 population, the municipal boundary outlined on top.
+const shades = ['#dbe5ff', '#b3c8ff', '#7fa1f5', '#4d78e6', '#1e4fd8'];
 const limits = [1500, 2500, 4000, 6000];
 const shadeOf = (pop: number) => limits.filter((l) => pop >= l).length;
 const fmt = (n: number) => n.toLocaleString('en-US');
 
 export default function BarangayMap() {
+  const box = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let map: import('leaflet').Map | undefined;
+    let cancelled = false;
+    import('leaflet').then((Lf) => {
+      if (cancelled || !box.current) return;
+      map = Lf.map(box.current, {
+        scrollWheelZoom: false, // page scrolling keeps working; use +/- or pinch
+        zoomSnap: 0.25,
+        attributionControl: true,
+      });
+      Lf.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · Boundaries: PSA PSGC (2023)',
+      }).addTo(map);
+
+      const geo = barangayGeo as unknown as GeoJSON.FeatureCollection;
+      const areas = Lf.geoJSON(geo, {
+        style: (f) => {
+          const info = barangayInfo[f?.properties.name];
+          return {
+            color: '#ffffff',
+            weight: 1.5,
+            fillColor: shades[info ? shadeOf(info.population2020) : 0],
+            fillOpacity: 0.55,
+          };
+        },
+        onEachFeature: (f, layer) => {
+          const name: string = f.properties.name;
+          const info = barangayInfo[name];
+          layer.bindTooltip(
+            `<strong>${name}</strong>${info ? `<br>${fmt(info.population2020)} people (2020)` : ''}`,
+            { sticky: true, className: 'barangay-tip', direction: 'top' }
+          );
+          layer.on({
+            mouseover: () =>
+              (layer as import('leaflet').Path).setStyle({ fillOpacity: 0.8, weight: 2.5 }),
+            mouseout: () => areas.resetStyle(layer),
+          });
+        },
+      }).addTo(map);
+
+      // Municipal boundary: a thick outline drawn over the barangays.
+      Lf.geoJSON(municipalOutlineGeo as unknown as GeoJSON.Feature, {
+        style: {
+          color: '#0f172a',
+          weight: 3.5,
+          opacity: 0.95,
+          lineCap: 'round',
+          lineJoin: 'round',
+        },
+        interactive: false,
+      }).addTo(map);
+
+      // Names stay visible once zoomed in enough to fit them.
+      const labels = Lf.layerGroup(
+        geo.features.map((f) =>
+          Lf.marker(Lf.geoJSON(f).getBounds().getCenter(), {
+            interactive: false,
+            keyboard: false,
+            icon: Lf.divIcon({
+              className: 'barangay-label',
+              html: `<span>${f.properties?.name}</span>`,
+              iconSize: [0, 0],
+            }),
+          })
+        )
+      );
+      const toggleLabels = () => {
+        if (!map) return;
+        if (map.getZoom() >= 12) labels.addTo(map);
+        else labels.remove();
+      };
+      map.on('zoomend', toggleLabels);
+      map.fitBounds(areas.getBounds(), { padding: [12, 12] });
+      toggleLabels();
+    });
+    return () => {
+      cancelled = true;
+      map?.remove();
+    };
+  }, []);
+
   return (
     <figure className="barangay-map">
-      <svg
-        viewBox={`0 0 ${mapSize.width} ${mapSize.height}`}
-        role="group"
-        aria-labelledby="barangay-map-caption"
-      >
-        {barangayShapes.map((b) => {
-          const info = barangayInfo[b.name];
-          const level = info ? shadeOf(info.population2020) : 0;
-          const label = `${b.name}${info ? `, ${fmt(info.population2020)} people (2020)` : ''}`;
-          return (
-            <a
-              key={b.psgc}
-              href={
-                info
-                  ? `https://www.openstreetmap.org/?mlat=${info.lat}&mlon=${info.lon}#map=15/${info.lat}/${info.lon}`
-                  : undefined
-              }
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${label}: open map`}
-              className="barangay-map-area"
-            >
-              <title>{label}</title>
-              <path d={b.d} fill={shades[level]} />
-            </a>
-          );
-        })}
-        <path d={municipalOutline} className="barangay-map-outline" />
-        <g className="barangay-map-labels" aria-hidden="true">
-          {barangayShapes.map((b) => {
-            const info = barangayInfo[b.name];
-            const dark = info && shadeOf(info.population2020) >= 3;
-            return (
-              <text
-                key={b.psgc}
-                x={b.label[0]}
-                y={b.label[1]}
-                className={dark ? 'on-dark' : undefined}
-              >
-                {b.name}
-              </text>
-            );
-          })}
-        </g>
-      </svg>
-      <figcaption id="barangay-map-caption">
+      <div
+        ref={box}
+        className="barangay-map-canvas"
+        role="region"
+        aria-label="Map of Ramon, Isabela with barangay boundaries"
+      />
+      <figcaption>
         <span className="barangay-map-legend" aria-hidden="true">
+          <span className="legend-title">
+            <L en="Population (2020)" fil="Populasyon (2020)" ilo="Populasion (2020)" />
+          </span>
           {shades.map((c, i) => (
             <span key={c}>
               <i style={{ background: c }} />
@@ -71,10 +124,11 @@ export default function BarangayMap() {
           ))}
         </span>
         <small>
+          <i className="bi bi-geo-alt" aria-hidden="true"></i> {contact.address}.{' '}
           <L
-            en="Municipal boundary (dark line) and barangay boundaries of Ramon, shaded by 2020 population. Select a barangay to open it on OpenStreetMap. Boundaries: PSA PSGC shapefiles (2023), simplified, via philippines-json-maps (MIT). Approximate, not for legal or survey use."
-            fil="Hangganan ng bayan (madilim na linya) at mga hangganan ng barangay ng Ramon, kinulayan ayon sa populasyon noong 2020. Pumili ng barangay para buksan ito sa OpenStreetMap. Hangganan: PSA PSGC shapefiles (2023), pinasimple, sa pamamagitan ng philippines-json-maps (MIT). Tantya lamang, hindi para sa legal o survey na gamit."
-            ilo="Beddeng ti ili (nangisit a linia) ken dagiti beddeng ti barangay ti Ramon, nakoloran segun iti populasion idi 2020. Pilien ti barangay tapno lukatan iti OpenStreetMap. Beddeng: PSA PSGC shapefiles (2023), napasimple, babaen ti philippines-json-maps (MIT). Pattapatta laeng, saan a para iti legal wenno survey."
+            en="Barangay boundaries from PSA PSGC shapefiles (2023), simplified; approximate, not for legal or survey use."
+            fil="Hangganan ng barangay mula sa PSA PSGC shapefiles (2023), pinasimple; tantya lamang, hindi para sa legal o survey na gamit."
+            ilo="Beddeng ti barangay manipud PSA PSGC shapefiles (2023), napasimple; pattapatta laeng, saan a para iti legal wenno survey."
           />
         </small>
       </figcaption>

@@ -9,11 +9,13 @@
     "check": "node --experimental-strip-types --no-warnings scripts/check-search.mts"
   },
   "dependencies": {
+    "leaflet": "1.9.4",
     "next": "^15.5.21",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@types/leaflet": "1.9.22",
     "@types/node": "^20.14.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",

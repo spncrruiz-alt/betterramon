@@ -3,7 +3,7 @@
  * Enterprise-grade PWA with versioned caching, runtime strategies, and offline resilience.
  */
 
-var CACHE_VERSION = 'v37';
+var CACHE_VERSION = 'v38';
 var STATIC_CACHE = 'betterramon-static-' + CACHE_VERSION;
 var RUNTIME_CACHE = 'betterramon-runtime-' + CACHE_VERSION;
 var OFFLINE_URL = '/offline.html';
@@ -123,6 +123,8 @@ self.addEventListener('fetch', function (event) {
   // Skip non-GET requests and chrome-extension/devtools
   if (event.request.method !== 'GET') return;
   if (url.protocol !== 'http:' && url.protocol !== 'https:') return;
+  // Map tiles go straight to OpenStreetMap; never cache them here.
+  if (url.hostname === 'tile.openstreetmap.org') return;
 
   // ── Navigation requests: Network-first with offline fallback ──
   if (event.request.mode === 'navigate') {

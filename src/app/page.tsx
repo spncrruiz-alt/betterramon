@@ -344,24 +344,6 @@ export default function HomePage() {
             <h2>{t('weather-map-title')}</h2>
           </div>
           <BarangayMap />
-          <div className="map-card">
-            <div
-              id="map-container"
-              role="application"
-              aria-label="Map of Ramon, Isabela"
-              data-map-loaded="iframe"
-            >
-              <iframe
-                src={`https://www.openstreetmap.org/export/embed.html?bbox=${lgu.coords.lon - 0.015}%2C${lgu.coords.lat - 0.015}%2C${lgu.coords.lon + 0.015}%2C${lgu.coords.lat + 0.015}&layer=mapnik&marker=${lgu.coords.lat}%2C${lgu.coords.lon}`}
-                className="map-iframe"
-                title="Map of Ramon, Isabela"
-                loading="lazy"
-              ></iframe>
-            </div>
-            <p className="map-attribution">
-              <i className="bi bi-geo-alt" aria-hidden="true"></i> {contact.address}
-            </p>
-          </div>
         </div>
       </section>
 

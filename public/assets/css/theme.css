@@ -393,3 +393,28 @@ a.home-service-card--all:hover .home-service-arrow { color: #fff; }
 @media (prefers-reduced-motion: reduce) {
   .site-sidebar, .site-sidebar-scrim { transition: none; }
 }
+
+/* Emergency bar: label, rolling hotline numbers, then rate, weather, date and time (2026-10-22). */
+.hotline-row { display: flex; align-items: center; gap: 14px; min-height: 36px; }
+.hotline-label { flex: none; display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; font-weight: 700; color: #9b1c1c; }
+.hotline-ticker { flex: 1; min-width: 0; overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent); mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent); }
+.hotline-track { display: flex; width: max-content; animation: hotline-roll 45s linear infinite; }
+.hotline-ticker:hover .hotline-track, .hotline-ticker:focus-within .hotline-track { animation-play-state: paused; }
+.hotline-set { display: flex; gap: 28px; padding-right: 28px; }
+.hotline-bar .hotline-item { display: inline-flex; align-items: center; gap: 6px; padding: 8px 0; white-space: nowrap; font-size: .78rem; color: #9b1c1c; text-decoration: none; }
+.hotline-bar .hotline-item strong { font-weight: 700; }
+.hotline-bar .hotline-item:hover, .hotline-bar .hotline-item:focus-visible { color: #6b1212; text-decoration: underline; }
+@keyframes hotline-roll { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) {
+  .hotline-track { animation: none; }
+  .hotline-ticker { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+  .hotline-set[aria-hidden] { display: none; }
+}
+.hotline-info { flex: none; display: flex; align-items: center; gap: 18px; margin: 0; padding: 0; background: none; border: 0; }
+.hotline-info .info-bar-item { margin: 0; padding: 0; font-size: .78rem; gap: 6px; }
+.hotline-info .info-bar-item, .hotline-info .info-bar-item span, .hotline-info .info-bar-item i { color: #7f1d1d; }
+@media (max-width: 760px) {
+  .hotline-row { flex-wrap: wrap; gap: 0 12px; }
+  .hotline-info { flex-basis: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 2px 14px; padding: 0 0 6px; }
+  .hotline-info .info-bar-item { font-size: .72rem; }
+}

@@ -465,3 +465,21 @@ a.home-service-card--all:hover .home-service-arrow { color: #fff; }
   .map-link { padding: 6px 8px; }
   .map-link span { display: none; }
 }
+
+/* Barangay boundary map (Sitemap page). */
+.barangay-map { margin: 0 0 40px; padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--border-radius); box-shadow: var(--shadow-sm); }
+.barangay-map svg { display: block; width: 100%; height: auto; }
+.barangay-map-area path { stroke: #fff; stroke-width: 2; stroke-linejoin: round; transition: fill .15s ease; }
+.barangay-map-area:hover path, .barangay-map-area:focus-visible path { fill: #f7c51e; }
+.barangay-map-area:focus-visible { outline: none; }
+.barangay-map-outline { fill: none; stroke: #0f172a; stroke-width: 3.5; stroke-linejoin: round; stroke-linecap: round; pointer-events: none; }
+.barangay-map-labels text { font: 600 12px Inter, system-ui, sans-serif; fill: #0f172a; text-anchor: middle; dominant-baseline: middle; paint-order: stroke; stroke: rgba(255,255,255,.75); stroke-width: 3px; pointer-events: none; }
+.barangay-map-labels text.on-dark { fill: #fff; stroke: rgba(15,23,42,.55); }
+.barangay-map figcaption { display: grid; gap: 10px; margin-top: 12px; color: var(--ink-soft); }
+.barangay-map-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: .78rem; font-variant-numeric: tabular-nums; }
+.barangay-map-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.barangay-map-legend i { width: 14px; height: 14px; border-radius: 3px; border: 1px solid rgba(15,23,42,.15); }
+@media (max-width: 760px) {
+  .barangay-map { padding: 8px; }
+  .barangay-map-labels text { font-size: 15px; }
+}

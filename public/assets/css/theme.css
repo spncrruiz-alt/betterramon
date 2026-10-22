@@ -418,3 +418,16 @@ a.home-service-card--all:hover .home-service-arrow { color: #fff; }
   .hotline-info { flex-basis: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 2px 14px; padding: 0 0 6px; }
   .hotline-info .info-bar-item { font-size: .72rem; }
 }
+
+/* Barangay details table (Government page). */
+.table-scroll { overflow-x: auto; margin-bottom: 12px; border: 1px solid var(--line); border-radius: var(--border-radius); background: var(--surface); }
+.barangay-table { width: 100%; margin: 0; border-collapse: collapse; font-size: .92rem; }
+.barangay-table th, .barangay-table td { padding: 10px 14px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+.barangay-table thead th { background: var(--surface-alt); font-size: .8rem; font-weight: 700; color: var(--ink-soft); white-space: nowrap; }
+.barangay-table tbody th { font-weight: 600; white-space: nowrap; }
+.barangay-table tbody th a { color: var(--ink); text-decoration: none; }
+.barangay-table tbody th a:hover, .barangay-table tbody th a:focus-visible { color: var(--accent); text-decoration: underline; }
+.barangay-table tbody th a i { color: var(--accent); font-size: .8em; }
+.barangay-table .num { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.barangay-table td:last-child { color: var(--ink-soft); min-width: 180px; }
+.barangay-table tfoot th, .barangay-table tfoot td { border-bottom: 0; font-weight: 700; background: var(--surface-alt); }

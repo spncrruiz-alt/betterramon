@@ -126,7 +126,7 @@ export default function Header() {
       <aside id="site-sidebar" className={`site-sidebar${open ? ' is-open' : ''}`}>
         <div className="site-sidebar-head">
           <Link href="/" className="site-sidebar-brand">
-            <img src="/assets/images/logo/ramon-seal-logo-white.svg" alt="" />
+            <img src="/assets/images/logo/ramon-emblem-white.svg" alt="" />
             <span>
               <strong>BetterRamon</strong>
               <small>Ramon, Isabela</small>

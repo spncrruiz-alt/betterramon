@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image' },
   icons: {
     icon: '/assets/images/logo/ramon-favicon.svg',
-    apple: '/assets/images/logo/ramon-favicon.svg',
+    apple: '/assets/images/logo/apple-touch-icon.png',
   },
   manifest: '/manifest.webmanifest',
   appleWebApp: {

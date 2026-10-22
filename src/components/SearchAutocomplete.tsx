@@ -3,7 +3,15 @@
 import { useState, useRef, useEffect, useId } from 'react';
 import { useRouter } from 'next/navigation';
 import { pages } from '@/data/pages';
+import { pagesI18n } from '@/data/pages-i18n';
 import { searchPages } from '@/lib/search';
+import L from '@/components/L';
+
+// Filipino and Ilocano titles and descriptions count as keywords, so either language finds the page.
+const searchable = pages.map((p) => {
+  const tr = pagesI18n[p.path];
+  return tr ? { ...p, keywords: [...(p.keywords ?? []), ...tr.fil, ...tr.ilo] } : p;
+});
 
 interface Props {
   placeholder?: string;
@@ -18,7 +26,7 @@ export default function SearchAutocomplete({ placeholder }: Props) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(-1);
   const ref = useRef<HTMLFormElement>(null);
-  const results = searchPages(query, pages);
+  const results = searchPages(query, searchable);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -102,8 +110,8 @@ export default function SearchAutocomplete({ placeholder }: Props) {
                 >
                   <i className={`bi ${p.icon}`} aria-hidden="true"></i>
                   <span>
-                    <strong>{p.title}</strong>
-                    <small>{p.desc}</small>
+                    <strong><L en={p.title} fil={pagesI18n[p.path]?.fil[0]} ilo={pagesI18n[p.path]?.ilo[0]} /></strong>
+                    <small><L en={p.desc} fil={pagesI18n[p.path]?.fil[1]} ilo={pagesI18n[p.path]?.ilo[1]} /></small>
                   </span>
                 </li>
               ))}
@@ -111,7 +119,7 @@ export default function SearchAutocomplete({ placeholder }: Props) {
           )}
         </div>
         <button type="submit" className="search-submit-btn" aria-label="Search">
-          <i className="bi bi-arrow-right"></i>
+          <i className="bi bi-arrow-right" aria-hidden="true"></i>
         </button>
       </div>
     </form>

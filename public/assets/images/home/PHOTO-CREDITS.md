@@ -10,7 +10,8 @@ They are not covered by the repository's MIT license.
 | `reservoir.webp` | [Magat Dam reservoir (Ramon, Isabela; 11-24-2022).jpg](https://commons.wikimedia.org/wiki/File:Magat_Dam_reservoir_(Ramon,_Isabela;_11-24-2022).jpg) |
 | `rolling-hills.webp` | [Ramon Isabela rolling hills (Ramon, Isabela; 11-24-2022).jpg](https://commons.wikimedia.org/wiki/File:Ramon_Isabela_rolling_hills_(Ramon,_Isabela;_11-24-2022).jpg) |
 
-Changes: resized to 1400 pixels wide and converted to WebP. CSS crops the
+Changes: resized to 1400 pixels wide and converted to WebP. The `-800.webp`
+files are 800-pixel copies of the same photographs for phones. CSS crops the
 displayed images to fit the cards. No synthetic scenery has been added.
 The converted photographs remain available under CC BY-SA 4.0.
 

@@ -32,7 +32,7 @@ export default function Footer() {
             <p className="footer-tagline">{t('footer-tagline')}</p>
           </div>
           <div className="footer-column">
-            <h4>{t('footer-quick-links')}</h4>
+            <h2>{t('footer-quick-links')}</h2>
             <ul className="footer-links-new">
               <li>
                 <a href="/sitemap-page">{t('footer-sitemap')}</a>
@@ -52,7 +52,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className="footer-column">
-            <h4>{t('footer-resources')}</h4>
+            <h2>{t('footer-resources')}</h2>
             <ul className="footer-links-new">
               <li>
                 <a href="https://data.gov.ph" target="_blank" rel="noopener noreferrer">

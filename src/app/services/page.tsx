@@ -13,7 +13,7 @@ export default function ServicesPage() {
   return (
     <PageShell page={page}>
       <div className="service-directory-layout">
-        <aside className="service-directory-aside">
+        <div className="service-directory-aside">
           <h2><L en="Quick access" fil="Mabilis na access" ilo="Napartak a panagserrek" /></h2>
           <Link href="/service-details/birth-certificate"><L en="Birth certificate" fil="Sertipiko ng kapanganakan" ilo="Sertipiko ti pannakayanak" /></Link>
           <Link href="/service-details/business-permits-licensing"><L en="Business permits" fil="Mga permit sa negosyo" ilo="Dagiti permiso ti negosyo" /></Link>
@@ -23,7 +23,7 @@ export default function ServicesPage() {
             <p><L en="Find contact details for municipal offices and emergency services." fil="Hanapin ang mga detalye sa pakikipag-ugnayan sa mga tanggapan at serbisyong pang-emergency." ilo="Sapulen dagiti detalye ti pakasaritaan kadagiti opisina ti munisipio ken dagiti serbisio ti emerhensia." /></p>
             <Link href="/contact"><L en="Contact directory" fil="Direktoryo ng mga contact" ilo="Direktorio dagiti pakasaritaan" /> <span aria-hidden="true">→</span></Link>
           </div>
-        </aside>
+        </div>
         <div className="service-directory">
           {services.map((s) => (
             <Link key={s.path} href={s.path} className="directory-entry">

@@ -9,9 +9,7 @@ interface BeforeInstallPromptEvent extends Event {
 
 export default function PWAManager() {
   const [showInstall, setShowInstall] = useState(false);
-  const [showUpdate, setShowUpdate] = useState(false);
   const deferredPrompt = useRef<BeforeInstallPromptEvent | null>(null);
-  const waitingWorker = useRef<ServiceWorker | null>(null);
 
   const handleInstall = useCallback(async () => {
     if (!deferredPrompt.current) return;
@@ -19,11 +17,6 @@ export default function PWAManager() {
     await deferredPrompt.current.userChoice;
     deferredPrompt.current = null;
     setShowInstall(false);
-  }, []);
-
-  const handleUpdate = useCallback(() => {
-    waitingWorker.current?.postMessage({ type: 'SKIP_WAITING' });
-    setShowUpdate(false);
   }, []);
 
   useEffect(() => {
@@ -40,29 +33,23 @@ export default function PWAManager() {
     };
     window.addEventListener('beforeinstallprompt', onBeforeInstall);
 
-    // Service worker registration + update detection
+    // Service worker registration. sw.js activates new versions on its own.
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/sw.js').then((reg) => {
         setInterval(() => reg.update(), 30 * 60 * 1000);
-
-        reg.addEventListener('updatefound', () => {
-          const newWorker = reg.installing;
-          if (!newWorker) return;
-          newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              waitingWorker.current = newWorker;
-              setShowUpdate(true);
-            }
-          });
-        });
       });
 
-      // Seamless reload on controller change
+      // A new version took over: reload quietly once the tab is in the
+      // background, so nobody loses their place while reading.
       let refreshing = false;
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
-        if (refreshing) return;
+      const reloadWhenHidden = () => {
+        if (refreshing || !document.hidden) return;
         refreshing = true;
         window.location.reload();
+      };
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        reloadWhenHidden();
+        document.addEventListener('visibilitychange', reloadWhenHidden);
       });
     }
 
@@ -96,21 +83,6 @@ export default function PWAManager() {
               &times;
             </button>
           </div>
-        </div>
-      )}
-      {showUpdate && (
-        <div className="sw-update-banner" role="alert" aria-live="polite">
-          <span>A new version is available.</span>
-          <button className="sw-update-btn" onClick={handleUpdate} aria-label="Update now">
-            Update
-          </button>
-          <button
-            className="sw-update-dismiss"
-            onClick={() => setShowUpdate(false)}
-            aria-label="Dismiss update notice"
-          >
-            &times;
-          </button>
         </div>
       )}
     </>

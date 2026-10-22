@@ -101,7 +101,7 @@ export const pages: PageInfo[] = [
     icon: 'bi-heart-pulse-fill',
     desc: 'Medical consultations, vaccinations and health programs.',
     ready: true,
-    keywords: ['RHU', 'doctor', 'vaccine', 'bakuna', 'hospital', 'clinic', 'health center'],
+    keywords: ['RHU', 'doctor', 'vaccine', 'bakuna', 'hospital', 'clinic', 'health center', 'kalusugan', 'doktor', 'salun-at'],
   },
 
   {

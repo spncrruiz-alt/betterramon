@@ -18,6 +18,8 @@ export default function HomePage() {
         <img
           className="home-hero-photo"
           src="/assets/images/home/reservoir.webp"
+          srcSet="/assets/images/home/reservoir-800.webp 800w, /assets/images/home/reservoir.webp 1400w"
+          sizes="100vw"
           alt=""
           width="1400"
           height="1050"

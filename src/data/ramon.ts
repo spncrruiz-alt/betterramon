@@ -27,7 +27,7 @@ export const lgu = {
 
 // Dated figures (population, income class) are shown only if from 2025 or later.
 export const stats = {
-  population: { value: null as string | null, source: 'PSA' },
+  population: { value: '57,412 (2024)' as string | null, source: 'PSA 2024 POPCEN, sum of the 19 barangays in the PSGC list' },
   barangays: { value: '19', source: 'PhilAtlas' },
   landArea: { value: '135.17 km²', source: 'PhilAtlas' },
   incomeClass: { value: null as string | null, source: 'DOF-BLGF' },
@@ -55,30 +55,30 @@ export const barangays = [
   'Villa Marcos',
 ];
 
-// Per-barangay facts, PhilAtlas barangay pages (population: PSA 2020 Census, the latest
-// barangay-level count published there; location and elevation are estimates).
-// Replace population with the PSA 2024 POPCEN barangay table when it can be fetched.
-export type BarangayInfo = { population2020: number; lat: number; lon: number; elevationM: number };
+// Per-barangay facts. Population: PSA 2024 POPCEN, from the PSA PSGC barangay list
+// (psa.gov.ph/classification/psgc/barangays/0203124000, as of 31 July 2025).
+// Location and elevation: estimates from PhilAtlas barangay pages.
+export type BarangayInfo = { population2024: number; lat: number; lon: number; elevationM: number };
 export const barangayInfo: Record<string, BarangayInfo> = {
-  'Ambatali': { population2020: 3688, lat: 16.8268, lon: 121.515, elevationM: 112 },
-  'Bantug': { population2020: 1162, lat: 16.809, lon: 121.5879, elevationM: 87 },
-  'Bugallon Norte': { population2020: 5760, lat: 16.7872, lon: 121.5325, elevationM: 112 },
-  'Bugallon Proper': { population2020: 7335, lat: 16.781, lon: 121.5355, elevationM: 108 },
-  'Burgos': { population2020: 2864, lat: 16.8057, lon: 121.5287, elevationM: 115 },
-  'General Aguinaldo': { population2020: 5965, lat: 16.8251, lon: 121.4811, elevationM: 164 },
-  'Nagbacalan': { population2020: 1355, lat: 16.8031, lon: 121.5755, elevationM: 88 },
-  'Oscariz': { population2020: 3118, lat: 16.8211, lon: 121.5245, elevationM: 107 },
-  'Pabil': { population2020: 823, lat: 16.7735, lon: 121.5767, elevationM: 83 },
-  'Pagrang-ayan': { population2020: 2327, lat: 16.7574, lon: 121.4934, elevationM: 112 },
-  'Planas': { population2020: 3029, lat: 16.7746, lon: 121.473, elevationM: 125 },
-  'Purok ni Bulan': { population2020: 782, lat: 16.8113, lon: 121.5624, elevationM: 94 },
-  'Raniag': { population2020: 5613, lat: 16.7611, lon: 121.541, elevationM: 98 },
-  'San Antonio': { population2020: 2182, lat: 16.7539, lon: 121.5227, elevationM: 100 },
-  'San Miguel': { population2020: 5713, lat: 16.784, lon: 121.5104, elevationM: 132 },
-  'San Sebastian': { population2020: 1461, lat: 16.7804, lon: 121.5717, elevationM: 85 },
-  'Villa Beltran': { population2020: 724, lat: 16.8218, lon: 121.55, elevationM: 103 },
-  'Villa Carmen': { population2020: 1696, lat: 16.7429, lon: 121.4959, elevationM: 103 },
-  'Villa Marcos': { population2020: 926, lat: 16.7611, lon: 121.5608, elevationM: 84 },
+  'Ambatali': { population2024: 3667, lat: 16.8268, lon: 121.515, elevationM: 112 },
+  'Bantug': { population2024: 1135, lat: 16.809, lon: 121.5879, elevationM: 87 },
+  'Bugallon Norte': { population2024: 5671, lat: 16.7872, lon: 121.5325, elevationM: 112 },
+  'Bugallon Proper': { population2024: 7545, lat: 16.781, lon: 121.5355, elevationM: 108 },
+  'Burgos': { population2024: 2828, lat: 16.8057, lon: 121.5287, elevationM: 115 },
+  'General Aguinaldo': { population2024: 6257, lat: 16.8251, lon: 121.4811, elevationM: 164 },
+  'Nagbacalan': { population2024: 1404, lat: 16.8031, lon: 121.5755, elevationM: 88 },
+  'Oscariz': { population2024: 3137, lat: 16.8211, lon: 121.5245, elevationM: 107 },
+  'Pabil': { population2024: 828, lat: 16.7735, lon: 121.5767, elevationM: 83 },
+  'Pagrang-ayan': { population2024: 2325, lat: 16.7574, lon: 121.4934, elevationM: 112 },
+  'Planas': { population2024: 3090, lat: 16.7746, lon: 121.473, elevationM: 125 },
+  'Purok ni Bulan': { population2024: 790, lat: 16.8113, lon: 121.5624, elevationM: 94 },
+  'Raniag': { population2024: 5623, lat: 16.7611, lon: 121.541, elevationM: 98 },
+  'San Antonio': { population2024: 2151, lat: 16.7539, lon: 121.5227, elevationM: 100 },
+  'San Miguel': { population2024: 6049, lat: 16.784, lon: 121.5104, elevationM: 132 },
+  'San Sebastian': { population2024: 1438, lat: 16.7804, lon: 121.5717, elevationM: 85 },
+  'Villa Beltran': { population2024: 905, lat: 16.8218, lon: 121.55, elevationM: 103 },
+  'Villa Carmen': { population2024: 1686, lat: 16.7429, lon: 121.4959, elevationM: 103 },
+  'Villa Marcos': { population2024: 883, lat: 16.7611, lon: 121.5608, elevationM: 84 },
 };
 
 // Source for all 2025 names below; replace with the official proclamation when available.

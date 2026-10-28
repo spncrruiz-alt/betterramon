@@ -31,12 +31,12 @@ const barangayNotes: Record<string, JSX.Element> = {
   ),
 };
 const fmt = (n: number) => n.toLocaleString('en-US');
-const total = barangays.reduce((sum, b) => sum + (barangayInfo[b]?.population2020 ?? 0), 0);
+const total = barangays.reduce((sum, b) => sum + (barangayInfo[b]?.population2024 ?? 0), 0);
 const withInfo = barangays.filter((b) => barangayInfo[b]);
 const largest = withInfo.reduce((a, b) =>
-  barangayInfo[b].population2020 > barangayInfo[a].population2020 ? b : a
+  barangayInfo[b].population2024 > barangayInfo[a].population2024 ? b : a
 );
-const maxShare = (barangayInfo[largest].population2020 / total) * 100;
+const maxShare = (barangayInfo[largest].population2024 / total) * 100;
 const elevations = withInfo.map((b) => barangayInfo[b].elevationM);
 export const metadata: Metadata = { title: page.title, description: page.desc };
 
@@ -120,9 +120,9 @@ export default function GovernmentPage() {
           </h2>
           <p>
             <L
-              en="The 19 barangays of Ramon, by population at the 2020 census."
-              fil="Ang 19 na barangay ng Ramon, ayon sa populasyon sa 2020 census."
-              ilo="Dagiti 19 a barangay ti Ramon, segun iti populasion iti 2020 census."
+              en="The 19 barangays of Ramon, by population at the 2024 census."
+              fil="Ang 19 na barangay ng Ramon, ayon sa populasyon sa 2024 census."
+              ilo="Dagiti 19 a barangay ti Ramon, segun iti populasion iti 2024 census."
             />
           </p>
         </div>
@@ -136,7 +136,7 @@ export default function GovernmentPage() {
           </div>
           <div>
             <dt>
-              <L en="Population (2020)" fil="Populasyon (2020)" ilo="Populasion (2020)" />
+              <L en="Population (2024)" fil="Populasyon (2024)" ilo="Populasion (2024)" />
             </dt>
             <dd>{fmt(total)}</dd>
           </div>
@@ -146,7 +146,7 @@ export default function GovernmentPage() {
             </dt>
             <dd>
               {largest}
-              <small>{fmt(barangayInfo[largest].population2020)}</small>
+              <small>{fmt(barangayInfo[largest].population2024)}</small>
             </dd>
           </div>
           <div>
@@ -163,9 +163,9 @@ export default function GovernmentPage() {
           <table className="barangay-table">
             <caption className="sr-only">
               <L
-                en="Barangays of Ramon with 2020 population, share of the town and elevation"
-                fil="Mga barangay ng Ramon na may populasyon noong 2020, bahagi sa bayan at taas"
-                ilo="Dagiti barangay ti Ramon nga addaan populasion idi 2020, paset ti ili ken kangato"
+                en="Barangays of Ramon with 2024 population, share of the town and elevation"
+                fil="Mga barangay ng Ramon na may populasyon noong 2024, bahagi sa bayan at taas"
+                ilo="Dagiti barangay ti Ramon nga addaan populasion idi 2024, paset ti ili ken kangato"
               />
             </caption>
             <thead>
@@ -193,7 +193,7 @@ export default function GovernmentPage() {
             <tbody>
               {barangays.map((b, i) => {
                 const info = barangayInfo[b];
-                const share = info ? (info.population2020 / total) * 100 : 0;
+                const share = info ? (info.population2024 / total) * 100 : 0;
                 return (
                   <tr key={b}>
                     <td className="idx">{i + 1}</td>
@@ -201,7 +201,7 @@ export default function GovernmentPage() {
                       <span className="brgy-name">{b}</span>
                       {barangayNotes[b] && <span className="brgy-note">{barangayNotes[b]}</span>}
                     </th>
-                    <td className="num">{info ? fmt(info.population2020) : <Tbv />}</td>
+                    <td className="num">{info ? fmt(info.population2024) : <Tbv />}</td>
                     <td className="share">
                       {info && (
                         <span className="share-cell">
@@ -254,16 +254,16 @@ export default function GovernmentPage() {
           <i className="bi bi-info-circle" aria-hidden="true"></i>
           <span>
             <L
-              en="Population: PSA 2020 Census of Population and Housing, via PhilAtlas. The 2024 census counts each barangay too, but those figures were not reachable for this page yet. Elevation is an estimate from PhilAtlas."
-              fil="Populasyon: PSA 2020 Census of Population and Housing, sa pamamagitan ng PhilAtlas. Binilang din ng 2024 census ang bawat barangay, ngunit hindi pa makuha ang mga bilang na iyon para sa pahinang ito. Tantya ng PhilAtlas ang taas."
-              ilo="Populasion: PSA 2020 Census of Population and Housing, babaen ti PhilAtlas. Binilang met ti 2024 census ti tunggal barangay, ngem saan pay a magala dagidiay a bilang para iti daytoy a panid. Pattapatta ti PhilAtlas ti kangato."
+              en="Population: PSA 2024 Census of Population (POPCEN), from the PSA barangay list. Elevation is an estimate from PhilAtlas."
+              fil="Populasyon: PSA 2024 Census of Population (POPCEN), mula sa listahan ng barangay ng PSA. Tantya ng PhilAtlas ang taas."
+              ilo="Populasion: PSA 2024 Census of Population (POPCEN), manipud iti listaan ti barangay ti PSA. Pattapatta ti PhilAtlas ti kangato."
             />{' '}
             <a
-              href="https://www.philatlas.com/luzon/r02/isabela/ramon.html"
+              href="https://psa.gov.ph/classification/psgc/barangays/0203124000"
               target="_blank"
               rel="noopener noreferrer"
             >
-              PhilAtlas: Ramon
+              PSA: Ramon barangays
             </a>
           </span>
         </p>

@@ -7,7 +7,7 @@ import { barangayGeo, municipalOutlineGeo } from '@/data/ramon-geo';
 import L from '@/components/L';
 
 // Interactive map of Ramon: OpenStreetMap streets underneath, barangay boundaries
-// shaded by 2020 population, the municipal boundary outlined on top.
+// shaded by 2024 population, the municipal boundary outlined on top.
 const shades = ['#dbe5ff', '#b3c8ff', '#7fa1f5', '#4d78e6', '#1e4fd8'];
 const limits = [1500, 2500, 4000, 6000];
 const shadeOf = (pop: number) => limits.filter((l) => pop >= l).length;
@@ -39,7 +39,7 @@ export default function BarangayMap() {
           return {
             color: '#ffffff',
             weight: 1.5,
-            fillColor: shades[info ? shadeOf(info.population2020) : 0],
+            fillColor: shades[info ? shadeOf(info.population2024) : 0],
             fillOpacity: 0.55,
           };
         },
@@ -47,7 +47,7 @@ export default function BarangayMap() {
           const name: string = f.properties.name;
           const info = barangayInfo[name];
           layer.bindTooltip(
-            `<strong>${name}</strong>${info ? `<br>${fmt(info.population2020)} people (2020)` : ''}`,
+            `<strong>${name}</strong>${info ? `<br>${fmt(info.population2024)} people (2024)` : ''}`,
             { sticky: true, className: 'barangay-tip', direction: 'top' }
           );
           layer.on({
@@ -110,7 +110,7 @@ export default function BarangayMap() {
       <figcaption>
         <span className="barangay-map-legend" aria-hidden="true">
           <span className="legend-title">
-            <L en="Population (2020)" fil="Populasyon (2020)" ilo="Populasion (2020)" />
+            <L en="Population (2024)" fil="Populasyon (2024)" ilo="Populasion (2024)" />
           </span>
           {shades.map((c, i) => (
             <span key={c}>

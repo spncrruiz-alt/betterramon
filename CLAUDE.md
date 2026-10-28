@@ -43,7 +43,6 @@ Bump `CACHE_VERSION` in `public/sw.js` whenever CSS, logos or other cached asset
 
 ## Open items
 
-- 2024 PSA population (POPCEN, declared official July 2025): read Ramon's row from PSA Table B and fill `stats.population`.
 - CMCI competitiveness page: needs the DTI CMCI link for Ramon.
 - Local MSWDO and Rural Health Unit numbers, LGU phone, income class, ordinances, 2025 budget documents.
 - Register `betterramon.org` and switch `lgu.site` in `src/data/ramon.ts`; add the domain to PR #316.

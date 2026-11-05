@@ -305,7 +305,7 @@ export const pages: PageInfo[] = [
     icon: 'bi-journal-bookmark-fill',
     desc: 'Municipal ordinances of Ramon, Isabela.',
     ready: true,
-    keywords: ['ordinance', 'ordinansa', 'local law'],
+    keywords: ['ordinance', 'ordinansa', 'local law', 'kimaw festival', 'annual budget'],
   },
   {
     path: '/legislative/resolution-framework',

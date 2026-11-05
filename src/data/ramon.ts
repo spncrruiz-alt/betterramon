@@ -146,7 +146,33 @@ export const hotlines: (Contact & { icon: string })[] = [
 
 // Legislative records. Add only items dated 2025 or later, each with its source.
 export type Measure = { number: string; title: string; date: string; source: string };
-export const ordinances: Measure[] = [];
+export const ordinances: Measure[] = [
+  // Enactment date and full title quoted in the Isabela Provincial Tourism Office post on the
+  // first Kimaw Festival (June 2026), shared by schools and the LGU community:
+  // https://www.facebook.com/isabelatourismofficeph/posts/1443975634428962/
+  {
+    number: '17-2025',
+    title:
+      'An Ordinance Institutionalizing the "Kimaw Festival" as the Official Cultural and Tourism Festival in the Municipality of Ramon, Isabela, Providing for Its Annual Celebration, and Appropriating Funds Thereof',
+    date: 'Nov 26, 2025',
+    source: 'Isabela Provincial Tourism Office',
+  },
+  // Budget ordinances below: number, title and amount from the Isabela Sangguniang Panlalawigan
+  // review resolutions (provinceofisabela.gov.ph/ordinanceresolution/, search "Ramon").
+  // The SB enactment dates are not published there, so only the year is shown.
+  {
+    number: '09-2025',
+    title: 'Appropriation Ordinance: 2026 Annual Budget (₱369,000,000.00)',
+    date: '2025',
+    source: 'Isabela SP Res. No. 17-10 (May 5, 2026), declared operative',
+  },
+  {
+    number: '08-2025',
+    title: 'Supplemental Budget No. 04-2025 (₱1,098,700.60)',
+    date: '2025',
+    source: 'Isabela SP Res. No. 13-01 (Apr 6, 2026), declared operative',
+  },
+];
 export const resolutions: Measure[] = [];
 
 // Fiscal documents. Add only items for fiscal year 2025 or later.

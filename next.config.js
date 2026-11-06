@@ -30,7 +30,7 @@ const nextConfig = {
 
   // Environment variables
   env: {
-    SITE_URL: process.env.SITE_URL || 'https://betterramon.pages.dev',
+    SITE_URL: process.env.SITE_URL || 'https://betterramon.org',
   },
 };
 

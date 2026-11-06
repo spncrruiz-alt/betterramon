@@ -2,9 +2,9 @@
 
 Independent, volunteer-run information portal for the Municipality of Ramon, Isabela, part of the BetterGov.ph Better LGU directory. It is **not** the official LGU website; LGU Ramon has no website, only the PIO Facebook page.
 
-- Live: https://betterramon.pages.dev (Cloudflare Pages, project `betterramon`, auto-deploys from `main`; build `npm run build`, output `out`)
+- Live: https://betterramon.org, also https://betterramon.pages.dev (Cloudflare Pages, project `betterramon`, auto-deploys from `main`; build `npm run build`, output `out`)
 - Repo: https://github.com/spncrruiz-alt/betterramon (maintainer @spncrruiz-alt)
-- Directory listing: PR jmacj/better-lgu-directory#316 (row says 🟡 Work in Progress)
+- Directory listing: jmacj/better-lgu-directory (#316 added Ramon, #385 set it 🟢 Active); the row should list betterramon.org so the logo crawler finds the site.
 - Derived from BetterSolano (MIT); keep their copyright line in LICENSE.
 
 ## Commands
@@ -45,7 +45,6 @@ Bump `CACHE_VERSION` in `public/sw.js` whenever CSS, logos or other cached asset
 
 - CMCI competitiveness page: needs the DTI CMCI link for Ramon.
 - Local MSWDO and Rural Health Unit numbers, LGU phone, income class, ordinances, 2025 budget documents.
-- Register `betterramon.org` and switch `lgu.site` in `src/data/ramon.ts`; add the domain to PR #316.
 
 ## Git
 
